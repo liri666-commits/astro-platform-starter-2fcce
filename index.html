@@ -1964,11 +1964,11 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
    if(el){el.textContent='הקובץ נשמר, אך נגן Safari לא מצליח לפענח אותו. פתח את ההקלטה מהורדות Safari או נסה הקלטה קצרה חדשה.';el.dataset.state='error';}
   });
  }
- const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.5.4');
- const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.5.4';
- D.title='SHALVATA V8.5.4 · Window Studio · PRIVATE LOCAL QA';
- api.version='V8.5.4';
- window.__SHALVATA_V843_QA={version:'V8.5.4',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
+ const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.5.5');
+ const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.5.5';
+ D.title='SHALVATA V8.5.5 · Window Studio · PRIVATE LOCAL QA';
+ api.version='V8.5.5';
+ window.__SHALVATA_V843_QA={version:'V8.5.5',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
 })();
 </script>
 <style id="shalvata-v844-legacy-rights">
@@ -2129,7 +2129,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
  const ui=D.querySelector('#sv83-dialog .sv83-ui');if(!api||!ui||by('sv846-card'))return;
  const KEY='shalvata.v846.devicetest';
  const CHECKS=[
-  ['version','בכותרת מופיע V8.5.4','מסתכלים בראש הסטודיו.'],
+  ['version','בכותרת מופיע V8.5.5','מסתכלים בראש הסטודיו.'],
   ['tv-open','📺 נפתח ומציג תמונה חיה','כותרת ← "📺 מסך צף". ▶️ בתוך המסך: התמונה זזה ותג LIVE ירוק.'],
   ['tv-drag','📺 נגרר באצבע ונצמד לפינה','גוררים מהכותרת של המסך הצף לפינה העליונה ומשחררים.'],
   ['tv-size','⤢ שלושה גדלים, תמיד בתוך המסך','לוחצים ⤢ שלוש פעמים. שום חלק לא יוצא מהמסך.'],
@@ -2159,7 +2159,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
   return {app:'SHALVATA Window Studio',version:api.version,reportedAtIsrael:when,summary:{pass:c('pass'),fail:c('fail'),notTested:c('not_tested')},results,device:device(),privacy:'local report; nothing was sent automatically'};
  }
  const card=D.createElement('section');card.className='sv83-card';card.id='sv846-card';card.dataset.sv84Pane='systems';
- card.innerHTML=`<h3>✅ בדיקת אייפון · V8.5.4</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
+ card.innerHTML=`<h3>✅ בדיקת אייפון · V8.5.5</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
  <div class="sv846-sum" id="sv846-sum" role="status" aria-live="polite"></div><div class="sv846-list" id="sv846-list"></div>
  <div class="sv84-row"><button type="button" class="sv84-btn-strong" id="sv846-copy">📋 העתק דוח</button><button type="button" id="sv846-share">↗️ שתף דוח</button><button type="button" id="sv846-save">⬇️ שמור JSON</button><button type="button" id="sv846-reset">🧹 אפס</button></div>
  <div class="sv84-status" id="sv846-status" role="status" aria-live="polite">מוכן.</div><details><summary>פרטי מכשיר שייכללו בדוח</summary><pre id="sv846-device"></pre></details>`;
@@ -2383,7 +2383,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
 (()=>{'use strict';
 const D=document,by=id=>D.getElementById(id),FX=window.__SHALVATA_V83_TEST,api=window.__SHALVATA_V84_QA;
 if(!FX||!api||by('sv85-lab'))return;
-const S=FX.state,KEY='shalvata.v850.lab',PKEY='shalvata.v851.projects',VERSION='V8.5.4';
+const S=FX.state,KEY='shalvata.v850.lab',PKEY='shalvata.v851.projects',VERSION='V8.5.5';
 const el=(tag,attrs,...kids)=>{const e=D.createElement(tag);if(attrs)for(const k in attrs){const v=attrs[k];if(v==null||v===false)continue;if(k==='class')e.className=v;else if(k==='text')e.textContent=v;else if(k.startsWith('on'))e.addEventListener(k.slice(2),v);else e.setAttribute(k,v===true?'':v)}for(const c of kids.flat()){if(c==null||c===false)continue;e.append(c.nodeType?c:D.createTextNode(String(c)))}return e};
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const hash=s=>{let h=2166136261;for(const c of String(s))h=Math.imul(h^c.codePointAt(0),16777619);return h>>>0};
@@ -2926,4 +2926,47 @@ window.__SHALVATA_V850_LAB={version:VERSION,open:openLab,close:closeLab,isOpen:(
 })();
 
 </script>
+<!-- BEGIN SHALVATA V8.5.5 · dynamic top (mobile): the stage collapses to a slim bar on scroll; additive -->
+<style id="sv855-css">
+@media(max-width:780px){
+ #sv83-dialog .sv83-stagezone{transition:padding .18s ease}
+ #sv83-dialog .sv83-preview,#sv83-dialog .sv83-preview canvas{transition:max-height .18s ease,width .18s ease,height .18s ease}
+ #sv83-dialog .sv855-expand{display:none}
+ #sv83-dialog.sv855-mini .sv83-stagezone{position:sticky!important;top:0;flex-direction:row!important;align-items:center;gap:8px;padding:5px 7px!important}
+ #sv83-dialog.sv855-mini .sv83-preview{flex:0 0 auto;width:44px!important;height:78px!important;max-height:78px!important;min-height:0!important;padding:0!important;border-radius:8px;cursor:pointer}
+ #sv83-dialog.sv855-mini .sv83-preview canvas{width:44px!important;height:78px!important;max-height:78px!important;border-radius:7px}
+ #sv83-dialog.sv855-mini .sv83-badge{display:none!important}
+ #sv83-dialog.sv855-mini .sv83-controls{flex:0 0 auto;display:flex!important;gap:0}
+ #sv83-dialog.sv855-mini .sv83-controls button:not(#sv83-play){display:none!important}
+ #sv83-dialog.sv855-mini #sv83-play{min-width:54px;padding:0 8px;font-size:13px}
+ #sv83-dialog.sv855-mini #sv83-scrub{flex:1 1 auto;min-width:0;margin:0}
+ #sv83-dialog.sv855-mini .sv83-stagezone>.sv83-row{display:none!important}
+ #sv83-dialog.sv855-mini .sv855-expand{display:grid;place-items:center;flex:0 0 44px;min-height:44px;border-radius:11px;border:1px solid #4c7fa3;background:#143352;color:#fff;font-size:18px}
+}
+</style>
+<script id="sv855-script">
+(function(){'use strict';
+ var mq=window.matchMedia?window.matchMedia('(max-width:780px)'):{matches:true};
+ function boot(){var core=document.getElementById('sv83-dialog'),main=core&&core.querySelector('.sv83-main'),stage=core&&core.querySelector('.sv83-stagezone');
+  if(!main||!stage)return false;if(stage.dataset.sv855)return true;stage.dataset.sv855='1';
+  var ex=document.createElement('button');ex.type='button';ex.className='sv855-expand';ex.setAttribute('aria-label','הגדל תצוגה');ex.title='הגדל תצוגה';ex.textContent='⤢';stage.appendChild(ex);
+  var last=main.scrollTop,down=0,up=0,lock=0,manual=0;
+  function set(on,user){if(!mq.matches)on=false;if(core.classList.contains('sv855-mini')===on)return;var h0=stage.offsetHeight,st=main.scrollTop;core.classList.toggle('sv855-mini',on);var d=h0-stage.offsetHeight;
+   if(st>0)main.scrollTop=Math.max(0,st-d);last=main.scrollTop;down=up=0;lock=Date.now()+380;if(user)manual=Date.now()+1500;setTimeout(function(){if(core.classList.contains('sv855-mini')&&main.scrollTop<4&&Date.now()>manual)set(false)},420);ex.setAttribute('aria-expanded',String(!on))}
+  main.addEventListener('scroll',function(){var st=main.scrollTop,dy=st-last;last=st;if(Date.now()<lock)return;
+   if(dy>0){down+=dy;up=0}else if(dy<0){up-=dy;down=0}
+   var mini=core.classList.contains('sv855-mini'),room=main.scrollHeight-main.clientHeight>320;
+   if(!mini&&room&&down>48&&st>60&&Date.now()>manual)set(true);
+   else if(mini&&(st<4&&up>0||up>160))set(false)},{passive:true});
+  ex.addEventListener('click',function(){set(false,true)});
+  stage.querySelector('.sv83-preview').addEventListener('click',function(e){if(core.classList.contains('sv855-mini')){e.stopPropagation();set(false,true)}},true);
+  if(mq.addEventListener)mq.addEventListener('change',function(){if(!mq.matches)set(false)});
+  window.__SHALVATA_V855={mini:function(v){if(v!==undefined)set(!!v,true);return core.classList.contains('sv855-mini')}};return true}
+ if(!boot()){var n=0,t=setInterval(function(){if(boot()||++n>80)clearInterval(t)},250)}
+ // re-check after the window opens
+ document.addEventListener('click',function(){setTimeout(boot,60)},true);
+})();
+</script>
+<!-- END SHALVATA V8.5.5 -->
+
 </body></html>
