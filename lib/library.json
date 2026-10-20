@@ -992,6 +992,16 @@
 "cat": "reels",
 "ev": "thursday_halloween_29-10",
 "t": "🦇 רילס Halloween 29.10"
+},
+{
+"id": "lineup_karaoke_22-30-10",
+"type": "video",
+"src": "lib/v/lineup_karaoke_22-30-10.mp4",
+"thumb": "lib/t/lineup_karaoke_22-30-10.jpg",
+"dur": 23.23,
+"cat": "reels",
+"ev": "",
+"t": "📅 ליינאפ עם כתוביות קריוקי"
 }
 ]
 }
