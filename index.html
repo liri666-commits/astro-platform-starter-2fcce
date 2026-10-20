@@ -29,7 +29,7 @@
 @media(max-width:500px){.audit-grid{grid-template-columns:1fr}.qa-scene{grid-template-columns:64px minmax(0,1fr)}.qa-scene label{font-size:12px}}
 
 .caps{flex-wrap:wrap}.cap{flex:1 0 27%;min-width:76px}
-</style>
+@media(max-width:360px){#sv85-map-btn{display:none!important}}</style>
 <style id="shalvata-v7-style">
 .topnav{grid-template-columns:repeat(5,minmax(0,1fr))}
 .v7-header{background:linear-gradient(128deg,#0f3560,#102041 65%,#382a43)}
@@ -2705,6 +2705,7 @@ const head=el('header',{class:'sv85-head'},
  el('div',{class:'sv85-title'},'🤖 AI LAB',el('small',{text:'מקומי · ללא רשת · '+VERSION})),
  el('button',{type:'button',id:'sv85-tv','aria-label':'📺 מסך צף','aria-pressed':'false',title:'מסך צף',text:'📺',onclick:()=>toggleTV()}),
  el('button',{type:'button',id:'sv85-map-btn','aria-label':'🗺️ מפת המערכת',title:'מפה',text:'🗺️',onclick:()=>openMap()}),
+ el('a',{id:'sv85-edit',href:'edit.html','aria-label':'✍️ עורך הווידאו',title:'עורך',text:'✍️',style:'display:inline-grid;place-items:center;text-decoration:none;min-width:40px;min-height:40px;border-radius:12px;border:1px solid #2a3a66;background:#121d3d;font-size:18px'}),
  el('button',{type:'button',id:'sv85-jump','aria-label':'🧭 מעבר מהיר',title:'מעבר מהיר',text:'🧭',onclick:()=>openMap(true)}),
  el('button',{type:'button',id:'sv85-bell','aria-label':'🔔 התראות',title:'התראות',text:'🔔',onclick:()=>{B.notify=!B.notify;save();paintHead();toast(B.notify?'🔔 התראות פעילות':'🔕',B.notify?'ok':'warn')}}),
  el('button',{type:'button',id:'sv85-mute','aria-label':'🔈 שמע',title:'שמע',text:'🔈',onclick:()=>{B.mute=!B.mute;save();paintHead();if(playing){stopBeat();if(!B.mute)startBeat()}toast(B.mute?'🔇 שמע כבוי':'🔈 שמע פעיל')}}));
