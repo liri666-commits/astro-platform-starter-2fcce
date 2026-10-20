@@ -1,0 +1,17 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><title>Private QA</title>
+<style>:root{color-scheme:dark}body{margin:0;min-height:100dvh;display:grid;place-items:center;background:#06142a;color:#e9f6ff;font:16px system-ui,-apple-system,sans-serif;padding:16px;box-sizing:border-box}
+form{width:min(360px,100%);display:grid;gap:12px;background:#0d2440;border:1px solid #3b5e7e;border-radius:16px;padding:20px}
+h1{margin:0;font-size:18px}input,button{min-height:48px;border-radius:12px;font-size:17px;padding:0 12px;border:1px solid #52728e}input{background:#071425;color:#fff}button{background:linear-gradient(120deg,#51daf5,#93bffb);color:#071325;font-weight:800;border:0}
+#m{min-height:1.4em;font-size:14px;color:#ffc58f}</style></head><body>
+<form id="f" autocomplete="on"><h1>🔒 גישה פרטית לבדיקה</h1><input id="p" type="password" autocomplete="current-password" placeholder="סיסמה" aria-label="סיסמה" required><button>כניסה</button><div id="m" role="status" aria-live="polite"></div></form>
+<script>
+(()=>{'use strict';const $=id=>document.getElementById(id),b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function open(pw){const meta=await (await fetch('meta.json',{cache:'no-store'})).json(),ct=await (await fetch('page.bin',{cache:'no-store'})).arrayBuffer();
+ const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+ const key=await crypto.subtle.deriveKey({name:'PBKDF2',hash:'SHA-256',salt:b64(meta.salt),iterations:meta.it},base,{name:'AES-GCM',length:256},false,['decrypt']);
+ const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(meta.iv)},key,ct);return new TextDecoder().decode(pt)}
+$('f').addEventListener('submit',async e=>{e.preventDefault();$('m').textContent='פותח…';
+ try{const html=await open($('p').value);const hash=location.hash;document.open();document.write(html);document.close();if(hash)setTimeout(()=>{location.hash='';location.hash=hash},50)}
+ catch(err){$('m').textContent=window.crypto&&crypto.subtle?'סיסמה שגויה.':'הדפדפן לא תומך בפענוח (נדרש HTTPS).'}});
+})();
+</script></body></html>
