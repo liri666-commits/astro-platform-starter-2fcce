@@ -1964,11 +1964,11 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
    if(el){el.textContent='הקובץ נשמר, אך נגן Safari לא מצליח לפענח אותו. פתח את ההקלטה מהורדות Safari או נסה הקלטה קצרה חדשה.';el.dataset.state='error';}
   });
  }
- const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.5.6');
- const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.5.6';
- D.title='SHALVATA V8.5.6 · Window Studio · PRIVATE LOCAL QA';
- api.version='V8.5.6';
- window.__SHALVATA_V843_QA={version:'V8.5.6',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
+ const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.5.7');
+ const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.5.7';
+ D.title='SHALVATA V8.5.7 · Window Studio · PRIVATE LOCAL QA';
+ api.version='V8.5.7';
+ window.__SHALVATA_V843_QA={version:'V8.5.7',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
 })();
 </script>
 <style id="shalvata-v844-legacy-rights">
@@ -2129,7 +2129,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
  const ui=D.querySelector('#sv83-dialog .sv83-ui');if(!api||!ui||by('sv846-card'))return;
  const KEY='shalvata.v846.devicetest';
  const CHECKS=[
-  ['version','בכותרת מופיע V8.5.6','מסתכלים בראש הסטודיו.'],
+  ['version','בכותרת מופיע V8.5.7','מסתכלים בראש הסטודיו.'],
   ['tv-open','📺 נפתח ומציג תמונה חיה','כותרת ← "📺 מסך צף". ▶️ בתוך המסך: התמונה זזה ותג LIVE ירוק.'],
   ['tv-drag','📺 נגרר באצבע ונצמד לפינה','גוררים מהכותרת של המסך הצף לפינה העליונה ומשחררים.'],
   ['tv-size','⤢ שלושה גדלים, תמיד בתוך המסך','לוחצים ⤢ שלוש פעמים. שום חלק לא יוצא מהמסך.'],
@@ -2159,7 +2159,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
   return {app:'SHALVATA Window Studio',version:api.version,reportedAtIsrael:when,summary:{pass:c('pass'),fail:c('fail'),notTested:c('not_tested')},results,device:device(),privacy:'local report; nothing was sent automatically'};
  }
  const card=D.createElement('section');card.className='sv83-card';card.id='sv846-card';card.dataset.sv84Pane='systems';
- card.innerHTML=`<h3>✅ בדיקת אייפון · V8.5.6</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
+ card.innerHTML=`<h3>✅ בדיקת אייפון · V8.5.7</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
  <div class="sv846-sum" id="sv846-sum" role="status" aria-live="polite"></div><div class="sv846-list" id="sv846-list"></div>
  <div class="sv84-row"><button type="button" class="sv84-btn-strong" id="sv846-copy">📋 העתק דוח</button><button type="button" id="sv846-share">↗️ שתף דוח</button><button type="button" id="sv846-save">⬇️ שמור JSON</button><button type="button" id="sv846-reset">🧹 אפס</button></div>
  <div class="sv84-status" id="sv846-status" role="status" aria-live="polite">מוכן.</div><details><summary>פרטי מכשיר שייכללו בדוח</summary><pre id="sv846-device"></pre></details>`;
@@ -2383,7 +2383,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
 (()=>{'use strict';
 const D=document,by=id=>D.getElementById(id),FX=window.__SHALVATA_V83_TEST,api=window.__SHALVATA_V84_QA;
 if(!FX||!api||by('sv85-lab'))return;
-const S=FX.state,KEY='shalvata.v850.lab',PKEY='shalvata.v851.projects',VERSION='V8.5.6';
+const S=FX.state,KEY='shalvata.v850.lab',PKEY='shalvata.v851.projects',VERSION='V8.5.7';
 const el=(tag,attrs,...kids)=>{const e=D.createElement(tag);if(attrs)for(const k in attrs){const v=attrs[k];if(v==null||v===false)continue;if(k==='class')e.className=v;else if(k==='text')e.textContent=v;else if(k.startsWith('on'))e.addEventListener(k.slice(2),v);else e.setAttribute(k,v===true?'':v)}for(const c of kids.flat()){if(c==null||c===false)continue;e.append(c.nodeType?c:D.createTextNode(String(c)))}return e};
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const hash=s=>{let h=2166136261;for(const c of String(s))h=Math.imul(h^c.codePointAt(0),16777619);return h>>>0};
@@ -2926,7 +2926,7 @@ window.__SHALVATA_V850_LAB={version:VERSION,open:openLab,close:closeLab,isOpen:(
 })();
 
 </script>
-<!-- BEGIN SHALVATA V8.5.6 · dynamic top (mobile): the stage collapses to a slim bar on scroll; additive -->
+<!-- BEGIN SHALVATA V8.5.7 · dynamic top (mobile): the stage collapses to a slim bar on scroll; additive -->
 <style id="sv855-css">
 @media(max-width:780px){
  #sv83-dialog .sv83-stagezone{transition:padding .18s ease}
@@ -2967,9 +2967,9 @@ window.__SHALVATA_V850_LAB={version:VERSION,open:openLab,close:closeLab,isOpen:(
  document.addEventListener('click',function(){setTimeout(boot,60)},true);
 })();
 </script>
-<!-- END SHALVATA V8.5.6 -->
+<!-- END SHALVATA V8.5.7 -->
 
-<!-- BEGIN SHALVATA V8.5.6 · dynamic top for AI LAB (mobile); additive -->
+<!-- BEGIN SHALVATA V8.5.7 · dynamic top for AI LAB (mobile); additive -->
 <style id="sv856-css">
 #sv85-stagewrap .sv856-x{display:none}
 @media(max-width:780px){
@@ -3001,6 +3001,34 @@ window.__SHALVATA_V850_LAB={version:VERSION,open:openLab,close:closeLab,isOpen:(
  document.addEventListener('click',function(){setTimeout(boot,80)},true);
 })();
 </script>
-<!-- END SHALVATA V8.5.6 -->
+<!-- END SHALVATA V8.5.7 -->
+
+<!-- BEGIN SHALVATA V8.5.7 · connected systems hub (studio ↔ editor ↔ gallery ↔ site); additive -->
+<style id="sv857-css">
+#sv857-card .sv857-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+#sv857-card a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:70px;border-radius:13px;border:1px solid #3d6a8c;background:linear-gradient(150deg,#163655,#0b2340);color:#eef7ff;text-decoration:none;font-weight:800;font-size:13px;text-align:center;padding:8px}
+#sv857-card a b{font-size:22px;line-height:1}
+#sv857-card a.sv857-main{background:linear-gradient(120deg,#f6d77a,#e0a92e);color:#1a1200;border-color:#f6d77a}
+#sv857-card .sv857-ev{display:flex;gap:6px;overflow-x:auto;padding-bottom:3px;margin-top:8px}
+#sv857-card .sv857-ev a{flex:0 0 auto;min-height:44px;flex-direction:row;font-size:12px;padding:6px 10px}
+</style>
+<script id="sv857-script">
+(function(){'use strict';
+ var GH='https://liri666-commits.github.io/astro-platform-starter-2fcce/';
+ var EV=[['🎉','חמישי 22.10','thursday_mainstream_22-10'],['🎊','שישי 23.10','friday_mainstream_23-10'],['🫧','Bubbles 24.10','bubbles_maor_24-10'],['🥄','Spoons 26.10','spoons_last_dance_26-10'],['🦇','Halloween 29.10','thursday_halloween_29-10'],['🎃','Hello Vera 30.10','friday_halloween_hello_vera_30-10']];
+ function mount(){var ui=document.querySelector('#sv83-backdrop .sv83-ui');if(!ui||document.getElementById('sv857-card'))return!!ui;
+  var c=document.createElement('section');c.className='sv83-card';c.id='sv857-card';c.dataset.sv84Pane='home';
+  c.innerHTML='<h2 class="sv84-headline">🔗 מערכות מחוברות</h2><div class="sv84-note">סטודיו, עורך, גלריה ואתר עובדים על אותה ספרייה של 89 קבצים. אירוע שנפתח כאן נבנה בעורך מכל הקבצים שלו.</div>'+
+   '<div class="sv857-grid"><a class="sv857-main" href="edit.html"><b>✍️</b>עורך + ספרייה</a><a href="#" data-sv857="lab"><b>🤖</b>AI LAB</a>'+
+   '<a href="https://claude.ai/artifact/S4b89zQDiZR6qEvJGWx6qq" target="_blank" rel="noopener"><b>🖼️</b>גלריית קמפיינים</a><a href="'+GH+'" target="_blank" rel="noopener"><b>🌐</b>הסטודיו באתר</a></div>'+
+   '<div class="sv857-ev" aria-label="בנה וידאו מאירוע">'+EV.map(function(e){return '<a href="'+GH+'edit.html?event='+e[2]+'" target="_blank" rel="noopener">'+e[0]+' '+e[1]+'</a>'}).join('')+'</div>';
+  ui.insertBefore(c,ui.firstChild);
+  var core=document.getElementById('sv83-dialog'),act=(core&&core.dataset.sv84Active)||'home';c.hidden=!(act==='home'||act==='all');
+  c.querySelector('[data-sv857=lab]').addEventListener('click',function(e){e.preventDefault();try{window.__SHALVATA_V850_LAB.open()}catch(_){}});
+  return true}
+ if(!mount()){var n=0,t=setInterval(function(){if(mount()||++n>80)clearInterval(t)},250)}
+})();
+</script>
+<!-- END SHALVATA V8.5.7 -->
 
 </body></html>

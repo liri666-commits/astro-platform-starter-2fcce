@@ -180,6 +180,14 @@ nav.tabs button[aria-selected=true]{background:linear-gradient(135deg,#1e3a8a,#3
 
  <!-- 📚 LIBRARY -->
  <div class="pane" id="p-lib">
+  <div class="card"><h2>🔗 מערכות מחוברות</h2>
+   <div class="note">כל המערכות משתמשות באותה ספרייה. קובץ מהגלריה נפתח כאן, ומכאן חוזרים לסטודיו.</div>
+   <div class="g3" id="sysLinks">
+    <a class="tile" data-sys="studio" href="index.html" style="border:1px solid var(--line);border-radius:13px;background:var(--panel2);text-decoration:none;color:inherit"><span>🪟</span>סטודיו</a>
+    <a class="tile" data-sys="gallery" href="https://claude.ai/artifact/S4b89zQDiZR6qEvJGWx6qq" target="_blank" rel="noopener" style="border:1px solid var(--line);border-radius:13px;background:var(--panel2);text-decoration:none;color:inherit"><span>🖼️</span>גלריה</a>
+    <a class="tile" data-sys="site" href="https://liri666-commits.github.io/astro-platform-starter-2fcce/" target="_blank" rel="noopener" style="border:1px solid var(--line);border-radius:13px;background:var(--panel2);text-decoration:none;color:inherit"><span>🌐</span>אתר</a>
+   </div>
+  </div>
   <div class="card"><h2>📚 ספריית הסטודיו · <span id="libCount">…</span></h2>
    <div class="note">כל הקבצים שהפקנו מחוברים לעורך: קליפי AI, פוסטרים, פוסטרים חיים, טיזרים, FX3D, רילס וקונספטים. לחיצה על קובץ מוסיפה אותו לעריכה.</div>
    <div class="chips" id="libCats" role="tablist" aria-label="קטגוריות"></div>
@@ -508,7 +516,13 @@ function loadLib(){getLib('').catch(function(){return getLib(REMOTE)}).then(func
   var c=$('libCats');c.innerHTML='';j.cats.forEach(function(k){var b=document.createElement('button');b.textContent=k[1];b.setAttribute('role','tab');b.dataset.c=k[0];b.onclick=function(){libCat=k[0];paintLib()};c.appendChild(b)});
   var s=$('libEv');j.events.forEach(function(ev){var o=document.createElement('option');o.value=ev[0];o.textContent=ev[1]+' '+ev[2]+' · '+ev[3];s.appendChild(o)});
   rehydrate();paintLib();if(LIBBASE)$('libNote').textContent='מחובר לספרייה באתר · '+LIB.items.length+' קבצים';
-  if(!P.scenes.some(function(s){return s.lib||media[s.m]}))buildEvent('friday_halloween_hello_vera_30-10')}).catch(function(){$('libCount').textContent='לא זמין';$('libNote').textContent='אין חיבור לספרייה כאן. פתחו את העורך מהסטודיו (✍️) או מהאתר.'})}
+  var q={};try{location.search.slice(1).split('&').forEach(function(kv){var k=kv.split('=');if(k[0])q[k[0]]=decodeURIComponent(k[1]||'')})}catch(_){}
+  if(LIBBASE){var st=document.querySelector('[data-sys=studio]');if(st)st.href=LIBBASE}
+  if(q.event&&LIB.events.some(function(x){return x[0]===q.event})){buildEvent(q.event);openTab('edit')}
+  else if(q.add&&LIBX[q.add]){var it=LIBX[q.add];if(it.ev)buildEvent(it.ev);else{P.scenes=[{cap:'',dur:2.4,cam:'wide',tr:'cut',fx:'none',m:-1}];media=[];P.minimal='';sel=0}
+   var at=P.scenes.findIndex(function(s){return s.lib===q.add});if(at>0){var sc=P.scenes.splice(at,1)[0];P.scenes.unshift(sc)}else if(at<0){sel=0;addLib(q.add,P.scenes[0].m<0?'rep':'add');if(P.scenes.length>1&&P.scenes[P.scenes.length-1].lib===q.add){P.scenes.unshift(P.scenes.pop())}}
+   sel=0;save();paintAll();paintLib();openTab('edit');toast('🔗 נפתח מהגלריה: '+it.t);try{history.replaceState(null,'',location.pathname)}catch(_){}}
+  else if(!P.scenes.some(function(s){return s.lib||media[s.m]}))buildEvent('friday_halloween_hello_vera_30-10')}).catch(function(){$('libCount').textContent='לא זמין';$('libNote').textContent='אין חיבור לספרייה כאן. פתחו את העורך מהסטודיו (✍️) או מהאתר.'})}
 function libItems(){var ev=$('libEv').value;return LIB.items.filter(function(it){return(libCat==='all'||it.cat===libCat)&&(!ev||it.ev===ev)})}
 function paintLib(){if(!LIB)return;var L=libItems(),b=$('lib');b.innerHTML='';$('libCount').textContent=LIB.items.length+' קבצים';
  [].forEach.call($('libCats').children,function(x){x.setAttribute('aria-pressed',String(x.dataset.c===libCat))});
@@ -539,6 +553,7 @@ $('libEv').onchange=paintLib;$('libBuild').onclick=function(){buildEvent()};
  $('sx').onclick=function(){set(false,true)};stg.querySelector('.screen').addEventListener('click',function(){if(stg.classList.contains('mini'))set(false,true)});
  document.querySelectorAll('nav.tabs button').forEach(function(b){b.addEventListener('click',function(){set(false)})});
  window.__SHALVATA_EDIT_MINI=function(v){if(v!==undefined)set(!!v,true);return stg.classList.contains('mini')}})();
+function openTab(k){var b=document.querySelector('nav.tabs [data-p='+k+']');if(b)b.click()}
 /* ---------- wiring ---------- */
 document.querySelectorAll('nav.tabs button').forEach(function(b){b.onclick=function(){document.querySelectorAll('nav.tabs button').forEach(function(x){x.setAttribute('aria-selected',String(x===b))});document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.id==='p-'+b.dataset.p)});$('main').scrollTop=0}});
 $('tPlay').onclick=function(){setPlay(!playing)};$('tFirst').onclick=function(){seek(0);selScene(0)};
@@ -584,7 +599,7 @@ document.addEventListener('visibilitychange',function(){if(document.hidden&&play
 try{speechSynthesis.onvoiceschanged=voices}catch(e){}voices();$('vRate').value=P.voice.rate;
 if(!P.scenes.some(function(s){return s.cap})){agent('director');agent('copy');agent('music');agent('editor');agent('look');agent('social');P.done={};save()}
 paintPacks();qr();paintAll();loadLib();setTimeout(markSel,60);addEventListener('resize',markSel);
-window.__SHALVATA_EDIT={lib:function(){return LIB},addLib:addLib,buildEvent:buildEvent,loadPack:loadPack,media:function(){return media},P:function(){return P},seek:seek,play:setPlay,runAgents:runAgents,chat:chat,smartCut:smartCut,exportVideo:exportVideo,total:total,T:function(){return T},addFiles:addFiles,qa:qa};
+window.__SHALVATA_EDIT={openTab:openTab,lib:function(){return LIB},addLib:addLib,buildEvent:buildEvent,loadPack:loadPack,media:function(){return media},P:function(){return P},seek:seek,play:setPlay,runAgents:runAgents,chat:chat,smartCut:smartCut,exportVideo:exportVideo,total:total,T:function(){return T},addFiles:addFiles,qa:qa};
 })();
 </script>
 <!-- BEGIN SHALVATA PREVIEW BRIDGE 1.0 · active only inside the claude.ai artifact viewer (window.claude.use present). Inert in a local file. -->
