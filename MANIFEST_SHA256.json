@@ -1,8 +1,8 @@
 {
  "created": "2026-10-20",
- "version": "V8.5.5",
+ "version": "V8.5.6",
  "files": {
-  "index.html": "4cb9b2651b99687cd43d4506f490e710a434dd3a841f5812e0e2145119dd0225",
+  "index.html": "2e6467a04283c99bc28a742f57501100f0602788ed3ed391441d61e0c2929d33",
   "robots.txt": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1",
   ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   ".git/description": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
@@ -73,7 +73,7 @@
   ".git/logs/refs/remotes/origin/HEAD": "239d478e70e9ad755b76d8d4801e657bfe281e0b073e028e9bd491fe37cb5109",
   ".git/logs/refs/remotes/origin/qa-private": "4581d6c1ec52b69b21293b9dd45c519e00fc66859694d92f2f9cca9047369bd3",
   ".git/info/exclude": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
-  "edit.html": "865c071865692ee8618c4fc67483f5cafe104acf90b82f60631997929a5f418b",
+  "edit.html": "5f5acec6caf75012bc8620ea40bbd2863ed4a2cfe253f9b052504f640b6e78a7",
   "lib/library.json": "c21c944121bfc3fce071a07db482862d778a5df52b3b2daf8ea03b250f6c5f4f",
   "lib/i/lab_night-pulse_carousel_03.jpg": "ae7da35fb88cd03bfa6636e9e5dc7ded2bb6fefdf327a2e1059a8f327a720985",
   "lib/i/lab_gold-lounge_poster_feed.jpg": "0d267508ed8d203a52c7f4300d78f55c8e7761ffcb4a9119fd7bfb863d1554ef",

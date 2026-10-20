@@ -1964,11 +1964,11 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
    if(el){el.textContent='הקובץ נשמר, אך נגן Safari לא מצליח לפענח אותו. פתח את ההקלטה מהורדות Safari או נסה הקלטה קצרה חדשה.';el.dataset.state='error';}
   });
  }
- const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.5.5');
- const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.5.5';
- D.title='SHALVATA V8.5.5 · Window Studio · PRIVATE LOCAL QA';
- api.version='V8.5.5';
- window.__SHALVATA_V843_QA={version:'V8.5.5',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
+ const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.5.6');
+ const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.5.6';
+ D.title='SHALVATA V8.5.6 · Window Studio · PRIVATE LOCAL QA';
+ api.version='V8.5.6';
+ window.__SHALVATA_V843_QA={version:'V8.5.6',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
 })();
 </script>
 <style id="shalvata-v844-legacy-rights">
@@ -2129,7 +2129,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
  const ui=D.querySelector('#sv83-dialog .sv83-ui');if(!api||!ui||by('sv846-card'))return;
  const KEY='shalvata.v846.devicetest';
  const CHECKS=[
-  ['version','בכותרת מופיע V8.5.5','מסתכלים בראש הסטודיו.'],
+  ['version','בכותרת מופיע V8.5.6','מסתכלים בראש הסטודיו.'],
   ['tv-open','📺 נפתח ומציג תמונה חיה','כותרת ← "📺 מסך צף". ▶️ בתוך המסך: התמונה זזה ותג LIVE ירוק.'],
   ['tv-drag','📺 נגרר באצבע ונצמד לפינה','גוררים מהכותרת של המסך הצף לפינה העליונה ומשחררים.'],
   ['tv-size','⤢ שלושה גדלים, תמיד בתוך המסך','לוחצים ⤢ שלוש פעמים. שום חלק לא יוצא מהמסך.'],
@@ -2159,7 +2159,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
   return {app:'SHALVATA Window Studio',version:api.version,reportedAtIsrael:when,summary:{pass:c('pass'),fail:c('fail'),notTested:c('not_tested')},results,device:device(),privacy:'local report; nothing was sent automatically'};
  }
  const card=D.createElement('section');card.className='sv83-card';card.id='sv846-card';card.dataset.sv84Pane='systems';
- card.innerHTML=`<h3>✅ בדיקת אייפון · V8.5.5</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
+ card.innerHTML=`<h3>✅ בדיקת אייפון · V8.5.6</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
  <div class="sv846-sum" id="sv846-sum" role="status" aria-live="polite"></div><div class="sv846-list" id="sv846-list"></div>
  <div class="sv84-row"><button type="button" class="sv84-btn-strong" id="sv846-copy">📋 העתק דוח</button><button type="button" id="sv846-share">↗️ שתף דוח</button><button type="button" id="sv846-save">⬇️ שמור JSON</button><button type="button" id="sv846-reset">🧹 אפס</button></div>
  <div class="sv84-status" id="sv846-status" role="status" aria-live="polite">מוכן.</div><details><summary>פרטי מכשיר שייכללו בדוח</summary><pre id="sv846-device"></pre></details>`;
@@ -2383,7 +2383,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
 (()=>{'use strict';
 const D=document,by=id=>D.getElementById(id),FX=window.__SHALVATA_V83_TEST,api=window.__SHALVATA_V84_QA;
 if(!FX||!api||by('sv85-lab'))return;
-const S=FX.state,KEY='shalvata.v850.lab',PKEY='shalvata.v851.projects',VERSION='V8.5.5';
+const S=FX.state,KEY='shalvata.v850.lab',PKEY='shalvata.v851.projects',VERSION='V8.5.6';
 const el=(tag,attrs,...kids)=>{const e=D.createElement(tag);if(attrs)for(const k in attrs){const v=attrs[k];if(v==null||v===false)continue;if(k==='class')e.className=v;else if(k==='text')e.textContent=v;else if(k.startsWith('on'))e.addEventListener(k.slice(2),v);else e.setAttribute(k,v===true?'':v)}for(const c of kids.flat()){if(c==null||c===false)continue;e.append(c.nodeType?c:D.createTextNode(String(c)))}return e};
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const hash=s=>{let h=2166136261;for(const c of String(s))h=Math.imul(h^c.codePointAt(0),16777619);return h>>>0};
@@ -2926,7 +2926,7 @@ window.__SHALVATA_V850_LAB={version:VERSION,open:openLab,close:closeLab,isOpen:(
 })();
 
 </script>
-<!-- BEGIN SHALVATA V8.5.5 · dynamic top (mobile): the stage collapses to a slim bar on scroll; additive -->
+<!-- BEGIN SHALVATA V8.5.6 · dynamic top (mobile): the stage collapses to a slim bar on scroll; additive -->
 <style id="sv855-css">
 @media(max-width:780px){
  #sv83-dialog .sv83-stagezone{transition:padding .18s ease}
@@ -2967,6 +2967,40 @@ window.__SHALVATA_V850_LAB={version:VERSION,open:openLab,close:closeLab,isOpen:(
  document.addEventListener('click',function(){setTimeout(boot,60)},true);
 })();
 </script>
-<!-- END SHALVATA V8.5.5 -->
+<!-- END SHALVATA V8.5.6 -->
+
+<!-- BEGIN SHALVATA V8.5.6 · dynamic top for AI LAB (mobile); additive -->
+<style id="sv856-css">
+#sv85-stagewrap .sv856-x{display:none}
+@media(max-width:780px){
+ #sv85-stagewrap.sv856-mini{position:sticky!important;top:-8px!important;z-index:6;margin:-8px -10px 6px!important;padding:6px 10px!important;background:#061226f5!important;border-bottom:1px solid #22406a;display:grid;grid-template-columns:44px minmax(0,1fr) 44px;grid-template-rows:auto auto;column-gap:8px;row-gap:2px;align-items:center}
+ #sv85-stagewrap.sv856-mini .sv85-stage{display:flex!important;grid-column:1;grid-row:1/3;width:44px;height:78px;border-radius:8px;cursor:pointer}
+ #sv85-stagewrap.sv856-mini .sv85-stage canvas{width:44px!important;height:78px!important;max-height:78px!important;object-fit:cover}
+ #sv85-stagewrap.sv856-mini .sv85-stage>:not(canvas){display:none!important}
+ #sv85-stagewrap.sv856-mini .sv85-tl{grid-column:2;grid-row:1;margin-top:0;height:24px}
+ #sv85-stagewrap.sv856-mini .sv85-time{grid-column:2;grid-row:2;font-size:11px}
+ #sv85-stagewrap.sv856-mini .sv856-x{display:grid;place-items:center;grid-column:3;grid-row:1/3;min-height:44px;border-radius:11px;border:1px solid #4c7fa3;background:#143352;color:#fff;font-size:18px;padding:0}
+}
+</style>
+<script id="sv856-script">
+(function(){'use strict';
+ var mq=window.matchMedia?window.matchMedia('(max-width:780px)'):{matches:true};
+ function boot(){var body=document.getElementById('sv85-body'),wrap=document.getElementById('sv85-stagewrap');if(!body||!wrap)return false;if(wrap.dataset.sv856)return true;wrap.dataset.sv856='1';
+  var ex=document.createElement('button');ex.type='button';ex.className='sv856-x';ex.setAttribute('aria-label','הגדל תצוגה');ex.title='הגדל תצוגה';ex.textContent='⤢';wrap.appendChild(ex);
+  var last=body.scrollTop,down=0,up=0,lock=0,manual=0;
+  function set(on,user){if(!mq.matches)on=false;if(wrap.classList.contains('sv856-mini')===on)return;var h0=wrap.offsetHeight,st=body.scrollTop;wrap.classList.toggle('sv856-mini',on);var d=h0-wrap.offsetHeight;
+   if(st>0)body.scrollTop=Math.max(0,st-d);last=body.scrollTop;down=up=0;lock=Date.now()+380;if(user)manual=Date.now()+1500;ex.setAttribute('aria-expanded',String(!on));
+   setTimeout(function(){if(wrap.classList.contains('sv856-mini')&&body.scrollTop<4&&Date.now()>manual)set(false)},420);try{window.dispatchEvent(new Event('resize'))}catch(e){}}
+  body.addEventListener('scroll',function(){var st=body.scrollTop,dy=st-last;last=st;if(Date.now()<lock)return;if(dy>0){down+=dy;up=0}else if(dy<0){up-=dy;down=0}
+   var mini=wrap.classList.contains('sv856-mini'),room=body.scrollHeight-body.clientHeight>320;
+   if(!mini&&room&&down>48&&st>60&&Date.now()>manual)set(true);else if(mini&&(st<4&&up>0||up>160))set(false)},{passive:true});
+  ex.addEventListener('click',function(){set(false,true)});
+  wrap.querySelector('.sv85-stage').addEventListener('click',function(e){if(wrap.classList.contains('sv856-mini')){e.stopPropagation();e.preventDefault();set(false,true)}},true);
+  window.__SHALVATA_V856={mini:function(v){if(v!==undefined)set(!!v,true);return wrap.classList.contains('sv856-mini')}};return true}
+ if(!boot()){var n=0,t=setInterval(function(){if(boot()||++n>80)clearInterval(t)},250)}
+ document.addEventListener('click',function(){setTimeout(boot,80)},true);
+})();
+</script>
+<!-- END SHALVATA V8.5.6 -->
 
 </body></html>
