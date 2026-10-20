@@ -1964,11 +1964,11 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
    if(el){el.textContent='הקובץ נשמר, אך נגן Safari לא מצליח לפענח אותו. פתח את ההקלטה מהורדות Safari או נסה הקלטה קצרה חדשה.';el.dataset.state='error';}
   });
  }
- const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.5.2');
- const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.5.2';
- D.title='SHALVATA V8.5.2 · Window Studio · PRIVATE LOCAL QA';
- api.version='V8.5.2';
- window.__SHALVATA_V843_QA={version:'V8.5.2',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
+ const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.5.3');
+ const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.5.3';
+ D.title='SHALVATA V8.5.3 · Window Studio · PRIVATE LOCAL QA';
+ api.version='V8.5.3';
+ window.__SHALVATA_V843_QA={version:'V8.5.3',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
 })();
 </script>
 <style id="shalvata-v844-legacy-rights">
@@ -2129,7 +2129,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
  const ui=D.querySelector('#sv83-dialog .sv83-ui');if(!api||!ui||by('sv846-card'))return;
  const KEY='shalvata.v846.devicetest';
  const CHECKS=[
-  ['version','בכותרת מופיע V8.5.2','מסתכלים בראש הסטודיו.'],
+  ['version','בכותרת מופיע V8.5.3','מסתכלים בראש הסטודיו.'],
   ['tv-open','📺 נפתח ומציג תמונה חיה','כותרת ← "📺 מסך צף". ▶️ בתוך המסך: התמונה זזה ותג LIVE ירוק.'],
   ['tv-drag','📺 נגרר באצבע ונצמד לפינה','גוררים מהכותרת של המסך הצף לפינה העליונה ומשחררים.'],
   ['tv-size','⤢ שלושה גדלים, תמיד בתוך המסך','לוחצים ⤢ שלוש פעמים. שום חלק לא יוצא מהמסך.'],
@@ -2159,7 +2159,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
   return {app:'SHALVATA Window Studio',version:api.version,reportedAtIsrael:when,summary:{pass:c('pass'),fail:c('fail'),notTested:c('not_tested')},results,device:device(),privacy:'local report; nothing was sent automatically'};
  }
  const card=D.createElement('section');card.className='sv83-card';card.id='sv846-card';card.dataset.sv84Pane='systems';
- card.innerHTML=`<h3>✅ בדיקת אייפון · V8.5.2</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
+ card.innerHTML=`<h3>✅ בדיקת אייפון · V8.5.3</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
  <div class="sv846-sum" id="sv846-sum" role="status" aria-live="polite"></div><div class="sv846-list" id="sv846-list"></div>
  <div class="sv84-row"><button type="button" class="sv84-btn-strong" id="sv846-copy">📋 העתק דוח</button><button type="button" id="sv846-share">↗️ שתף דוח</button><button type="button" id="sv846-save">⬇️ שמור JSON</button><button type="button" id="sv846-reset">🧹 אפס</button></div>
  <div class="sv84-status" id="sv846-status" role="status" aria-live="polite">מוכן.</div><details><summary>פרטי מכשיר שייכללו בדוח</summary><pre id="sv846-device"></pre></details>`;
@@ -2383,7 +2383,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
 (()=>{'use strict';
 const D=document,by=id=>D.getElementById(id),FX=window.__SHALVATA_V83_TEST,api=window.__SHALVATA_V84_QA;
 if(!FX||!api||by('sv85-lab'))return;
-const S=FX.state,KEY='shalvata.v850.lab',PKEY='shalvata.v851.projects',VERSION='V8.5.2';
+const S=FX.state,KEY='shalvata.v850.lab',PKEY='shalvata.v851.projects',VERSION='V8.5.3';
 const el=(tag,attrs,...kids)=>{const e=D.createElement(tag);if(attrs)for(const k in attrs){const v=attrs[k];if(v==null||v===false)continue;if(k==='class')e.className=v;else if(k==='text')e.textContent=v;else if(k.startsWith('on'))e.addEventListener(k.slice(2),v);else e.setAttribute(k,v===true?'':v)}for(const c of kids.flat()){if(c==null||c===false)continue;e.append(c.nodeType?c:D.createTextNode(String(c)))}return e};
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const hash=s=>{let h=2166136261;for(const c of String(s))h=Math.imul(h^c.codePointAt(0),16777619);return h>>>0};
@@ -2458,14 +2458,45 @@ function postFX(ctx,w,h,c,t,fx,seed){
 function drawPhoto(ctx,w,h){const img=S.photo;if(!img||!S.rights||!B.usePhoto)return;const iw=img.naturalWidth||img.width,ih=img.naturalHeight||img.height;if(!iw||!ih)return;const k=Math.max(w/iw,h/ih);ctx.save();ctx.globalAlpha=.55;ctx.drawImage(img,(w-iw*k)/2,(h-ih*k)/2,iw*k,ih*k);ctx.restore()}
 function textBlock(ctx,w,h,c,title,sub,line,k){const wide=w>h,base=Math.min(w,h);ctx.save();ctx.textAlign='center';ctx.textBaseline='middle';ctx.globalAlpha=clamp(k,0,1);
  ctx.font=`900 ${base*(wide?.1:.115)}px system-ui,-apple-system,sans-serif`;ctx.fillStyle=c[4];ctx.shadowColor=c[0];ctx.shadowBlur=base/25;fitText(ctx,title||'',w/2,h*(wide?.42:.38),w*.88);
- ctx.shadowBlur=0;if(sub){ctx.font=`700 ${base*.045}px system-ui,-apple-system,sans-serif`;ctx.fillStyle=c[1];fitText(ctx,sub,w/2,h*(wide?.56:.47),w*.86)}
+ ctx.shadowBlur=0;if(sub){ctx.font=`700 ${base*.045}px system-ui,-apple-system,sans-serif`;ctx.fillStyle=mix(c[4],c[1],.35);fitText(ctx,sub,w/2,h*(wide?.56:.47),w*.86)}
  if(line){ctx.font=`600 ${base*.04}px system-ui,-apple-system,sans-serif`;ctx.fillStyle='#ffffff';fitText(ctx,line,w/2,h*(wide?.8:.78),w*.86)}
  ctx.font=`800 ${base*.026}px system-ui,-apple-system,sans-serif`;ctx.fillStyle=alpha(c[4],.8);ctx.fillText('PRIVATE DRAFT · LOCAL AI LAB · NOT OFFICIAL',w/2,h*.955);ctx.restore()}
-function fitText(ctx,s,x,y,max){let size=parseFloat(ctx.font.match(/(\d+(\.\d+)?)px/)[1]);while(ctx.measureText(s).width>max&&size>8){size*=.92;ctx.font=ctx.font.replace(/\d+(\.\d+)?px/,size+'px')}ctx.fillText(s,x,y)}
+const LRM='\u200E',RLM='\u200F',LTR=x=>'\u2066'+x+'\u2069';const heb=s=>/[\u0590-\u05FF]/.test(s);
+function fitText(ctx,s,x,y,max){const pd=ctx.direction;try{ctx.direction=heb(s)?'rtl':'ltr'}catch(_){}let size=parseFloat(ctx.font.match(/(\d+(\.\d+)?)px/)[1]);while(ctx.measureText(s).width>max&&size>8){size*=.92;ctx.font=ctx.font.replace(/\d+(\.\d+)?px/,size+'px')}ctx.fillText(s,x,y);try{ctx.direction=pd}catch(_){}}
 function renderArt(ctx,w,h,o){const c=PAL[o.palette||B.palette].c,t=o.t||0;bg(ctx,w,h,c,t);drawPhoto(ctx,w,h);(STY[o.style]||STY['neon-grid'])(ctx,w,h,c,t,null);
  if((o.fx||B.fx).particles)particles(ctx,w,h,c,t,o.seed||1);if((o.fx||B.fx).bloom){ctx.save();ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.12;ctx.drawImage(ctx.canvas,-w*.01,-h*.01,w*1.02,h*1.02);ctx.restore()}
  if(o.text!==false)textBlock(ctx,w,h,c,o.title,o.sub,o.line,o.textK==null?1:o.textK);postFX(ctx,w,h,c,t,o.fx||B.fx,o.seed||1)}
 
+/* ---------- 🎞️ live poster engine (seamless loop) ---------- */
+const loopLen=(bpm,bars)=>(60/(bpm||124))*4*(bars||3);
+function posterFrame(ctx,w,h,t,o){const c=PAL[o.palette||B.palette].c,L=o.L||loopLen(o.bpm||B.bpm),beat=60/(o.bpm||B.bpm),ph=((t%beat)+beat)%beat/beat,pulse=Math.exp(-ph*5),wide=w>h,base=Math.min(w,h);
+ const art={style:o.style,palette:o.palette||B.palette,fx:Object.assign({},o.fx||B.fx,{glitch:false}),seed:o.seed||1,t,text:false};
+ ctx.save();const z=1+.025*pulse;ctx.translate(w/2,h/2);ctx.scale(z,z);ctx.translate(-w/2,-h/2);renderArt(ctx,w,h,art);ctx.restore();
+ // diagonal light sweep, period = loop
+ const sx=((t/L)%1)*(w+h)*1.6-(h*.8);ctx.save();ctx.globalCompositeOperation='screen';const g=ctx.createLinearGradient(sx,0,sx+base*.5,h*.6);g.addColorStop(0,'rgba(255,255,255,0)');g.addColorStop(.5,alpha(c[4],.22));g.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);ctx.restore();
+ // top tag
+ ctx.save();ctx.textAlign='center';ctx.textBaseline='middle';ctx.font=`800 ${base*.03}px system-ui,-apple-system,sans-serif`;ctx.fillStyle=alpha(c[4],.9);ctx.fillText((o.tag||'SHALVATA · '+(o.place||B.place)).toUpperCase?((o.tag||'SHALVATA · TEL AVIV')):'',w/2,h*(wide?.09:.075));
+ // title stacked
+ const words=String(o.event||B.event).trim().split(/\s+/);let lines=[];if(words.length<=2||wide)lines=[words.join(' ')];else{const m=Math.ceil(words.length/2);lines=[words.slice(0,m).join(' '),words.slice(m).join(' ')]}
+ const ty=h*(wide?.42:.36),lh=base*(wide?.12:.135);ctx.shadowColor=c[0];ctx.shadowBlur=base/22*(1+pulse*1.2);ctx.fillStyle=c[4];
+ lines.forEach((ln,i)=>{ctx.font=`950 ${base*(wide?.115:.13)}px system-ui,-apple-system,sans-serif`;fitText(ctx,ln,w/2,ty+(i-(lines.length-1)/2)*lh,w*.88)});
+ {const sy=ty+lh*(lines.length/2)+base*.07,sub=o.sub||'';if(sub){ctx.font=`750 ${base*.046}px system-ui,-apple-system,sans-serif`;const sw=Math.min(w*.88,ctx.measureText(sub).width+base*.07),sh=base*.07;ctx.shadowBlur=0;ctx.fillStyle=alpha(c[3],.55);const rx=w/2-sw/2,ry=sy-sh/2,rr=sh/2;ctx.beginPath();ctx.moveTo(rx+rr,ry);ctx.arcTo(rx+sw,ry,rx+sw,ry+sh,rr);ctx.arcTo(rx+sw,ry+sh,rx,ry+sh,rr);ctx.arcTo(rx,ry+sh,rx,ry,rr);ctx.arcTo(rx,ry,rx+sw,ry,rr);ctx.closePath();ctx.fill();
+ ctx.shadowColor=c[1];ctx.shadowBlur=base/80;ctx.fillStyle=mix(c[4],c[1],.15);fitText(ctx,sub,w/2,sy,w*.84)}}
+ // info band
+ const by0=h*(wide?.8:.82),bh=base*.085;ctx.fillStyle=alpha(c[3],.62);ctx.fillRect(w*.08,by0-bh/2,w*.84,bh);ctx.strokeStyle=alpha(c[0],.65+.35*pulse);ctx.lineWidth=Math.max(1,base/360);ctx.strokeRect(w*.08,by0-bh/2,w*.84,bh);
+ ctx.shadowBlur=0;ctx.font=`800 ${base*.036}px system-ui,-apple-system,sans-serif`;ctx.fillStyle='#fff';fitText(ctx,o.info||`${o.place||B.place} · קונספט 2027${RLM} · ${LTR((o.bpm||B.bpm)+' BPM')}${RLM}`,w/2,by0,w*.8);
+ ctx.font=`800 ${base*.022}px system-ui,-apple-system,sans-serif`;ctx.fillStyle=alpha(c[4],.75);ctx.fillText('PRIVATE DRAFT · LOCAL AI LAB · NOT OFFICIAL',w/2,h*.955);ctx.restore()}
+function livePoster(ctx,w,h,t,o){const L=o.L||loopLen(o.bpm||B.bpm),X=Math.min(.8,L*.15),tt=((t%L)+L)%L;posterFrame(ctx,w,h,tt,o);
+ if(tt>L-X){const k=(tt-(L-X))/X,off=offscreen(w,h,'loop'),oc=off.getContext('2d');posterFrame(oc,w,h,tt-L,o);ctx.save();ctx.globalAlpha=k;ctx.drawImage(off,0,0);ctx.restore()}}
+function posterSub(){const ev=String(B.event).toLowerCase(),c=B.scenes.map(s=>s.vo).filter(v=>v&&!v.toLowerCase().includes(ev)&&[...v].length<=34);if(c.length)return c[0];const bank=(BANK[B.tone]||BANK.energetic).hook.concat((BANK[B.tone]||BANK.energetic).peak).filter(x=>!x.includes('{E}'));return fill(bank[0]||TONES[B.tone])}
+function posterOpts(extra){const img=B.images[B.imgSel]||{style:(B.scenes[0]||{}).style||'neon-grid',palette:B.palette,seed:7};return Object.assign({style:img.style,palette:img.palette||B.palette,seed:img.seed,event:B.event,sub:posterSub(),place:B.place,bpm:B.bpm,fx:B.fx},extra||{})}
+async function recordLoop(o){const mime=videoMime();if(!mime||typeof HTMLCanvasElement.prototype.captureStream!=='function')throw Error('הקלטת וידאו לא נתמכת');
+ const [fw,fh]=FORMATS[o.format||B.format],q=o.q||720,k=q/Math.min(fw,fh),w=Math.round(fw*k/2)*2,h=Math.round(fh*k/2)*2,c=D.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d'),L=o.L||loopLen(o.bpm||B.bpm),reps=o.reps||1;
+ const stream=c.captureStream(30);let dest=null;if(o.audio){const a=ac();if(a){try{await a.resume()}catch(_){}dest=a.createMediaStreamDestination();dest.stream.getAudioTracks().forEach(t=>stream.addTrack(t))}}
+ const rec=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:q>=1080?8e6:5e6}),chunks=[];rec.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data)};const done=new Promise(r=>rec.onstop=r);
+ const t0=performance.now();rec.start(250);if(dest){const keep=B.bpm;B.bpm=o.bpm||B.bpm;startBeat(dest);B.bpm=keep}
+ await new Promise(res=>{const f=()=>{const t=(performance.now()-t0)/1000;if(t>=L*reps){rec.stop();return res()}livePoster(x,w,h,t,o);if(o.onFrame)o.onFrame(t,L*reps);requestAnimationFrame(f)};f()});
+ await done;stopBeat();stream.getTracks().forEach(t=>t.stop());const type=(rec.mimeType||mime).split(';')[0];return {blob:new Blob(chunks,{type}),type,ext:type.includes('mp4')?'mp4':'webm',w,h,dur:L*reps}}
 /* ---------- script + storyboard engines (rule-based "AI") ---------- */
 const BANK={
  energetic:{hook:['הבס נכנס. העיר עוצרת.','3… 2… 1 — {E}','לילה אחד. אנרגיה אחת.'],build:['האורות מתעוררים סביבך','הרחבה מתחילה לנשום בקצב','כל ביט מקרב אותך לשיא'],reveal:['{E} — חוויה שלא נגמרת בבוקר','הבמה נפתחת. הלייזרים יוצאים לחופשי','זה הרגע שחיכית לו'],peak:['ידיים למעלה. {B} BPM של טהור','השיא מגיע — והוא שלך','הקהל, הביט, השמיים — אחד'],cta:['שמרו את התאריך. עוד יפורסם','הירשמו לעדכונים בלבד — ללא פרסום רשמי','תייגו את מי שבא איתכם']},
@@ -2476,7 +2507,7 @@ const SHOTS=['🚁 רחפן מתקרב (CGI)','🌀 סיבוב 360° סביב ה
 const TRANS=['✨ פלאש על הביט','🌫️ מעבר רך','🌀 סיבוב','⚡ קאט חד','🔆 הבזק אור'];
 const BEATS=['hook','build','reveal','peak','cta'],BEATN={hook:'פתיחה',build:'בנייה',reveal:'חשיפה',peak:'שיא',cta:'קריאה לפעולה'};
 const STYLE_BY_TONE={energetic:['laser-fan','neon-grid','tunnel','holo-rings','galaxy'],luxury:['liquid','crystal','holo-rings','sunset-sea','galaxy'],mystic:['galaxy','tunnel','holo-rings','crystal','neon-grid'],romantic:['sunset-sea','liquid','laser-fan','holo-rings','crystal']};
-function fill(s){return s.replace(/\{E\}/g,B.event).replace(/\{B\}/g,B.bpm)}
+function fill(s){return s.replace(/\{B\} BPM/g,LTR(B.bpm+' BPM')).replace(/\{E\}/g,B.event).replace(/\{B\}/g,LTR(String(B.bpm)))}
 function genScript(variant){const r=rngOf(hash(B.event+B.tone+B.seed+(variant||0))),bank=BANK[B.tone]||BANK.energetic,styles=STYLE_BY_TONE[B.tone]||STYLE_KEYS;
  return BEATS.map((k,i)=>({beat:k,name:BEATN[k],vo:fill(pick(r,bank[k])),text:i===0?B.event:i===4?'שמרו את התאריך':fill(pick(r,bank[k])).split(/[.—]/)[0].trim().slice(0,28),
   shot:pick(r,SHOTS),trans:pick(r,TRANS),style:styles[i%styles.length],dur:3}))}
@@ -2551,7 +2582,7 @@ function parsePrompt(p){const m=String(p||'').toLowerCase(),has=(...w)=>w.some(x
 function genImages(prompt){const p=parsePrompt(prompt),base=hash(prompt+B.event+B.seed);B.images=[];const used=new Set();
  for(let i=0;i<4;i++){let st=p.style&&i<2?p.style:(B.scenes[i]&&B.scenes[i].style)||STYLE_KEYS[(base+i)%STYLE_KEYS.length];if(used.has(st)&&!p.style)st=STYLE_KEYS[(STYLE_KEYS.indexOf(st)+i+1)%STYLE_KEYS.length];used.add(st);
   B.images.push({style:st,palette:p.pal||B.palette,fx:Object.assign({},B.fx,p.fx),seed:base+i*101,t:(i*1.37)%6})}if(p.pal)B.palette=p.pal;B.imgSel=0}
-function imageOpts(img,extra){return Object.assign({style:img.style,palette:img.palette,fx:img.fx,seed:img.seed,t:img.t,title:B.event,sub:`${B.place} · ${B.bpm} BPM`,line:(B.scenes[0]&&B.scenes[0].vo)||''},extra||{})}
+function imageOpts(img,extra){return Object.assign({style:img.style,palette:img.palette,fx:img.fx,seed:img.seed,t:img.t,title:B.event,sub:`${B.place} · ${LTR(B.bpm+' BPM')}${RLM}`,line:(B.scenes[0]&&B.scenes[0].vo)||''},extra||{})}
 
 /* ---------- timeline render (video engine) ---------- */
 let recording=false,T=0,playing=false,last=0,raf=0,loopRaf=0,stageMode='timeline',selScene=0;
@@ -2559,7 +2590,7 @@ function sceneAt(t){let a=0;for(let i=0;i<B.scenes.length;i++){const d=B.scenes[
 function renderTimeline(ctx,w,h,t){if(!B.scenes.length){B.scenes=genScript(B.seed);autoCut()}const {i,local,dur}=sceneAt(t),s=B.scenes[i],c=PAL[B.palette].c;
  const beat=60/B.bpm,ph=(t%beat)/beat,pulse=Math.exp(-ph*6);const fx=B.fx;
  const draw=(sc,lt,k)=>{ctx.save();const z=1+.035*pulse+(sc.shot.includes('זום')||sc.shot.includes('מתקרב')?lt*.02:0);ctx.translate(w/2,h/2);if(sc.shot.includes('סיבוב'))ctx.rotate(Math.sin(lt*.6)*.04);ctx.scale(z,z);ctx.translate(-w/2,-h/2);
-  renderArt(ctx,w,h,{style:sc.style,palette:B.palette,fx,seed:hash(sc.vo),t:t,title:i===0||sc.beat==='cta'?B.event:sc.text,sub:sc.beat==='hook'?`${B.place} · ${B.bpm} BPM`:sc.name,line:sc.vo,textK:(playing||recording)?k*clamp(lt/.35,0,1):k});ctx.restore()};
+  renderArt(ctx,w,h,{style:sc.style,palette:B.palette,fx,seed:hash(sc.vo),t:t,title:i===0||sc.beat==='cta'?B.event:sc.text,sub:sc.beat==='hook'?`${B.place} · ${LTR(B.bpm+' BPM')}${RLM}`:sc.name,line:sc.vo,textK:(playing||recording)?k*clamp(lt/.35,0,1):k});ctx.restore()};
  draw(s,local,1);const tail=dur-local,next=B.scenes[i+1];
  if(next&&tail<.32){ctx.save();ctx.globalAlpha=1-tail/.32;const tmp=offscreen(w,h,'next');const oc=tmp.getContext('2d');renderArt(oc,w,h,{style:next.style,palette:B.palette,fx,seed:hash(next.vo),t,title:next.text,sub:next.name,line:next.vo,textK:0});ctx.drawImage(tmp,0,0);ctx.restore()}
  if(s.trans.includes('פלאש')||s.trans.includes('הבזק')){if(local<.12){ctx.save();ctx.fillStyle=`rgba(255,255,255,${.55*(1-local/.12)})`;ctx.fillRect(0,0,w,h);ctx.restore()}}}
@@ -2637,7 +2668,7 @@ async function campaignZip(){const btns=[...lab.querySelectorAll('[data-zip]')];
  catch(e){toast('האריזה נכשלה: '+e.message,'warn')}finally{btns.forEach(b=>b.disabled=false)}}
 /* ---------- UI ---------- */
 load();pullFromStudio();
-const TABS=[['agents','🤖 סוכנים'],['script','✍️ תסריט'],['board','🎞️ סטוריבורד'],['images','🖼️ תמונות'],['video','📼 וידאו'],['edit','✂️ עריכה'],['market','📣 שיווק'],['dim','🌐 360 · הולו · 3D'],['links','🔗 חיבורים']];
+const TABS=[['agents','🤖 סוכנים'],['script','✍️ תסריט'],['board','🎞️ סטוריבורד'],['images','🖼️ תמונות'],['live','🎆 פוסטר חי'],['video','📼 וידאו'],['edit','✂️ עריכה'],['market','📣 שיווק'],['dim','🌐 360 · הולו · 3D'],['links','🔗 חיבורים']];
 let tab='agents';
 const lab=el('section',{id:'sv85-lab',hidden:true,role:'dialog','aria-modal':'true','aria-label':'SHALVATA AI LAB'});
 const stage=el('canvas',{id:'sv85-stage',width:360,height:640,'aria-label':'תצוגת AI LAB'});
@@ -2667,7 +2698,8 @@ function paintHead(){by('sv85-bell').textContent=B.notify?'🔔':'🔕';by('sv85
  by('sv85-loop').setAttribute('aria-pressed',String(!!B.loop));const nb=by('sv85-narrate');if(nb)nb.setAttribute('aria-pressed',String(!!B.narrate));paintUndo();by('sv85-play').textContent=playing?'⏸️':'▶️';by('sv85-play').setAttribute('aria-label',(playing?'⏸️ השהה':'▶️ נגן'))}
 function sizeStage(){let [w,h]=STAGE[B.format]||STAGE.story;if(stageMode==='pano'){w=640;h=360}if(stageMode==='holo'){w=h=480}if(stage.width!==w||stage.height!==h){stage.width=w;stage.height=h}}
 function drawStage(){sizeStage();const w=stage.width,h=stage.height;try{
- if(stageMode==='image'&&B.images[B.imgSel]){renderArt(sctx,w,h,imageOpts(B.images[B.imgSel],{t:B.images[B.imgSel].t+(playing?T:0)}));badge.textContent='🖼️ IMAGE · '+STYLES[B.images[B.imgSel].style]}
+ if(stageMode==='live'){livePoster(sctx,w,h,T,posterOpts());badge.textContent='🎞️ LIVE POSTER · '+fmtT(((T%loopLen(B.bpm))+loopLen(B.bpm))%loopLen(B.bpm))}
+ else if(stageMode==='image'&&B.images[B.imgSel]){renderArt(sctx,w,h,imageOpts(B.images[B.imgSel],{t:B.images[B.imgSel].t+(playing?T:0)}));badge.textContent='🖼️ IMAGE · '+STYLES[B.images[B.imgSel].style]}
  else if(stageMode==='pano'){if(panoAuto)panoYaw+=playing?2.6:1.2;renderPanoView(sctx,w,h);badge.textContent='🌐 360°'}
  else if(stageMode==='holo'){renderHolo(sctx,w,h,T);badge.textContent='🔺 HOLOGRAM'}
  else if(stageMode==='parallax'){renderParallax(sctx,w,h,T);badge.textContent='🪟 2.5D'}
@@ -2680,11 +2712,11 @@ function paintTL(){const tot=total();tl.replaceChildren();const c=PAL[B.palette]
 const sceneStart=i=>B.scenes.slice(0,i).reduce((a,s)=>a+s.dur,0);
 function setT(t){const tot=total();T=B.loop?((t%tot)+tot)%tot:clamp(t,0,tot-.001);selScene=sceneAt(T).i;drawStage();markSel()}
 function markSel(){tl.querySelectorAll('i').forEach((x,i)=>x.dataset.sel=i===selScene?'1':'0');panel.querySelectorAll('.sv85-scene').forEach((x,i)=>x.dataset.sel=i===selScene?'1':'0')}
-function tick(ms){raf=0;if(lab.hidden)return;if(playing){if(last){const dt=Math.min(.1,(ms-last)/1000);let nt=T+dt;const tot=total();if(nt>=tot){if(B.loop)nt=nt%tot;else{nt=tot-.001;playing=false;stopBeat();paintHead()}}T=nt;selScene=sceneAt(T).i;if(stageMode==='timeline')speakScene(selScene)}last=ms;drawStage();markSel()}else last=0;
- if(playing||stageMode==='pano'&&panoAuto||stageMode==='parallax')raf=requestAnimationFrame(tick)}
+function tick(ms){raf=0;if(lab.hidden)return;if(stageMode==='live'&&!playing){if(last){T+=Math.min(.1,(ms-last)/1000)}last=ms;drawStage();raf=requestAnimationFrame(tick);return}if(playing){if(last){const dt=Math.min(.1,(ms-last)/1000);let nt=T+dt;const tot=total();if(nt>=tot){if(B.loop)nt=nt%tot;else{nt=tot-.001;playing=false;stopBeat();paintHead()}}T=nt;selScene=sceneAt(T).i;if(stageMode==='timeline')speakScene(selScene)}last=ms;drawStage();markSel()}else last=0;
+ if(playing||stageMode==='pano'&&panoAuto||stageMode==='parallax'||stageMode==='live')raf=requestAnimationFrame(tick)}
 function play(on){playing=on==null?!playing:on;last=0;if(playing){if(!B.mute)startBeat();lastSpoken=-1}else{stopBeat();hush()}paintHead();if(!raf)raf=requestAnimationFrame(tick)}
-function selectTab(k){tab=k;stageWrap.dataset.collapsed=['script','market','links'].includes(k)?'1':'0';tabsEl.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===k)));stageMode=k==='images'?'image':k==='dim'?(stageMode==='pano'||stageMode==='holo'||stageMode==='parallax'||stageMode==='anaglyph'?stageMode:'pano'):'timeline';
- paintPanel();drawStage();if(!raf&&(stageMode==='pano'||stageMode==='parallax'))raf=requestAnimationFrame(tick);try{tabsEl.querySelector(`[data-tab="${k}"]`).scrollIntoView({inline:'center',block:'nearest'})}catch(_){}body.scrollTop=0}
+function selectTab(k){tab=k;stageWrap.dataset.collapsed=['script','market','links'].includes(k)?'1':'0';tabsEl.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===k)));stageMode=k==='images'?'image':k==='live'?'live':k==='dim'?(stageMode==='pano'||stageMode==='holo'||stageMode==='parallax'||stageMode==='anaglyph'?stageMode:'pano'):'timeline';
+ paintPanel();drawStage();if(!raf&&(stageMode==='pano'||stageMode==='parallax'||stageMode==='live')){last=0;raf=requestAnimationFrame(tick)}try{tabsEl.querySelector(`[data-tab="${k}"]`).scrollIntoView({inline:'center',block:'nearest'})}catch(_){}body.scrollTop=0}
 function field(label,input){return el('label',{class:'sv85-f'},label,input)}
 function sel(id,opts,val,on){const s=el('select',{id});for(const [v,n] of opts)s.append(el('option',{value:v,text:n}));s.value=val;s.addEventListener('change',()=>on(s.value));return s}
 function card(title,...kids){return el('section',{class:'sv85-card'},el('h3',{text:title}),...kids)}
@@ -2732,6 +2764,16 @@ function paintPanel(){panel.replaceChildren();const P=fn=>panel.append(fn);
     el('button',{type:'button',id:'sv85-gen',text:'✨ צור',onclick:()=>{B.prompt=by('sv85-prompt').value;genImages(B.prompt);save();paintPanel();drawStage();toast('🖼️ 4 תמונות חדשות')}})),thumbs,
    el('div',{class:'sv85-grid2'},Object.entries(FXN).map(([k,n])=>el('button',{type:'button','data-fx':k,'aria-pressed':String(!!B.fx[k]),text:n,onclick:()=>{B.fx[k]=!B.fx[k];B.images.forEach(im=>im.fx[k]=B.fx[k]);save();paintPanel();drawStage()}}))),
    el('div',{class:'sv85-row'},Object.entries(FORMATS).map(([k,v])=>el('button',{type:'button',id:'sv85-png-'+k,text:`⬇️ PNG ${v[2]}`,onclick:()=>exportPNG(k)})))))}
+ if(tab==='live'){if(!B.images.length)genImages(B.prompt||'');const L=loopLen(B.bpm);
+  P(card('🎆 פוסטר חי · לולאה בלי תפר',el('div',{class:'sv85-note',text:`פוסטר שזז: כותרת שפועמת על הביט, אלומת אור, חלקיקים ותנועה. הלולאה היא 3 תיבות של ${B.bpm} BPM (${L.toFixed(2)} שניות), והסוף מתמזג בהתחלה בלי קפיצה. מתאים לסטורי, ריל, פיד ומסך LED.`}),
+   el('div',{class:'sv85-grid2'},field('סגנון',sel('sv85-lstyle',Object.entries(STYLES),(B.images[B.imgSel]||{}).style||'neon-grid',v=>{if(!B.images[B.imgSel])genImages('');B.images[B.imgSel].style=v;save();drawStage()})),
+    field('פלטה',sel('sv85-lpal',Object.entries(PAL).map(([k,v])=>[k,v.n]),B.palette,v=>{B.palette=v;if(B.images[B.imgSel])B.images[B.imgSel].palette=v;save();drawStage()})),
+    field('חזרות בקובץ',sel('sv85-lreps',[['1','×1 (לולאה אחת)'],['2','×2'],['3','×3']],String(B.lreps||1),v=>{B.lreps=+v;save()})),
+    field('איכות',sel('sv85-lq',[['540','540p'],['720','720p'],['1080','1080p']],B.lq||'720',v=>{B.lq=v;save()}))),
+   el('label',{class:'sv85-f',style:'display:flex;align-items:center;gap:8px'},Object.assign(el('input',{type:'checkbox',id:'sv85-laudio'}),{checked:!!B.laudio,onchange:e=>{B.laudio=e.target.checked;save()}}),'עם ביט סינתטי'),
+   el('div',{class:'sv85-grid3'},Object.entries(FORMATS).map(([k,v])=>el('button',{type:'button',class:k===B.format?'sv85-strong':null,id:'sv85-live-'+k,text:'⏺️ '+v[2],onclick:()=>exportLive(k)}))),
+   el('button',{type:'button',id:'sv85-live-png',text:'🖼️ שמור פריים PNG',onclick:()=>{const [w,h]=FORMATS[B.format],c=D.createElement('canvas');c.width=w;c.height=h;livePoster(c.getContext('2d'),w,h,T,posterOpts());canvasPNG(c,`SHALVATA_POSTER_${safeName(B.event)}_${B.format}.png`)}}),
+   el('div',{class:'sv85-note',id:'sv85-lstatus',role:'status','aria-live':'polite',text:videoSupport()}),el('div',{id:'sv85-lout'})))}
  if(tab==='video'){
   P(card('📼 מחולל וידאו',el('div',{class:'sv85-note',text:'הסצנות מרונדרות לווידאו אמיתי בדפדפן, עם מעברים על הביט, תנועת מצלמה, אפקטים וביט סינתטי. הקובץ נוצר בזמן אמת: וידאו של 15 שניות לוקח 15 שניות.'}),
    el('div',{class:'sv85-grid2'},field('אורך',sel('sv85-vdur',[[6,'6s'],[10,'10s'],[15,'15s'],[20,'20s'],[30,'30s']].map(([a,b])=>[String(a),b]),String(B.duration),v=>{B.duration=+v;autoCut();save();paintTL();drawStage()})),
@@ -2785,8 +2827,13 @@ function promptPack(){return {app:'SHALVATA AI LAB',version:VERSION,note:'חבי
  marketing:B.copy||genCopy(),rights:'אין שימוש בצילומי אנשים ללא אישור. אין לוגו או מותג של צד שלישי.'}}
 function exportPrompts(){const pack=promptPack();
  saveBlob(new Blob([JSON.stringify(pack,null,2)],{type:'application/json'}),`SHALVATA_PROMPT_PACK_${safeName(B.event)}.json`);toast('⬇️ חבילת פרומפטים נשמרה')}
-function videoMime(){if(typeof MediaRecorder!=='function'||typeof MediaRecorder.isTypeSupported!=='function')return null;return['video/mp4;codecs=avc1.42E01E,mp4a.40.2','video/mp4','video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'].find(m=>{try{return MediaRecorder.isTypeSupported(m)}catch(_){return false}})||null}
+function videoMime(){if(typeof MediaRecorder!=='function'||typeof MediaRecorder.isTypeSupported!=='function')return null;return['video/mp4;codecs=avc1.42E01E,mp4a.40.2','video/mp4;codecs=avc1.640028,mp4a.40.2','video/mp4;codecs=avc1','video/mp4','video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'].find(m=>{try{return MediaRecorder.isTypeSupported(m)}catch(_){return false}})||null}
 function videoSupport(){const m=videoMime();return m&&typeof HTMLCanvasElement.prototype.captureStream==='function'?`מוכן: ${m.split(';')[0]} · ${B.duration}s`:'הדפדפן לא תומך בהקלטת וידאו מ־Canvas. השתמש בסטוריבורד PNG ובחבילת פרומפטים.'}
+async function exportLive(k){if(recording)return;const st=by('sv85-lstatus');recording=true;lab.querySelectorAll('[id^="sv85-live-"]').forEach(b=>b.disabled=true);
+ try{const r=await recordLoop(posterOpts({format:k,q:+(B.lq||720),reps:B.lreps||1,audio:!!B.laudio,onFrame:(t,tot)=>{if(st)st.textContent=`⏺️ מקליט פוסטר חי… ${t.toFixed(1)} / ${tot.toFixed(1)}s`}}));lastVideo={blob:r.blob,ext:r.ext};
+  const url=URL.createObjectURL(r.blob),out=by('sv85-lout');if(out)out.replaceChildren(el('video',{src:url,controls:true,playsinline:true,loop:true,muted:true,autoplay:true,'aria-label':'הפוסטר החי שנוצר'}),el('button',{type:'button',class:'sv85-strong',id:'sv85-lsave',text:`⬇️ שמור ${r.ext.toUpperCase()} (${Math.round(r.blob.size/1024)}KB)`,onclick:()=>saveBlob(r.blob,`SHALVATA_LIVE_POSTER_${safeName(B.event)}_${k}.${r.ext}`)}));
+  if(st)st.textContent=`✓ פוסטר חי ${r.w}×${r.h} · ${r.dur.toFixed(2)}s · ${Math.round(r.blob.size/1024)}KB`;window.__SHALVATA_V853_LAST_LIVE={size:r.blob.size,type:r.type,w:r.w,h:r.h,dur:r.dur};toast('🎆 הפוסטר החי מוכן')}
+ catch(e){if(st)st.textContent=e.message;toast(e.message,'warn')}finally{recording=false;lab.querySelectorAll('[id^="sv85-live-"]').forEach(b=>b.disabled=false)}}
 async function exportVideo(){if(recording)return;const mime=videoMime(),st=by('sv85-vstatus');if(!mime||typeof HTMLCanvasElement.prototype.captureStream!=='function'){if(st)st.textContent=videoSupport();toast('הקלטת וידאו לא נתמכת','warn');return}
  if(!B.scenes.length){B.scenes=genScript(B.seed);autoCut()}recording=true;const q=+(B.vq||720),[fw,fh]=FORMATS[B.format],k=q/Math.min(fw,fh),w=Math.round(fw*k/2)*2,h=Math.round(fh*k/2)*2;
  const c=D.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');const stream=c.captureStream(30);let audioDest=null;
@@ -2847,7 +2894,7 @@ const fbody=D.querySelector('#sv84-float .sv84-float-body .sv84-row');if(fbody)f
 if(location.hash.includes('ai-lab'))setTimeout(()=>openLab(),200);
 addEventListener('hashchange',()=>{if(location.hash.includes('ai-lab')&&lab.hidden)openLab()});
 window.__SHALVATA_V850_LAB={version:VERSION,open:openLab,close:closeLab,isOpen:()=>!lab.hidden,brain:()=>JSON.parse(JSON.stringify(Object.assign({},B,{images:B.images.length}))),runAll,chat,selectTab,tab:()=>tab,
- setFast:v=>{B.fastMode=!!v},play:()=>play(),tvLabel,undo,campaignZip,projects:projList,projSave,projLoad,histLen:()=>HIST.length,exportVideo,genImages:p=>{genImages(p);paintPanel();drawStage()},stageMode:()=>stageMode,setMode:m=>{stageMode=m;drawStage()},T:()=>T,playing:()=>playing,edl,total};
+ setFast:v=>{B.fastMode=!!v},play:()=>play(),tvLabel,frameTimeline:(ctx,w,h,t)=>{const r=recording;recording=true;try{renderTimeline(ctx,w,h,t)}finally{recording=r}},recordLoop,posterOpts,livePoster,renderArt,genScript,genCopy,loopLen,FORMATS,STYLES,PAL,setBrain:o=>{Object.assign(B,o);save()},undo,campaignZip,projects:projList,projSave,projLoad,histLen:()=>HIST.length,exportVideo,genImages:p=>{genImages(p);paintPanel();drawStage()},stageMode:()=>stageMode,setMode:m=>{stageMode=m;drawStage()},T:()=>T,playing:()=>playing,edl,total};
 })();
 
 </script>
