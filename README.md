@@ -1,1 +1,1 @@
-Private QA server. Content is encrypted; nothing readable here.
+Static private QA page. Content is encrypted client-side; nothing readable here.
