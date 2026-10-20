@@ -1964,11 +1964,11 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
    if(el){el.textContent='הקובץ נשמר, אך נגן Safari לא מצליח לפענח אותו. פתח את ההקלטה מהורדות Safari או נסה הקלטה קצרה חדשה.';el.dataset.state='error';}
   });
  }
- const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.4.8');
- const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.4.8';
- D.title='SHALVATA V8.4.8 · Window Studio · PRIVATE LOCAL QA';
- api.version='V8.4.8';
- window.__SHALVATA_V843_QA={version:'V8.4.8',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
+ const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.4.9');
+ const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.4.9';
+ D.title='SHALVATA V8.4.9 · Window Studio · PRIVATE LOCAL QA';
+ api.version='V8.4.9';
+ window.__SHALVATA_V843_QA={version:'V8.4.9',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
 })();
 </script>
 <style id="shalvata-v844-legacy-rights">
@@ -2127,7 +2127,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
  const ui=D.querySelector('#sv83-dialog .sv83-ui');if(!api||!ui||by('sv846-card'))return;
  const KEY='shalvata.v846.devicetest';
  const CHECKS=[
-  ['version','בכותרת מופיע V8.4.8','מסתכלים בראש הסטודיו.'],
+  ['version','בכותרת מופיע V8.4.9','מסתכלים בראש הסטודיו.'],
   ['tv-open','📺 נפתח ומציג תמונה חיה','כותרת ← "📺 מסך צף". ▶️ בתוך המסך: התמונה זזה ותג LIVE ירוק.'],
   ['tv-drag','📺 נגרר באצבע ונצמד לפינה','גוררים מהכותרת של המסך הצף לפינה העליונה ומשחררים.'],
   ['tv-size','⤢ שלושה גדלים, תמיד בתוך המסך','לוחצים ⤢ שלוש פעמים. שום חלק לא יוצא מהמסך.'],
@@ -2156,7 +2156,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
   return {app:'SHALVATA Window Studio',version:api.version,reportedAtIsrael:when,summary:{pass:c('pass'),fail:c('fail'),notTested:c('not_tested')},results,device:device(),privacy:'local report; nothing was sent automatically'};
  }
  const card=D.createElement('section');card.className='sv83-card';card.id='sv846-card';card.dataset.sv84Pane='systems';
- card.innerHTML=`<h3>✅ בדיקת אייפון · V8.4.8</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
+ card.innerHTML=`<h3>✅ בדיקת אייפון · V8.4.9</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
  <div class="sv846-sum" id="sv846-sum" role="status" aria-live="polite"></div><div class="sv846-list" id="sv846-list"></div>
  <div class="sv84-row"><button type="button" class="sv84-btn-strong" id="sv846-copy">📋 העתק דוח</button><button type="button" id="sv846-share">↗️ שתף דוח</button><button type="button" id="sv846-save">⬇️ שמור JSON</button><button type="button" id="sv846-reset">🧹 אפס</button></div>
  <div class="sv84-status" id="sv846-status" role="status" aria-live="polite">מוכן.</div><details><summary>פרטי מכשיר שייכללו בדוח</summary><pre id="sv846-device"></pre></details>`;
@@ -2232,6 +2232,43 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
  const lbl=jump&&jump.querySelector('label'),sel=D.getElementById('sv843-quick-select');if(sel&&lbl&&!sel.getAttribute('aria-label'))sel.setAttribute('aria-label',lbl.textContent.trim());
  const card=D.getElementById('sv846-card'),ui=root.querySelector('.sv83-ui');
  if(card&&ui){const first=[...ui.querySelectorAll('.sv83-card')].find(c=>c.dataset.sv84Pane==='systems'&&c!==card);if(first)first.before(card)}
+})();
+</script>
+<style id="shalvata-v849-polish">
+/* V8.4.9: visual polish — Hebrew file pickers, 44px checkboxes, consistent angle buttons. Additive; same IDs. */
+#sv83-dialog .sv849-file{position:relative;display:flex;align-items:center;gap:10px;min-height:52px;margin-top:6px;border:1.5px dashed #6bdcf5;border-radius:13px;background:#0f2a48;padding:8px 12px;color:#e9f6ff;font-weight:780;font-size:14px;overflow:hidden;box-sizing:border-box;width:100%}
+#sv83-dialog .sv849-file:active{background:#143a5f}
+#sv83-dialog .sv849-file:focus-within{outline:3px solid #ffdb8b;outline-offset:2px}
+#sv83-dialog .sv849-file[data-has="1"]{border-style:solid;border-color:#3fd69a;background:#0b2e2a}
+#sv83-dialog .sv849-file input[type=file]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:200px;margin:0;padding:0;border:0;min-height:0}
+#sv83-dialog .sv849-file .sv849-ico{font-size:20px;line-height:1}
+#sv83-dialog .sv849-file .sv849-name{margin-inline-start:auto;max-width:48%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:560;font-size:12px;color:#9fd6ea;pointer-events:none}
+#sv83-dialog .sv849-file *:not(input){pointer-events:none}
+#sv83-dialog input[type=checkbox]{width:24px;height:24px;min-width:24px;accent-color:#31daf7;margin:0;flex:0 0 auto}
+#sv83-dialog label:has(>input[type=checkbox]),#sv83-dialog label.sv83-row:has(>input[type=checkbox]){display:flex!important;flex-wrap:nowrap!important;grid-template-columns:none!important;align-items:center;gap:10px;min-height:44px;line-height:1.4;text-align:start}
+#sv83-dialog [data-sv84-angle]{border-color:#466e86!important}
+#sv83-dialog [data-sv84-angle][aria-pressed="true"]{border-color:#7ee5fa!important}
+</style>
+<script id="shalvata-v849-polish-js">
+/* V8.4.9 — wrap native file inputs in a Hebrew picker; the real input stays on top (transparent) so iOS gets a genuine tap. */
+(()=>{'use strict';
+ const D=document,root=D.getElementById('sv83-dialog');if(!root)return;
+ const TXT={'sv83-photo':['🖼️','בחר צילום מהאייפון'],'sv84-camera-file':['📷','צלם עכשיו במצלמה'],'sv842-gallery-file':['🗂️','בחר מספריית התמונות']};
+ const boxes=[];
+ for(const inp of root.querySelectorAll('input[type=file]')){
+  if(inp.closest('.sv849-file'))continue;
+  const [ico,txt]=TXT[inp.id]||['📎','בחר קובץ'];
+  const box=D.createElement('span');box.className='sv849-file';
+  const a=D.createElement('span');a.className='sv849-ico';a.setAttribute('aria-hidden','true');a.textContent=ico;
+  const b=D.createElement('span');b.className='sv849-txt';b.textContent=txt;
+  const n=D.createElement('span');n.className='sv849-name';n.textContent='לא נבחר';
+  inp.before(box);box.append(a,b,n,inp);
+  if(!inp.getAttribute('aria-label'))inp.setAttribute('aria-label',txt);
+  const sync=()=>{const f=inp.files&&inp.files[0];box.dataset.has=f?'1':'0';n.textContent=f?('✓ '+f.name):'לא נבחר'};
+  inp.addEventListener('change',sync);boxes.push(sync);sync();
+ }
+ // keep labels in sync when other code clears an input (e.g. "demo without photo")
+ root.addEventListener('click',()=>setTimeout(()=>boxes.forEach(f=>f()),60));
 })();
 </script>
 </body></html>
