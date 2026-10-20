@@ -76,13 +76,22 @@ main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 12px 1
 .thumbs div{flex:0 0 54px;height:96px;border-radius:8px;background:#000 center/cover;border:2px solid var(--line);position:relative}
 .thumbs div[data-sel="1"]{border-color:var(--gold)}
 .thumbs div b{position:absolute;bottom:2px;right:4px;font-size:10px;text-shadow:0 1px 2px #000}
-nav.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:6px 8px;padding-bottom:max(6px,env(safe-area-inset-bottom));border-top:1px solid var(--line);background:#071026}
+nav.tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:6px 8px;padding-bottom:max(6px,env(safe-area-inset-bottom));border-top:1px solid var(--line);background:#071026}
 nav.tabs button{display:grid;place-items:center;gap:1px;padding:4px 0;font-size:11px;min-height:52px;border:0;background:transparent}
 nav.tabs button span{font-size:20px}
 nav.tabs button[aria-selected=true]{background:linear-gradient(135deg,#1e3a8a,#3b82f6);border-radius:12px}
 .toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#0b2e2a;border:1px solid var(--ok);border-radius:13px;padding:10px 14px;font-size:13.5px;font-weight:700;z-index:50;max-width:92vw;transition:opacity .2s;pointer-events:none}
 .toast[data-k=warn]{background:#33181a;border-color:var(--bad)}
 [hidden]{display:none!important}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.chips button{flex:0 0 auto;min-height:38px;font-size:12px;padding:4px 11px;border-radius:20px}
+.lib{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.li{position:relative;padding:0;min-height:0;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:9/16;border:2px solid var(--line)}
+.li img{width:100%;height:100%;object-fit:cover;display:block}
+.li b{position:absolute;inset:auto 0 0 0;padding:16px 5px 5px;font-size:10.5px;line-height:1.25;background:linear-gradient(transparent,#000d);text-align:right;font-weight:700}
+.li i{position:absolute;top:5px;left:5px;font:700 10px ui-monospace,monospace;background:#000b;padding:2px 5px;border-radius:6px;font-style:normal}
+.li[data-used="1"]{border-color:var(--ok)}
+.src{font-size:12px;color:var(--cyan)}
+@media(max-width:360px){nav.tabs button{font-size:10px}.lib{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .pane{display:none}.pane.on{display:block}
 .qr{display:flex;gap:12px;align-items:center;background:#081127;border:1px solid #6b5520;border-radius:14px;padding:10px}
 .qr canvas{width:110px;height:110px;border-radius:8px;background:#fff;flex:0 0 auto}
@@ -133,6 +142,7 @@ nav.tabs button[aria-selected=true]{background:linear-gradient(135deg,#1e3a8a,#3
    <div class="thumbs" id="thumbs"></div>
   </div>
   <div class="card"><h2>🎬 סצנה <span id="sNum">1</span></h2>
+   <div class="src" id="sSrc"></div>
    <label class="f">כתובית<input id="sCap" type="text" maxlength="60"></label>
    <div class="g2">
     <label class="f">משך (שניות)<input id="sDur" type="range" min="0.6" max="8" step="0.1"><span id="sDurV" class="note"></span></label>
@@ -154,6 +164,19 @@ nav.tabs button[aria-selected=true]{background:linear-gradient(135deg,#1e3a8a,#3
     <button class="tile" id="kFrame"><span>🖼️</span>פריים</button>
     <button class="tile" id="kShare"><span>📣</span>שיתוף</button>
    </div>
+  </div>
+ </div>
+
+ <!-- 📚 LIBRARY -->
+ <div class="pane" id="p-lib">
+  <div class="card"><h2>📚 ספריית הסטודיו · <span id="libCount">…</span></h2>
+   <div class="note">כל הקבצים שהפקנו מחוברים לעורך: קליפי AI, פוסטרים, פוסטרים חיים, טיזרים, FX3D, רילס וקונספטים. לחיצה על קובץ מוסיפה אותו לעריכה.</div>
+   <div class="chips" id="libCats" role="tablist" aria-label="קטגוריות"></div>
+   <div class="g2"><label class="f">אירוע<select id="libEv"><option value="">כל האירועים</option></select></label>
+    <label class="f">לחיצה על קובץ<select id="libMode"><option value="add">➕ מוסיפה סצנה חדשה</option><option value="rep">🔁 מחליפה את הסצנה הנבחרת</option></select></label></div>
+   <button id="libBuild" class="gold" hidden>🎬 בנה וידאו מכל קבצי האירוע</button>
+   <div class="lib" id="lib"></div>
+   <div class="note" id="libNote"></div>
   </div>
  </div>
 
@@ -245,6 +268,7 @@ nav.tabs button[aria-selected=true]{background:linear-gradient(135deg,#1e3a8a,#3
 
 <nav class="tabs" role="tablist" aria-label="מסכים">
  <button role="tab" aria-selected="true" data-p="edit"><span>✂️</span>עריכה</button>
+ <button role="tab" aria-selected="false" data-p="lib"><span>📚</span>ספרייה</button>
  <button role="tab" aria-selected="false" data-p="ai"><span>🤖</span>סוכנים</button>
  <button role="tab" aria-selected="false" data-p="music"><span>🎶</span>מוזיקה</button>
  <button role="tab" aria-selected="false" data-p="text"><span>🔤</span>טקסט</button>
@@ -281,9 +305,10 @@ function addFiles(files,only){var arr=[].slice.call(files);if(!arr.length)return
   if(isV){var v=document.createElement('video');v.src=url;v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';v.loop=true;v.onloadeddata=function(){m.ok=true;draw();paintThumbs()};m.el=v}
   else{var im=new Image();im.onload=function(){m.ok=true;draw();paintThumbs()};im.src=url;m.el=im}
   media.push(m);var idx=media.length-1;
-  if(only!=null)P.scenes[only].m=idx;else{var tgt=P.scenes.findIndex(function(s){return s.m<0});if(tgt<0){P.scenes.push({cap:'',dur:2.4,cam:Object.keys(CAMS)[P.scenes.length%9],tr:'cut',fx:'none',m:idx})}else P.scenes[tgt].m=idx}});
+  if(only!=null){P.scenes[only].m=idx;P.scenes[only].lib=null}else{var tgt=P.scenes.findIndex(function(s){return s.m<0});if(tgt<0){P.scenes.push({cap:'',dur:2.4,cam:Object.keys(CAMS)[P.scenes.length%9],tr:'cut',fx:'none',m:idx})}else P.scenes[tgt].m=idx}});
  P.minimal='';P.done.media=1;save();paintAll();toast('📥 נטענו '+arr.length+' קבצים')}
-function mediaURL(url,name){var m={name:name,url:url,type:'video',el:null,ok:false},v=document.createElement('video');v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';v.loop=true;v.crossOrigin='anonymous';
+function mediaURL(url,name,img){if(img){var mi={name:name,url:url,type:'image',el:new Image(),ok:false};mi.el.crossOrigin='anonymous';mi.el.onload=function(){mi.ok=true;draw();paintThumbs()};mi.el.src=url;media.push(mi);return media.length-1}
+ var m={name:name,url:url,type:'video',el:null,ok:false},v=document.createElement('video');v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';v.loop=true;v.crossOrigin='anonymous';
  v.onloadeddata=function(){m.ok=true;draw();paintThumbs();paintScene()};v.onerror=function(){toast('⚠️ '+name+' לא נטען','warn')};v.src=url;m.el=v;media.push(m);return media.length-1}
 var PACKS=[{id:'vera',ic:'🎃',t:'Hello Vera · 30.10',hook:'🎃 שישי הזה',ev:{name:'HALLOWEEN EDITION',date:'30.10.2026',artist:'Hello Vera',place:'Shalvata TLV Port',vibe:'dark',cta:'הזמינו שולחן'},
   c:[['hello-vera_witch_c',.3],['hello-vera_witch_a',4],['hello-vera_singer_a',.6],['hello-vera_violin_a',2],['hello-vera_witch_b',.8],['hello-vera_singer_b',1]]},
@@ -292,7 +317,7 @@ var PACKS=[{id:'vera',ic:'🎃',t:'Hello Vera · 30.10',hook:'🎃 שישי הז
  {id:'thu',ic:'🎉',t:'Thursday · 22.10',hook:'🎉 חמישי הזה',ev:{name:'THURSDAY MAINSTREAM',date:'22.10.2026',artist:'',place:'Shalvata TLV Port',vibe:'mainstream',cta:'הזמינו שולחן'},
   c:[['thursday-mainstream_stage',.4],['thursday-mainstream_stage',3.5],['thursday-mainstream_stage',6.5],['thursday-mainstream_stage',9.5],['thursday-mainstream_stage',12.3]]}];
 function loadPack(id){var pk=PACKS.find(function(x){return x.id===id});if(!pk)return;snap();media.forEach(function(m){try{m.el.pause()}catch(e){}});media=[];var cache={};
- P.event=JSON.parse(JSON.stringify(pk.ev));P.scenes=pk.c.map(function(c){if(cache[c[0]]==null)cache[c[0]]=mediaURL('media/'+c[0]+'.mp4',c[0]);return{cap:'',dur:2.4,cam:'wide',tr:'cut',fx:'none',m:cache[c[0]],off:c[1]}});
+ P.event=JSON.parse(JSON.stringify(pk.ev));P.scenes=pk.c.map(function(c){if(cache[c[0]]==null)cache[c[0]]=mediaURL('lib/v/clip_'+c[0]+'.mp4',c[0]);return{cap:'',dur:2.4,cam:'wide',tr:'cut',fx:'none',m:cache[c[0]],off:c[1],lib:'clip_'+c[0]}});
  P.done={media:1,ai:1};P.minimal=pk.hook;P.text.pos='bottom';sel=0;T=0;P.share='';save();paintAll();runAgents();toast(pk.ic+' '+pk.t+' נטען')}
 function paintPacks(){var b=$('packs');if(!b||b.children.length)return;PACKS.forEach(function(pk){var x=document.createElement('button');x.className='tile';x.innerHTML='<span>'+pk.ic+'</span>'+pk.t;x.onclick=function(){loadPack(pk.id)};b.appendChild(x)})}
 function paintThumbs(){var b=$('thumbs');b.innerHTML='';P.scenes.forEach(function(s,i){var d=document.createElement('div');var m=media[s.m];d.dataset.sel=i===sel?'1':'0';
@@ -425,7 +450,7 @@ function paintTimeline(){var tt=total(),a=$('trScenes'),c=$('trCaps');a.innerHTM
  P.scenes.forEach(function(s,i){var e=document.createElement('div');e.className='seg';e.style.flex=s.dur/tt+' 1 0';e.style.background=COLORS[i%8];e.textContent=(i+1)+' · '+CAMS[s.cam].split(' ')[0];e.onclick=function(){selScene(i);seek(start(i)+.01)};a.appendChild(e);
   var k=document.createElement('div');k.className='seg cap';k.style.flex=s.dur/tt+' 1 0';k.textContent=s.cap||'—';k.onclick=function(){selScene(i);document.querySelector('[data-p=edit]').click();$('sCap').focus()};c.appendChild(k)});drawWave();markSel()}
 function fillSel(id,obj,val){var s=$(id);if(!s.options.length)Object.keys(obj).forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=obj[k];s.appendChild(o)});s.value=val}
-function paintScene(){var s=P.scenes[sel];if(!s)return;$('sNum').textContent=sel+1;$('sCap').value=s.cap;$('sDur').value=s.dur;$('sDurV').textContent=s.dur.toFixed(2)+' שנ׳ · '+(s.dur/(60/P.music.bpm)).toFixed(1)+' ביטים';fillSel('sCam',CAMS,s.cam);var mm=media[s.m],md=mm&&mm.el&&mm.el.duration||0;$('sOff').max=md?Math.max(0,md-s.dur).toFixed(1):14;$('sOff').value=s.off||0;$('sOffV').textContent=mm&&mm.type==='video'?((s.off||0).toFixed(1)+' שנ׳ מתוך '+(md?md.toFixed(1):'?')):'רק לווידאו';fillSel('sTr',TRS,s.tr);fillSel('sFx',FXS,s.fx)}
+function paintScene(){var s=P.scenes[sel];if(!s)return;var mi=media[s.m];$('sSrc').textContent=mi?('🔗 מקור: '+(LIBX[s.lib]?LIBX[s.lib].t:mi.name)):'🔗 אין מדיה · ספרייה 📚 או טעינה מהמכשיר';$('sNum').textContent=sel+1;$('sCap').value=s.cap;$('sDur').value=s.dur;$('sDurV').textContent=s.dur.toFixed(2)+' שנ׳ · '+(s.dur/(60/P.music.bpm)).toFixed(1)+' ביטים';fillSel('sCam',CAMS,s.cam);var mm=media[s.m],md=mm&&mm.el&&mm.el.duration||0;$('sOff').max=md?Math.max(0,md-s.dur).toFixed(1):14;$('sOff').value=s.off||0;$('sOffV').textContent=mm&&mm.type==='video'?((s.off||0).toFixed(1)+' שנ׳ מתוך '+(md?md.toFixed(1):'?')):'רק לווידאו';fillSel('sTr',TRS,s.tr);fillSel('sFx',FXS,s.fx)}
 function paintChain(){var b=$('chain');b.innerHTML='';var keys=['media','ai','ag_director','cap','music','cut','qa','exp'],cur=keys.findIndex(function(k){return!P.done[k]});if(cur<0)cur=7;
  CHAIN.forEach(function(c,i){var e=document.createElement('button');e.dataset.done=P.done[keys[i]]?'1':'0';e.dataset.cur=i===cur?'1':'0';e.innerHTML='<span>'+c[0]+'</span>'+(i+1)+' '+c[1];e.onclick=function(){goChain(i)};b.appendChild(e)});$('chainNow').textContent=(cur+1)+'/8';P.cur=cur}
 function goChain(i){var c=CHAIN[i];document.querySelector('[data-p='+c[2]+']').click();if(i===0)$('fileAll').click();if(i===5)smartCut();if(i===6){var iss=qa();toast(iss.length?'⚠️ '+iss.join(' · '):'✅ הכל תקין',iss.length?'warn':'ok');P.done.qa=1;save();paintChain()}}
@@ -461,6 +486,35 @@ function voices(){var v=[];try{v=speechSynthesis.getVoices()}catch(e){}var he=v.
 function speak(t){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='he-IL';u.rate=P.voice.rate;var v=speechSynthesis.getVoices().find(function(x){return x.name===$('vVoice').value});if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){toast('אין מנוע קול','warn')}}
 function speakSync(){seek(0);setPlay(true);var i=-1;(function w(){if(!playing)return;var r=sceneAt(T);if(r.i!==i){i=r.i;if(P.scenes[i].cap)speak(P.scenes[i].cap)}setTimeout(w,80)})()}
 
+
+/* ---------- 📚 library: every studio file connected ---------- */
+var LIB=null,LIBX={},libCat='all';
+var VIBE=function(k){return/halloween/.test(k)?'dark':/bubbles/.test(k)?'bubbles':/spoons/.test(k)?'melodic':'mainstream'};
+var HOOK={'thursday':'חמישי הזה','friday':'שישי הזה','bubbles':'שבת הזאת','spoons':'יום שני הזה'};
+function loadLib(){fetch('lib/library.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){LIB=j;j.items.forEach(function(it){LIBX[it.id]=it});
+  var c=$('libCats');c.innerHTML='';j.cats.forEach(function(k){var b=document.createElement('button');b.textContent=k[1];b.setAttribute('role','tab');b.dataset.c=k[0];b.onclick=function(){libCat=k[0];paintLib()};c.appendChild(b)});
+  var s=$('libEv');j.events.forEach(function(ev){var o=document.createElement('option');o.value=ev[0];o.textContent=ev[1]+' '+ev[2]+' · '+ev[3];s.appendChild(o)});
+  rehydrate();paintLib()}).catch(function(){$('libCount').textContent='לא זמין';$('libNote').textContent='הספרייה זמינה כשהעורך פתוח מהאתר או מהסטודיו (לא כקובץ בודד).'})}
+function libItems(){var ev=$('libEv').value;return LIB.items.filter(function(it){return(libCat==='all'||it.cat===libCat)&&(!ev||it.ev===ev)})}
+function paintLib(){if(!LIB)return;var L=libItems(),b=$('lib');b.innerHTML='';$('libCount').textContent=LIB.items.length+' קבצים';
+ [].forEach.call($('libCats').children,function(x){x.setAttribute('aria-pressed',String(x.dataset.c===libCat))});
+ var used={};P.scenes.forEach(function(s){if(s.lib)used[s.lib]=1});
+ L.forEach(function(it){var x=document.createElement('button');x.className='li';x.dataset.used=used[it.id]?'1':'0';x.setAttribute('aria-label',it.t);
+  x.innerHTML='<img loading="lazy" alt="" src="'+it.thumb+'"><i>'+(it.type==='video'?'▶ '+it.dur.toFixed(0)+'s':'🖼️')+'</i><b></b>';x.querySelector('b').textContent=it.t;x.onclick=function(){addLib(it.id)};b.appendChild(x)});
+ $('libNote').textContent=L.length?L.length+' מוצגים · ירוק = כבר בעריכה':'אין קבצים בסינון הזה';$('libBuild').hidden=!$('libEv').value}
+function addLib(id,mode){var it=LIBX[id];if(!it)return;mode=mode||$('libMode').value;snap();var idx=mediaURL(it.src,it.t,it.type==='image');
+ var sc={cap:'',dur:it.type==='image'?2.4:Math.min(3,Math.max(1.2,it.dur-.5)),cam:it.type==='image'?'push':'wide',tr:'cut',fx:'none',m:idx,off:it.type==='video'&&it.dur>4?.5:0,lib:id};
+ if(mode==='rep'){var s=P.scenes[sel];s.m=idx;s.lib=id;s.off=sc.off}else{if(P.scenes.length>=12){toast('מקסימום 12 סצנות','warn');hist.pop();return}var emp=P.scenes.findIndex(function(s){return s.m<0});if(emp>=0){P.scenes[emp].m=idx;P.scenes[emp].lib=id;P.scenes[emp].off=sc.off;sel=emp}else{P.scenes.push(sc);sel=P.scenes.length-1}}
+ P.done.media=1;save();paintAll();paintLib();toast((mode==='rep'?'🔁 ':'➕ ')+it.t)}
+function buildEvent(k){if(!LIB)return;k=k||$('libEv').value;var ev=LIB.events.find(function(x){return x[0]===k});if(!ev)return;snap();
+ var by=function(c){return LIB.items.filter(function(it){return it.ev===k&&it.cat===c})},seq=[].concat(by('live').map(function(i){return[i,.2]}),by('clips').sort(function(x,y){var R=['witch_c','witch_a','singer_a','violin_a','maor_a','maor_c','maor_b','maor_d'],f=function(i){var k=R.findIndex(function(r){return i.id.indexOf(r)>0});return k<0?99:k};return f(x)-f(y)}).slice(0,4).map(function(i,n){return[i,[.4,4,.6,2][n]]}),by('teaser').map(function(i){return[i,6]}),by('fx3d').map(function(i){return[i,3]}),by('posters').map(function(i){return[i,0]}));
+ media.forEach(function(m){try{m.el.pause()}catch(e){}});media=[];var cache={};
+ P.scenes=seq.slice(0,8).map(function(p){var it=p[0];if(cache[it.id]==null)cache[it.id]=mediaURL(it.src,it.t,it.type==='image');return{cap:'',dur:2.4,cam:'wide',tr:'cut',fx:'none',m:cache[it.id],off:Math.min(p[1],Math.max(0,it.dur-3)),lib:it.id}});
+ var dd=ev[3].split('.'),hk=Object.keys(HOOK).find(function(h){return k.indexOf(h)===0});
+ P.event={name:ev[2].toUpperCase(),date:ev[3]+'.2026',artist:/vera/.test(k)?'Hello Vera':/maor/.test(k)?'Maor':'',place:'Shalvata TLV Port',vibe:VIBE(k),cta:'הזמינו שולחן'};
+ P.minimal=ev[1]+' '+HOOK[hk];P.text.pos='bottom';P.done={media:1,ai:1};P.share='';sel=0;T=0;save();paintAll();runAgents();paintLib();toast('🎬 '+ev[2]+': '+P.scenes.length+' סצנות מכל הקבצים')}
+function rehydrate(){var n=0,cache={};P.scenes.forEach(function(s){if(s.lib&&LIBX[s.lib]&&!media[s.m]){var it=LIBX[s.lib];if(cache[it.id]==null)cache[it.id]=mediaURL(it.src,it.t,it.type==='image');s.m=cache[it.id];n++}else if(!media[s.m])s.m=-1});if(n){paintAll();toast('🔗 '+n+' סצנות חוברו מחדש לספרייה')}}
+$('libEv').onchange=paintLib;$('libBuild').onclick=function(){buildEvent()};
 /* ---------- wiring ---------- */
 document.querySelectorAll('nav.tabs button').forEach(function(b){b.onclick=function(){document.querySelectorAll('nav.tabs button').forEach(function(x){x.setAttribute('aria-selected',String(x===b))});document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.id==='p-'+b.dataset.p)});$('main').scrollTop=0}});
 $('tPlay').onclick=function(){setPlay(!playing)};$('tFirst').onclick=function(){seek(0);selScene(0)};
@@ -499,15 +553,180 @@ $('exp').onclick=exportVideo;$('shFile').onclick=shareFile;document.querySelecto
 $('cpTxt').onclick=function(){var t=$('shText').value;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){toast('📋 הועתק')},function(){$('shText').select();toast('סמנו והעתיקו ידנית','warn')})};
 $('shText').oninput=function(e){P.share=e.target.value;save()};
 $('pSave').onclick=function(){save();toast('💾 נשמר במכשיר (בלי קבצי המדיה)')};$('pExport').onclick=function(){var b=new Blob([JSON.stringify(P,null,1)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='SHALVATA_EDIT_project.json';a.click()};
-$('pLoad').onchange=function(e){var f=e.target.files[0];if(!f)return;f.text().then(function(t){var o=JSON.parse(t);if(o.v!==1)throw 0;snap();P=Object.assign(defaults(),o);P.scenes.forEach(function(s){if(!media[s.m])s.m=-1});save();paintAll();toast('📂 נטען')}).catch(function(){toast('קובץ לא תקין','warn')})};
+$('pLoad').onchange=function(e){var f=e.target.files[0];if(!f)return;f.text().then(function(t){var o=JSON.parse(t);if(o.v!==1)throw 0;snap();P=Object.assign(defaults(),o);P.scenes.forEach(function(s){if(!s.lib&&!media[s.m])s.m=-1});media=[];rehydrate();save();paintAll();toast('📂 נטען')}).catch(function(){toast('קובץ לא תקין','warn')})};
 $('pNew').onclick=function(){snap();P=defaults();P.minimal='';media=[];sel=0;seek(0);save();paintAll();toast('🆕 פרויקט חדש · ↩️ לביטול')};
 addEventListener('keydown',function(e){if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;if(e.key===' '){e.preventDefault();setPlay(!playing)}else if(e.key==='ArrowLeft')seek(T+(e.shiftKey?1:1/30));else if(e.key==='ArrowRight')seek(T-(e.shiftKey?1:1/30));else if(e.key==='Home')seek(0);else if(e.key==='End')seek(total()-.05);else if(e.key==='PageDown')$('tNext').click();else if(e.key==='PageUp')$('tPrev').click();else if((e.ctrlKey||e.metaKey)&&e.key==='z'){e.preventDefault();$('undo').click()}});
 document.addEventListener('visibilitychange',function(){if(document.hidden&&playing)setPlay(false)});
 try{speechSynthesis.onvoiceschanged=voices}catch(e){}voices();$('vRate').value=P.voice.rate;
 if(!P.scenes.some(function(s){return s.cap})){agent('director');agent('copy');agent('music');agent('editor');agent('look');agent('social');P.done={};save()}
-paintPacks();qr();paintAll();setTimeout(markSel,60);addEventListener('resize',markSel);
-window.__SHALVATA_EDIT={loadPack:loadPack,media:function(){return media},P:function(){return P},seek:seek,play:setPlay,runAgents:runAgents,chat:chat,smartCut:smartCut,exportVideo:exportVideo,total:total,T:function(){return T},addFiles:addFiles,qa:qa};
+paintPacks();qr();paintAll();loadLib();setTimeout(markSel,60);addEventListener('resize',markSel);
+window.__SHALVATA_EDIT={lib:function(){return LIB},addLib:addLib,buildEvent:buildEvent,loadPack:loadPack,media:function(){return media},P:function(){return P},seek:seek,play:setPlay,runAgents:runAgents,chat:chat,smartCut:smartCut,exportVideo:exportVideo,total:total,T:function(){return T},addFiles:addFiles,qa:qa};
 })();
 </script>
+<!-- BEGIN SHALVATA PREVIEW BRIDGE 1.0 · active only inside the claude.ai artifact viewer (window.claude.use present). Inert in a local file. -->
+<style id="shvpb-css">
+#shvpb-dlg[hidden],#shvpb-toast[hidden]{display:none!important}
+#shvpb-dlg{position:fixed;inset:0;z-index:2147483646;background:rgba(10,8,4,.62);display:flex;align-items:flex-end;justify-content:center;padding:0 max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+#shvpb-box{direction:rtl;text-align:right;width:100%;max-width:440px;background:#fff8ea;color:#2a2110;border:1px solid #c9a24a;border-radius:18px;padding:16px;font:15px/1.5 system-ui,-apple-system,Arial,sans-serif;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+#shvpb-box h4{margin:0 0 6px;font-size:13px;letter-spacing:.02em;color:#7a5a12}
+#shvpb-msg{margin:0 0 14px;white-space:pre-wrap;overflow-wrap:anywhere}
+#shvpb-row{display:flex;gap:10px}
+#shvpb-row button{flex:1;min-height:46px;border-radius:12px;font:700 15px system-ui,-apple-system,Arial,sans-serif;cursor:pointer}
+#shvpb-ok{background:#5a430c;color:#fff;border:1px solid #5a430c}
+#shvpb-no{background:transparent;color:#2a2110;border:1px solid #b89a5a}
+#shvpb-row button:focus-visible{outline:3px solid #2f6fd6;outline-offset:2px}
+#shvpb-toast{position:fixed;z-index:2147483647;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));max-width:min(92vw,420px);direction:rtl;background:#2a2110;color:#fff8ea;border:1px solid #c9a24a;border-radius:12px;padding:10px 14px;font:600 13px/1.45 system-ui,-apple-system,Arial,sans-serif}
+@media (prefers-color-scheme: dark){#shvpb-box{background:#231c0b;color:#fff6e0}#shvpb-box h4{color:#e6c172}#shvpb-no{color:#fff6e0}}
+</style>
+<script id="shvpb-script">
+(function () {
+  'use strict';
+  var VIEW = !!(window.claude && typeof window.claude.use === 'function');
+  var st = { active: VIEW, saves: [], confirms: [], alerts: 0, frameInjected: 0, rejected: 0 };
+  window.SHVPreviewBridge = { version: '1.1.0', status: function () { return JSON.parse(JSON.stringify(st)); } };
+  if (!VIEW) { return; }
+
+  var EXT = /\.(json|csv|txt|md|html|svg|png|jpg|jpeg|webp|gif|pdf|zip|mp4|webm)$/i, MAX = 20 * 1024 * 1024;
+  var dlNs = null, dlReady = window.claude.use('downloads').then(function (ns) { dlNs = ns; return ns; }, function () { return null; });
+
+  /* ---------- toast + in-page confirmation (the viewer never shows confirm/alert) */
+  var toastEl = null, toastTimer = 0, dlg = null, pendingAnswer = null;
+  function ensureUi() {
+    if (dlg) { return; }
+    dlg = document.createElement('div'); dlg.id = 'shvpb-dlg'; dlg.hidden = true; dlg.setAttribute('role', 'dialog'); dlg.setAttribute('aria-modal', 'true'); dlg.setAttribute('aria-labelledby', 'shvpb-h');
+    dlg.innerHTML = '<div id="shvpb-box"><h4 id="shvpb-h">נדרש אישור</h4><p id="shvpb-msg"></p><div id="shvpb-row"><button type="button" id="shvpb-ok">אישור</button><button type="button" id="shvpb-no">ביטול</button></div></div>';
+    document.body.appendChild(dlg);
+    toastEl = document.createElement('div'); toastEl.id = 'shvpb-toast'; toastEl.hidden = true; toastEl.setAttribute('role', 'status'); toastEl.setAttribute('aria-live', 'polite');
+    document.body.appendChild(toastEl);
+    document.getElementById('shvpb-ok').addEventListener('click', function () { answer(true); });
+    document.getElementById('shvpb-no').addEventListener('click', function () { answer(false); });
+    dlg.addEventListener('keydown', function (e) { if (e.key === 'Escape') { answer(false); } });
+  }
+  function toast(t) {
+    ensureUi(); toastEl.textContent = t; toastEl.hidden = false;
+    window.clearTimeout(toastTimer); toastTimer = window.setTimeout(function () { toastEl.hidden = true; }, 3800);
+  }
+  function ask(msg, cb) {
+    ensureUi();
+    if (pendingAnswer) { cb(false); return; }
+    pendingAnswer = cb; document.getElementById('shvpb-msg').textContent = msg;
+    dlg.hidden = false; document.getElementById('shvpb-ok').focus();
+  }
+  function answer(ok) {
+    var cb = pendingAnswer; pendingAnswer = null; if (dlg) { dlg.hidden = true; }
+    st.confirms.push({ at: new Date().toISOString(), approved: ok });
+    if (cb) { cb(ok); }
+  }
+
+  /* ---------- confirm(): ask in the page, then replay the user's own action once with confirm() = true */
+  var allowOnce = 0, last = null;
+  function remember(kind) { return function (e) { if (dlg && dlg.contains(e.target)) { return; } last = { t: e.target, k: kind, at: Date.now() }; }; }
+  document.addEventListener('click', remember('click'), true);
+  document.addEventListener('change', remember('change'), true);
+  /* replay only the user's own action: the running click/change event, or (after an await) the last one within 5 s.
+     A confirm() raised from any other event (message, timer-driven) is never replayed. */
+  function pickEvent() {
+    var we = window.event;
+    if (we && (we.type === 'click' || we.type === 'change')) { return { t: we.target, k: we.type, at: Date.now() }; }
+    if (we) { return false; }
+    return last && Date.now() - last.at < 5000 ? last : null;
+  }
+  function replay(ev) {
+    var t = ev.t; if (t && t.nodeType !== 1) { t = t.parentElement; }
+    if (!t || !t.isConnected) { toast('הפעולה כבר לא זמינה. נסו שוב.'); return; }
+    allowOnce = 1;
+    try { if (ev.k === 'change') { t.dispatchEvent(new Event('change', { bubbles: true })); } else { t.click(); } } finally { allowOnce = 0; }
+  }
+  window.confirm = function (msg) {
+    if (allowOnce > 0) { allowOnce--; return true; }
+    var ev = pickEvent();
+    if (ev === false) { toast('האישור הזה לא זמין בתצוגה הזו.'); st.confirms.push({ at: new Date().toISOString(), approved: false, reason: 'non_user_event' }); return false; }
+    ask(String(msg === undefined ? '' : msg), function (ok) { if (ok && ev) { replay(ev); } else if (ok) { toast('אין פעולה לחזור עליה. בצעו אותה שוב.'); } });
+    return false;
+  };
+  window.alert = function (msg) { st.alerts++; toast(String(msg === undefined ? '' : msg)); };
+
+  /* ---------- downloads: blob/data links go through the viewer's save prompt */
+  var urls = {}, ocu = URL.createObjectURL;
+  URL.createObjectURL = function (b) { var u = ocu.apply(URL, arguments); try { if (b instanceof Blob) { urls[u] = b; } } catch (e) {} return u; };
+  function dataUrlBlob(h) {
+    var m = /^data:([^,]*?)(;base64)?,(.*)$/i.exec(h); if (!m) { return null; }
+    try {
+      if (m[2]) { var bin = atob(m[3]), arr = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) { arr[i] = bin.charCodeAt(i); } return new Blob([arr]); }
+      return new Blob([decodeURIComponent(m[3])]);
+    } catch (e) { return null; }
+  }
+  function cleanName(n) { n = String(n || '').replace(/[\\\/:*?"<>|]+/g, '_').slice(0, 200); if (!EXT.test(n)) { n = (n || 'SHALVATA_export') + '.txt'; } return n; }
+  function save(name, blob) {
+    if (!(blob instanceof Blob) || blob.size < 1 || blob.size > MAX) { st.rejected++; toast('הקובץ לא תקין לשמירה.'); return; }
+    name = cleanName(name);
+    dlReady.then(function (ns) {
+      if (!ns) { st.saves.push({ name: name, status: 'unavailable' }); toast('שמירת קבצים לא זמינה בתצוגה הזו.'); return; }
+      ns.save({ filename: name, data: blob }).then(function (r) {
+        st.saves.push({ name: name, status: r && r.status, bytes: blob.size }); toast('נשמר: ' + name);
+      }, function (err) {
+        var c = err && err.code; st.saves.push({ name: name, status: c || 'error' });
+        if (c === 'declined') { toast('השמירה בוטלה.'); } else if (c === 'rate_limited') { toast('חלון שמירה כבר פתוח. נסו שוב בעוד רגע.'); } else { toast('לא ניתן לשמור כאן (' + (c || 'שגיאה') + ').'); }
+      });
+    });
+  }
+  function anchorBlob(a) { var h = a.href || ''; return urls[h] || (h.indexOf('data:') === 0 ? dataUrlBlob(h) : null); }
+  var aclick = HTMLAnchorElement.prototype.click;
+  HTMLAnchorElement.prototype.click = function () {
+    if (this.hasAttribute('download')) { var b = anchorBlob(this); if (b) { save(this.getAttribute('download') || 'SHALVATA_export', b); return; } }
+    return aclick.apply(this, arguments);
+  };
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[download]') : null; if (!a) { return; }
+    var b = anchorBlob(a); if (!b) { return; }
+    e.preventDefault(); save(a.getAttribute('download') || 'SHALVATA_export', b);
+  }, true);
+
+  /* ---------- widget frame (Business): the same bridge inside the isolated srcdoc frame, over postMessage */
+  var FRAME_JS = '(function(){var allow=0,last=null,pend=null,urls={};' +
+    'function post(m){try{parent.postMessage(m,"*")}catch(e){}}' +
+    'function rem(k){return function(e){last={t:e.target,k:k,at:Date.now()}}}' +
+    'document.addEventListener("click",rem("click"),true);document.addEventListener("change",rem("change"),true);' +
+    'window.confirm=function(m){if(allow>0){allow--;return true}var we=window.event;if(we&&we.type!=="click"&&we.type!=="change")return false;pend=we?{t:we.target,k:we.type,at:Date.now()}:(last&&Date.now()-last.at<5000?last:null);post({kind:"SHVPB_CONFIRM",msg:String(m===undefined?"":m)});return false};' +
+    'window.alert=function(m){post({kind:"SHVPB_ALERT",msg:String(m===undefined?"":m)})};' +
+    'window.addEventListener("message",function(e){if(e.source!==parent||!e.data||e.data.kind!=="SHVPB_CONFIRM_OK"||!pend)return;var p=pend,t=p.t;pend=null;if(t&&t.nodeType!==1)t=t.parentElement;if(!t)return;allow=1;' +
+      'try{if(p.k==="change"){t.dispatchEvent(new Event("change",{bubbles:true}))}else{t.click()}}finally{allow=0}});' +
+    'var ocu=URL.createObjectURL;URL.createObjectURL=function(b){var u=ocu.apply(URL,arguments);try{if(b instanceof Blob)urls[u]=b}catch(e){}return u};' +
+    'function ab(a){return urls[a.href]||null}' +
+    'var ac=HTMLAnchorElement.prototype.click;HTMLAnchorElement.prototype.click=function(){if(this.hasAttribute("download")){var b=ab(this);if(b){post({kind:"SHVPB_SAVE",name:this.getAttribute("download")||"",blob:b});return}}return ac.apply(this,arguments)};' +
+    'document.addEventListener("click",function(e){var a=e.target&&e.target.closest?e.target.closest("a[download]"):null;if(!a)return;var b=ab(a);if(!b)return;e.preventDefault();post({kind:"SHVPB_SAVE",name:a.getAttribute("download")||"",blob:b})},true);' +
+    '})();';
+  function injectFrame(html) {
+    if (html === null || html === undefined) { return html; }
+    html = String(html); if (!html || html.indexOf('id="shvpb-frame"') >= 0) { return html; }
+    var tag = '<script id="shvpb-frame">' + FRAME_JS + '<\/script>', i = html.search(/<head[^>]*>/i);
+    st.frameInjected++;
+    if (i < 0) { return tag + html; }
+    var end = html.indexOf('>', i) + 1; return html.slice(0, end) + tag + html.slice(end);
+  }
+  var frames = [];
+  function wrapFrame(f) {
+    if (!f || frames.indexOf(f) >= 0) { return; }
+    try {
+      var d = Object.getOwnPropertyDescriptor(f, 'srcdoc') || Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype, 'srcdoc');
+      Object.defineProperty(f, 'srcdoc', { configurable: true, get: function () { return d.get.call(this); }, set: function (v) { d.set.call(this, injectFrame(v)); } });
+      var cur = f.getAttribute('srcdoc'); if (cur) { f.srcdoc = cur; }
+      frames.push(f); st.frames = frames.map(function (x) { return x.id; });
+    } catch (e) {}
+  }
+  ['shv145-frame', 'm1-creative-frame', 's12-social-iframe', 'shvm1-frame'].forEach(function (id) { wrapFrame(document.getElementById(id)); });
+  window.SHVMasterFrameReady = wrapFrame; /* frames created later (Master 1 modules) register themselves */
+  window.addEventListener('message', function (e) {
+    var ok = false; for (var i = 0; i < frames.length; i++) { if (e.source && e.source === frames[i].contentWindow) { ok = true; } }
+    if (!ok || !e.data) { return; }
+    var m = e.data, src = e.source;
+    if (m.kind === 'SHVPB_CONFIRM' && typeof m.msg === 'string') {
+      ask(m.msg.slice(0, 600), function (yes) { if (yes) { try { src.postMessage({ kind: 'SHVPB_CONFIRM_OK' }, '*'); } catch (err) {} } });
+    } else if (m.kind === 'SHVPB_ALERT' && typeof m.msg === 'string') { st.alerts++; toast(m.msg.slice(0, 300)); }
+    else if (m.kind === 'SHVPB_SAVE' && typeof m.name === 'string') { save(m.name, m.blob); }
+  });
+})();
+</script>
+<!-- END SHALVATA PREVIEW BRIDGE -->
 </body>
 </html>
