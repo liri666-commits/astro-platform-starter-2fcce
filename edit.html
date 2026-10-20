@@ -363,6 +363,12 @@ nav.tabs button[aria-selected=true]{background:linear-gradient(135deg,#1e3a8a,#3
    <div class="g2"><button id="cpTxt">📋 העתק טקסט</button><button id="shFile" disabled>↗️ שתף את הסרטון</button></div>
    <label class="f">טקסט לשיתוף<textarea id="shText"></textarea></label>
   </div>
+  <div class="card" id="dtCard"><h2>🩺 בדיקת מכשיר</h2>
+   <div class="note">בודק במכשיר הזה את כל מה שהעורך צריך, כולל ייצוא קצר אמיתי של 2 שניות. בסוף מעתיקים את הדוח ושולחים לקלוד בצ׳אט.</div>
+   <button id="dtRun" class="gold">🩺 הרץ בדיקה</button>
+   <div class="agents" id="dtList"></div>
+   <div class="g2"><button id="dtCopy" disabled>📋 העתק דוח</button><span class="note" id="dtSum" style="display:grid;place-items:center">—</span></div>
+  </div>
   <div class="card"><h2>💾 פרויקט</h2>
    <div class="g3"><button id="pSave">💾 שמור</button><button id="pExport">⬇️ JSON</button><label class="tile" style="min-height:44px;border:1px solid var(--line);border-radius:13px;background:var(--panel2);cursor:pointer;padding:6px">📂 טען<input id="pLoad" type="file" accept="application/json" hidden></label></div>
    <button id="pNew">🆕 פרויקט חדש</button>
@@ -846,7 +852,48 @@ function lineup(){snap();media.forEach(function(m){try{m.el.pause()}catch(_){}})
 [].forEach.call($('tpls').children,function(b){b.onclick=function(){applyTpl(b.dataset.t)}});
 $('xSub').onchange=function(e){snap();P.text.sub=e.target.value;save();draw()};
 document.querySelector('nav.tabs [data-p=story]').addEventListener('click',fillTplEv);
-window.__SHALVATA_EDIT={applyTpl:applyTpl,lineup:lineup,scriptText:scriptText,sbTeam:sbTeam,useVar:useVar,agent:agent,paintSB:paintSB,cxApply:cxApply,cxPrompt:cxPrompt,openTab:openTab,lib:function(){return LIB},addLib:addLib,buildEvent:buildEvent,loadPack:loadPack,media:function(){return media},P:function(){return P},seek:seek,play:setPlay,runAgents:runAgents,chat:chat,smartCut:smartCut,exportVideo:exportVideo,total:total,T:function(){return T},addFiles:addFiles,qa:qa};
+
+/* ---------- 🩺 device self-test ---------- */
+var DTR=null;
+function dtRun(){var L=$('dtList'),out=[],add=function(id,name,st,det){out.push({id:id,name:name,st:st,det:String(det||'')});var d=document.createElement('div');d.className='agent';d.dataset.st=st==='ok'?'done':st==='warn'?'run':'idle';d.innerHTML='<i></i><b></b><em></em>';d.querySelector('b').textContent=(st==='ok'?'✅ ':st==='warn'?'⚠️ ':'❌ ')+name;d.querySelector('em').textContent=det||'';if(st==='fail')d.querySelector('i').style.background='var(--bad)';L.appendChild(d)};
+ L.innerHTML='';$('dtRun').disabled=true;$('dtCopy').disabled=true;$('dtSum').textContent='בודק…';setPlay(false);
+ var wait=function(ms){return new Promise(function(r){setTimeout(r,ms)})};
+ Promise.resolve().then(function(){
+  add('device','מכשיר',/iPhone|iPad/.test(navigator.userAgent)?'ok':'warn',(navigator.userAgent.match(/(iPhone|iPad|Android|Mac OS X|Windows)[^;)]*/)||['?'])[0]+' · '+screen.width+'×'+screen.height+' · '+(navigator.userAgent.match(/Version\/([\d.]+)/)||['',''])[1]);
+  var st=true;try{localStorage.setItem('shv.dt','1');localStorage.removeItem('shv.dt')}catch(_){st=false}add('storage','שמירת פרויקט במכשיר',st?'ok':'warn',st?'עובד':'חסום · הפרויקט לא יישמר בין פתיחות');
+  add('lib','ספריית הקבצים',LIB?'ok':'fail',LIB?(LIB.items.length+' קבצים · '+(LIBBASE?'מהאתר':'מקומי')):'לא נטענה');
+  var cs=!!HTMLCanvasElement.prototype.captureStream,mm=vMime();add('capture','צילום הקנבס לווידאו',cs?'ok':'fail',cs?'captureStream זמין':'לא נתמך · ייצוא לא יעבוד');
+  add('recorder','מקליט וידאו',mm?(/mp4/.test(mm)?'ok':'warn'):'fail',mm?mm.split(';')[0]+(/mp4/.test(mm)?' · מתאים לאינסטגרם':' · WebM, ייתכן שצריך המרה'):'MediaRecorder לא נתמך');
+  var a=ac();add('audio','מנוע שמע',a&&a.createMediaStreamDestination?'ok':'fail',a?('WebAudio · '+a.sampleRate+'Hz · '+a.state):'אין WebAudio');
+  var he=0,all=0;try{var vv=speechSynthesis.getVoices();all=vv.length;he=vv.filter(function(x){return/^he/i.test(x.lang)}).length}catch(_){}add('tts','קולות להקראה',he?'ok':'warn',he?he+' קולות בעברית':'אין קול עברי ('+all+' קולות) · ההקראה תהיה במבטא זר');
+  add('mic','מיקרופון להקלטת קריינות',navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&typeof MediaRecorder==='function'?'ok':'warn',navigator.mediaDevices&&navigator.mediaDevices.getUserMedia?'זמין · יבקש אישור בהקלטה הראשונה':'לא זמין כאן · הקליטו בעורך באתר');
+  var sh='לא נתמך';try{var f=new File([new Blob(['x'],{type:'video/mp4'})],'t.mp4',{type:'video/mp4'});sh=navigator.canShare&&navigator.canShare({files:[f]})?'ok':'no'}catch(_){}add('share','שיתוף קובץ (גיליון השיתוף)',sh==='ok'?'ok':'warn',sh==='ok'?'אפשר לשתף את הסרטון ישירות לאינסטגרם/וואטסאפ':'שיתוף קבצים לא זמין · שמרו את הקובץ והעלו ידנית');
+  add('claude','Claude · עורך AI',CX?'ok':'warn',CX?'מחובר · יבקש אישור בבקשה הראשונה':'לא זמין בדף הזה · הסוכנים המקומיים עובדים');
+  var br=window.SHVPreviewBridge&&window.SHVPreviewBridge.status();add('save','שמירת קבצים',br&&br.active?'ok':'ok',br&&br.active?'דרך תצוגת Claude · תופיע בקשת אישור':'הורדה רגילה של הדפדפן');
+  // video decode + canvas taint
+  var it=LIB&&(LIBX['clip_hello-vera_witch_c']||LIB.items.find(function(x){return x.type==='video'}));
+  if(!it){add('decode','פענוח קליפ','fail','אין קליפ לבדיקה');return}
+  return new Promise(function(res){var v=document.createElement('video'),done=false,t0=performance.now();v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');v.crossOrigin='anonymous';v.preload='auto';
+   var fin=function(st,det){if(done)return;done=true;add('decode','פענוח קליפ מהספרייה',st,det);try{v.removeAttribute('src');v.load()}catch(_){}res()};
+   v.onloadeddata=function(){try{var c=document.createElement('canvas');c.width=36;c.height=64;var x=c.getContext('2d');x.drawImage(v,0,0,36,64);var px=x.getImageData(0,0,36,64).data,s=0;for(var i=0;i<px.length;i+=16)s+=px[i];fin(s>0?'ok':'warn',v.videoWidth+'×'+v.videoHeight+' · '+Math.round(performance.now()-t0)+'ms'+(s>0?'':' · פריים שחור'))}catch(e){fin('fail','הקנבס נחסם (CORS): '+(e.name||e))}};
+   v.onerror=function(){fin('fail','שגיאת טעינה '+(v.error&&v.error.code))};setTimeout(function(){fin('fail','לא נטען תוך 8 שניות')},8000);v.src=it.src;try{v.load()}catch(_){}})
+ }).then(function(){
+  // quick real export test (2s, 360p)
+  var mm=vMime();if(!mm||!HTMLCanvasElement.prototype.captureStream){add('export','ייצוא ניסיון 2 שנ׳','fail','לא ניתן');return}
+  return new Promise(function(res){var c=document.createElement('canvas');c.width=360;c.height=640;var x=c.getContext('2d'),st=c.captureStream(30),a=ac(),dest=null,ch=[],rec;
+   if(a){try{a.resume();dest=a.createMediaStreamDestination();var o=a.createOscillator(),g=a.createGain();g.gain.value=.0001;o.connect(g);g.connect(dest);o.start();o.stop(a.currentTime+2.2);dest.stream.getAudioTracks().forEach(function(t){st.addTrack(t)})}catch(_){}}
+   try{rec=new MediaRecorder(st,{mimeType:mm,videoBitsPerSecond:1.5e6})}catch(e){add('export','ייצוא ניסיון 2 שנ׳','fail','MediaRecorder: '+(e.name||e));res();return}
+   rec.ondataavailable=function(ev){if(ev.data&&ev.data.size)ch.push(ev.data)};var t0=performance.now(),fr=0;
+   rec.onstop=function(){st.getTracks().forEach(function(t){t.stop()});var b=new Blob(ch,{type:(rec.mimeType||mm).split(';')[0]}),fps=fr/((performance.now()-t0)/1000);add('export','ייצוא ניסיון 2 שנ׳',b.size>2000?(fps>20?'ok':'warn'):'fail',Math.round(b.size/1024)+'KB · '+b.type+' · '+fps.toFixed(0)+' פריימים/שנ׳'+(fps>20?'':' · המכשיר איטי, ייצוא 720p מומלץ'));res()};
+   rec.start(200);(function f(){var t=(performance.now()-t0)/1000;if(t>=2){rec.stop();return}frame(x,360,640,Math.min(total()-.01,t));fr++;requestAnimationFrame(f)})()})
+ }).then(function(){var ok=out.filter(function(r){return r.st==='ok'}).length,w=out.filter(function(r){return r.st==='warn'}).length,f=out.filter(function(r){return r.st==='fail'}).length;
+  DTR={app:'SHALVATA EDIT',when:new Date().toISOString(),where:LIBBASE?'remote-lib':(window.SHV_STUDIO?'editor-artifact':(location.hostname||'file')),summary:{ok:ok,warn:w,fail:f},results:out};
+  $('dtSum').textContent='✅ '+ok+' · ⚠️ '+w+' · ❌ '+f;$('dtRun').disabled=false;$('dtCopy').disabled=false;toast(f?'🩺 נמצאו '+f+' בעיות · העתיקו את הדוח':'🩺 המכשיר מוכן לעריכה וייצוא',f?'warn':'ok');log('🩺 בדיקת מכשיר: '+ok+'/'+out.length+' תקין')})
+ .catch(function(e){$('dtRun').disabled=false;$('dtSum').textContent='שגיאה: '+(e&&e.message||e)})}
+$('dtRun').onclick=dtRun;
+$('dtCopy').onclick=function(){if(!DTR)return;var t='SHALVATA EDIT · בדיקת מכשיר\n'+DTR.results.map(function(r){return(r.st==='ok'?'✅':r.st==='warn'?'⚠️':'❌')+' '+r.name+' · '+r.det}).join('\n')+'\n\n'+JSON.stringify(DTR.summary);
+ try{navigator.clipboard.writeText(t).then(function(){toast('📋 הדוח הועתק · הדביקו בצ׳אט')},function(){toast('סמנו והעתיקו ידנית','warn')})}catch(_){toast('לא ניתן להעתיק כאן','warn')}};
+window.__SHALVATA_EDIT={dtRun:dtRun,dt:function(){return DTR},applyTpl:applyTpl,lineup:lineup,scriptText:scriptText,sbTeam:sbTeam,useVar:useVar,agent:agent,paintSB:paintSB,cxApply:cxApply,cxPrompt:cxPrompt,openTab:openTab,lib:function(){return LIB},addLib:addLib,buildEvent:buildEvent,loadPack:loadPack,media:function(){return media},P:function(){return P},seek:seek,play:setPlay,runAgents:runAgents,chat:chat,smartCut:smartCut,exportVideo:exportVideo,total:total,T:function(){return T},addFiles:addFiles,qa:qa};
 })();
 </script>
 <!-- BEGIN SHALVATA PREVIEW BRIDGE 1.0 · active only inside the claude.ai artifact viewer (window.claude.use present). Inert in a local file. -->
