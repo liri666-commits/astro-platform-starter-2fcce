@@ -212,6 +212,13 @@ nav.tabs button[aria-selected=true]{background:linear-gradient(135deg,#1e3a8a,#3
     <label class="f">קריאה לפעולה<input id="eCta" type="text" maxlength="30"></label>
    </div>
   </div>
+  <div class="card" id="cxCard" hidden><h2>🧠 Claude · עורך AI</h2>
+   <div class="note">כתבו מה אתם רוצים, ו־Claude בונה את העריכה מהספרייה: בוחר קבצים, נקודות חיתוך, מצלמה, מעברים, כתוביות, מוזיקה וטקסט לשיתוף. העבודה רצה על חשבון ה־Claude שלכם, ובפעם הראשונה תתבקשו לאשר.</div>
+   <textarea id="cxIn" maxlength="600" placeholder="למשל: רילס של 20 שניות להאלווין עם Hello Vera, פתיחה חזקה, הרבה חיתוכים על הביט, סיום עם הזמנת שולחן"></textarea>
+   <div class="chips" id="cxIdeas"></div>
+   <div class="g2"><button id="cxGo" class="gold">✨ בנה עם Claude</button><button id="cxStop" disabled>⏹️ עצור</button></div>
+   <div class="log" id="cxOut" aria-live="polite" style="max-height:220px">מוכן.</div>
+  </div>
   <div class="card"><h2>🤖 סוכני AI · שרשרת</h2>
    <div class="note">סוכנים מקומיים מבוססי כללים. הם רצים במכשיר, לא שולחים מידע החוצה ולא צורכים קרדיטים. כל סוכן מעביר את התוצר שלו לבא אחריו.</div>
    <div class="agents" id="agents"></div>
@@ -517,7 +524,8 @@ function loadLib(){getLib('').catch(function(){return getLib(REMOTE)}).then(func
   var s=$('libEv');j.events.forEach(function(ev){var o=document.createElement('option');o.value=ev[0];o.textContent=ev[1]+' '+ev[2]+' · '+ev[3];s.appendChild(o)});
   rehydrate();paintLib();if(LIBBASE)$('libNote').textContent='מחובר לספרייה באתר · '+LIB.items.length+' קבצים';
   var q={};try{location.search.slice(1).split('&').forEach(function(kv){var k=kv.split('=');if(k[0])q[k[0]]=decodeURIComponent(k[1]||'')})}catch(_){}
-  if(LIBBASE){var st=document.querySelector('[data-sys=studio]');if(st)st.href=LIBBASE}
+  var st=document.querySelector('[data-sys=studio]'),hm=document.querySelector('header a[href="index.html"]');
+  if(window.SHV_STUDIO){[st,hm].forEach(function(x){if(x){x.href=window.SHV_STUDIO;x.target='_blank';x.rel='noopener'}})}else if(LIBBASE&&st)st.href=LIBBASE;
   if(q.event&&LIB.events.some(function(x){return x[0]===q.event})){buildEvent(q.event);openTab('edit')}
   else if(q.add&&LIBX[q.add]){var it=LIBX[q.add];if(it.ev)buildEvent(it.ev);else{P.scenes=[{cap:'',dur:2.4,cam:'wide',tr:'cut',fx:'none',m:-1}];media=[];P.minimal='';sel=0}
    var at=P.scenes.findIndex(function(s){return s.lib===q.add});if(at>0){var sc=P.scenes.splice(at,1)[0];P.scenes.unshift(sc)}else if(at<0){sel=0;addLib(q.add,P.scenes[0].m<0?'rep':'add');if(P.scenes.length>1&&P.scenes[P.scenes.length-1].lib===q.add){P.scenes.unshift(P.scenes.pop())}}
@@ -554,6 +562,41 @@ $('libEv').onchange=paintLib;$('libBuild').onclick=function(){buildEvent()};
  document.querySelectorAll('nav.tabs button').forEach(function(b){b.addEventListener('click',function(){set(false)})});
  window.__SHALVATA_EDIT_MINI=function(v){if(v!==undefined)set(!!v,true);return stg.classList.contains('mini')}})();
 function openTab(k){var b=document.querySelector('nav.tabs [data-p='+k+']');if(b)b.click()}
+
+/* ---------- 🧠 Claude brain (sample capability) ---------- */
+var CX=null,cxCtl=null;
+var CXIDEAS=['🎃 רילס האלווין 20 שניות','🫧 Bubbles בקצב גבוה','📅 סרטון שבועי לכל 6 האירועים','🥂 גרסה רגועה ויוקרתית','⚡ 10 שניות לסטורי'];
+function cxPrompt(req){var lib=(LIB?LIB.items:[]).filter(function(i){return i.cat!=='lab'||/promo|live/.test(i.id)}).map(function(i){return [i.id,i.cat,i.ev||'-',i.type==='video'?i.dur.toFixed(1)+'s':'img',i.t].join(' | ')}).join('\n');
+ var cur=P.scenes.map(function(s,i){return (i+1)+'. '+(s.lib||'-')+' off='+(s.off||0)+' dur='+s.dur.toFixed(2)+' cam='+s.cam+' tr='+s.tr+' fx='+s.fx+' cap="'+(s.cap||'')+'"'}).join('\n');
+ return 'אתה עורך וידאו מקצועי לרשתות של מועדון חוף בשם SHALVATA (שלוותה) בנמל תל אביב. בנה תוכנית עריכה לסרטון אנכי 9:16 לפי הבקשה.\n\n'+
+ 'בקשת המשתמש:\n'+req+'\n\nפרטי האירוע הנוכחי: '+JSON.stringify(P.event)+'\nמוזיקה נוכחית: '+P.music.genre+' '+P.music.bpm+' BPM\n\nהסצנות הנוכחיות:\n'+cur+
+ '\n\nספריית הקבצים (id | קטגוריה | אירוע | משך | כותרת):\n'+lib+
+ '\n\nאירועים: '+(LIB?LIB.events.map(function(x){return x[0]+'='+x[2]+' '+x[3]}).join(', '):'')+
+ '\n\nכללים:\n- השתמש רק ב-id מהרשימה. 3 עד 10 סצנות. משך כולל 6–30 שניות. off + dur לא יעבור את משך הקובץ.\n- הפוסטרים האמיתיים כבר כוללים שם, תאריך ואמן. לכן הכתוביות קצרות מאוד (עד 28 תווים), בעברית, ולרוב רק בפתיחה ובסיום. אל תמציא פרטים שאינם בנתונים.\n- cam מתוך: '+Object.keys(CAMS).join(',')+'. tr מתוך: '+Object.keys(TRS).join(',')+'. fx מתוך: '+Object.keys(FXS).join(',')+'.\n- genre מתוך: mainstream,bubbles,melodic,dark. bpm 90–150. style מתוך: neon,gold,clean,box. pos מתוך: bottom,low,mid,top. grade מתוך: none,night,sunset,gold,noir.\n- share: טקסט שיתוף קצר בעברית עם אימוג׳ים ו-3–5 האשטגים.\n\n'+
+ 'החזר JSON בלבד, בלי טקסט נוסף, במבנה:\n{"note":"משפט אחד בעברית שמסביר את הבחירה","event":{"name":"","date":"","artist":"","place":"","vibe":"dark|bubbles|melodic|mainstream","cta":""},"music":{"genre":"","bpm":124},"text":{"style":"","pos":""},"look":{"grade":""},"scenes":[{"lib":"id","off":0,"dur":2.4,"cam":"","tr":"","fx":"","cap":""}],"share":""}'}
+function cxParse(t){var a=t.indexOf('{'),b=t.lastIndexOf('}');if(a<0||b<a)throw{code:'parse'};return JSON.parse(t.slice(a,b+1))}
+function cxApply(o){var sc=(o.scenes||[]).filter(function(s){return s&&LIBX[s.lib]}).slice(0,10);if(sc.length<1)throw{code:'empty'};snap();
+ media.forEach(function(m){try{m.el.pause()}catch(_){}});media=[];var cache={},cl=function(v,a,b,d){v=+v;return isFinite(v)?Math.max(a,Math.min(b,v)):d};
+ P.scenes=sc.map(function(s){var it=LIBX[s.lib];if(cache[it.id]==null)cache[it.id]=mediaURL(it.src,it.t,it.type==='image');var dur=cl(s.dur,.6,8,2.4),off=it.type==='video'?cl(s.off,0,Math.max(0,it.dur-dur-.1),0):0;
+  return{cap:String(s.cap||'').slice(0,40),dur:dur,cam:CAMS[s.cam]?s.cam:'wide',tr:TRS[s.tr]?s.tr:'cut',fx:FXS[s.fx]?s.fx:'none',m:cache[it.id],off:off,lib:it.id}});
+ if(o.event){['name','date','artist','place','cta'].forEach(function(k){if(typeof o.event[k]==='string')P.event[k]=o.event[k].slice(0,40)});if(GEN[o.event.vibe])P.event.vibe=o.event.vibe}
+ if(o.music){if(GEN[o.music.genre])P.music.genre=o.music.genre;P.music.bpm=cl(o.music.bpm,90,150,GEN[P.music.genre].bpm);P.music.src='synth'}
+ if(o.text){if(/^(neon|gold|clean|box)$/.test(o.text.style))P.text.style=o.text.style;if(/^(bottom|low|mid|top)$/.test(o.text.pos))P.text.pos=o.text.pos}
+ if(o.look&&GRADE.hasOwnProperty(o.look.grade))P.look.grade=o.look.grade;
+ if(typeof o.share==='string'&&o.share){P.share=o.share.slice(0,600);$('shText').value=P.share}
+ P.minimal='';smartCut(true);P.done=Object.assign(P.done||{},{media:1,ai:1,ag_director:1,cap:1,music:1,cut:1});sel=0;T=0;save();paintAll();paintLib();
+ var iss=qa();return iss}
+function cxRun(){var req=$('cxIn').value.trim();if(!req){$('cxIn').focus();toast('כתבו מה לבנות','warn');return}if(!CX||!LIB)return;
+ var out=$('cxOut');out.textContent='🧠 Claude חושב… (בפעם הראשונה תתבקשו לאשר)';$('cxGo').disabled=true;$('cxStop').disabled=false;cxCtl=new AbortController();setPlay(false);
+ CX(cxPrompt(req),{signal:cxCtl.signal,modelTier:'default',onText:function(x){out.textContent='✍️ Claude כותב תוכנית… '+x.text.length+' תווים'}}).then(function(r){
+  var o=cxParse(r.text),iss=cxApply(o);out.innerHTML='';var d=function(t){var x=document.createElement('div');x.textContent=t;out.appendChild(x)};
+  d('✅ '+(o.note||'העריכה מוכנה'));d('🎬 '+P.scenes.length+' סצנות · '+total().toFixed(1)+' שנ׳ · '+P.music.genre+' '+P.music.bpm+' BPM');P.scenes.forEach(function(s,i){d((i+1)+'. '+LIBX[s.lib].t+(s.cap?' · "'+s.cap+'"':''))});
+  if(iss.length)d('⚠️ '+iss.join(' · '));log('🧠 Claude: '+(o.note||'תוכנית הוחלה'));toast('🧠 Claude בנה את העריכה · ↩️ לביטול');openTab('edit')
+ }).catch(function(e){var c=e&&e.code;out.textContent=c==='cancelled'?'⏹️ נעצר.':c==='not_granted'?'Claude לא אושר בדף הזה. הסוכנים המקומיים עדיין זמינים.':c==='rate_limited'?'יותר מדי בקשות. נסו שוב בעוד דקה.':c==='parse'||c==='empty'?'התשובה לא הייתה תוכנית תקינה. נסו לנסח שוב.':'Claude לא זמין כרגע ('+(c||'שגיאה')+').';if(c==='not_granted')$('cxCard').hidden=true})
+ .then(function(){$('cxGo').disabled=false;$('cxStop').disabled=true;cxCtl=null})}
+(function(){var b=$('cxIdeas');CXIDEAS.forEach(function(t){var x=document.createElement('button');x.type='button';x.textContent=t;x.onclick=function(){$('cxIn').value=t.replace(/^\S+\s/,'')};b.appendChild(x)});
+ $('cxGo').onclick=cxRun;$('cxStop').onclick=function(){if(cxCtl)cxCtl.abort()};
+ try{if(window.claude&&typeof window.claude.use==='function')window.claude.use('sample').then(function(s){if(typeof s==='function'){CX=s;$('cxCard').hidden=false;log('🧠 Claude מחובר לעורך')}},function(){})}catch(_){}})();
 /* ---------- wiring ---------- */
 document.querySelectorAll('nav.tabs button').forEach(function(b){b.onclick=function(){document.querySelectorAll('nav.tabs button').forEach(function(x){x.setAttribute('aria-selected',String(x===b))});document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.id==='p-'+b.dataset.p)});$('main').scrollTop=0}});
 $('tPlay').onclick=function(){setPlay(!playing)};$('tFirst').onclick=function(){seek(0);selScene(0)};
@@ -599,7 +642,7 @@ document.addEventListener('visibilitychange',function(){if(document.hidden&&play
 try{speechSynthesis.onvoiceschanged=voices}catch(e){}voices();$('vRate').value=P.voice.rate;
 if(!P.scenes.some(function(s){return s.cap})){agent('director');agent('copy');agent('music');agent('editor');agent('look');agent('social');P.done={};save()}
 paintPacks();qr();paintAll();loadLib();setTimeout(markSel,60);addEventListener('resize',markSel);
-window.__SHALVATA_EDIT={openTab:openTab,lib:function(){return LIB},addLib:addLib,buildEvent:buildEvent,loadPack:loadPack,media:function(){return media},P:function(){return P},seek:seek,play:setPlay,runAgents:runAgents,chat:chat,smartCut:smartCut,exportVideo:exportVideo,total:total,T:function(){return T},addFiles:addFiles,qa:qa};
+window.__SHALVATA_EDIT={cxApply:cxApply,cxPrompt:cxPrompt,openTab:openTab,lib:function(){return LIB},addLib:addLib,buildEvent:buildEvent,loadPack:loadPack,media:function(){return media},P:function(){return P},seek:seek,play:setPlay,runAgents:runAgents,chat:chat,smartCut:smartCut,exportVideo:exportVideo,total:total,T:function(){return T},addFiles:addFiles,qa:qa};
 })();
 </script>
 <!-- BEGIN SHALVATA PREVIEW BRIDGE 1.0 · active only inside the claude.ai artifact viewer (window.claude.use present). Inert in a local file. -->
