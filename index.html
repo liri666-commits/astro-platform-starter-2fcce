@@ -1964,11 +1964,11 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
    if(el){el.textContent='הקובץ נשמר, אך נגן Safari לא מצליח לפענח אותו. פתח את ההקלטה מהורדות Safari או נסה הקלטה קצרה חדשה.';el.dataset.state='error';}
   });
  }
- const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.5.0');
- const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.5.0';
- D.title='SHALVATA V8.5.0 · Window Studio · PRIVATE LOCAL QA';
- api.version='V8.5.0';
- window.__SHALVATA_V843_QA={version:'V8.5.0',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
+ const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.5.1');
+ const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.5.1';
+ D.title='SHALVATA V8.5.1 · Window Studio · PRIVATE LOCAL QA';
+ api.version='V8.5.1';
+ window.__SHALVATA_V843_QA={version:'V8.5.1',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
 })();
 </script>
 <style id="shalvata-v844-legacy-rights">
@@ -2128,7 +2128,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
  const ui=D.querySelector('#sv83-dialog .sv83-ui');if(!api||!ui||by('sv846-card'))return;
  const KEY='shalvata.v846.devicetest';
  const CHECKS=[
-  ['version','בכותרת מופיע V8.5.0','מסתכלים בראש הסטודיו.'],
+  ['version','בכותרת מופיע V8.5.1','מסתכלים בראש הסטודיו.'],
   ['tv-open','📺 נפתח ומציג תמונה חיה','כותרת ← "📺 מסך צף". ▶️ בתוך המסך: התמונה זזה ותג LIVE ירוק.'],
   ['tv-drag','📺 נגרר באצבע ונצמד לפינה','גוררים מהכותרת של המסך הצף לפינה העליונה ומשחררים.'],
   ['tv-size','⤢ שלושה גדלים, תמיד בתוך המסך','לוחצים ⤢ שלוש פעמים. שום חלק לא יוצא מהמסך.'],
@@ -2158,7 +2158,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
   return {app:'SHALVATA Window Studio',version:api.version,reportedAtIsrael:when,summary:{pass:c('pass'),fail:c('fail'),notTested:c('not_tested')},results,device:device(),privacy:'local report; nothing was sent automatically'};
  }
  const card=D.createElement('section');card.className='sv83-card';card.id='sv846-card';card.dataset.sv84Pane='systems';
- card.innerHTML=`<h3>✅ בדיקת אייפון · V8.5.0</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
+ card.innerHTML=`<h3>✅ בדיקת אייפון · V8.5.1</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
  <div class="sv846-sum" id="sv846-sum" role="status" aria-live="polite"></div><div class="sv846-list" id="sv846-list"></div>
  <div class="sv84-row"><button type="button" class="sv84-btn-strong" id="sv846-copy">📋 העתק דוח</button><button type="button" id="sv846-share">↗️ שתף דוח</button><button type="button" id="sv846-save">⬇️ שמור JSON</button><button type="button" id="sv846-reset">🧹 אפס</button></div>
  <div class="sv84-status" id="sv846-status" role="status" aria-live="polite">מוכן.</div><details><summary>פרטי מכשיר שייכללו בדוח</summary><pre id="sv846-device"></pre></details>`;
@@ -2380,7 +2380,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
 (()=>{'use strict';
 const D=document,by=id=>D.getElementById(id),FX=window.__SHALVATA_V83_TEST,api=window.__SHALVATA_V84_QA;
 if(!FX||!api||by('sv85-lab'))return;
-const S=FX.state,KEY='shalvata.v850.lab',VERSION='V8.5.0';
+const S=FX.state,KEY='shalvata.v850.lab',PKEY='shalvata.v851.projects',VERSION='V8.5.1';
 const el=(tag,attrs,...kids)=>{const e=D.createElement(tag);if(attrs)for(const k in attrs){const v=attrs[k];if(v==null||v===false)continue;if(k==='class')e.className=v;else if(k==='text')e.textContent=v;else if(k.startsWith('on'))e.addEventListener(k.slice(2),v);else e.setAttribute(k,v===true?'':v)}for(const c of kids.flat()){if(c==null||c===false)continue;e.append(c.nodeType?c:D.createTextNode(String(c)))}return e};
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const hash=s=>{let h=2166136261;for(const c of String(s))h=Math.imul(h^c.codePointAt(0),16777619);return h>>>0};
@@ -2477,13 +2477,18 @@ function fill(s){return s.replace(/\{E\}/g,B.event).replace(/\{B\}/g,B.bpm)}
 function genScript(variant){const r=rngOf(hash(B.event+B.tone+B.seed+(variant||0))),bank=BANK[B.tone]||BANK.energetic,styles=STYLE_BY_TONE[B.tone]||STYLE_KEYS;
  return BEATS.map((k,i)=>({beat:k,name:BEATN[k],vo:fill(pick(r,bank[k])),text:i===0?B.event:i===4?'שמרו את התאריך':fill(pick(r,bank[k])).split(/[.—]/)[0].trim().slice(0,28),
   shot:pick(r,SHOTS),trans:pick(r,TRANS),style:styles[i%styles.length],dur:3}))}
-function autoCut(){const beat=60/B.bpm,bar=beat*4,tot=B.duration,n=B.scenes.length||5;const pace={fast:.5,medium:1,slow:2}[B.pace]||1;
+function autoCut(noSnap){if(!noSnap)snap('חיתוך');const beat=60/B.bpm,bar=beat*4,tot=B.duration,n=B.scenes.length||5;const pace={fast:.5,medium:1,slow:2}[B.pace]||1;
  let unit=bar*pace;let hook=Math.min(2,Math.max(beat*2,unit/2));const rest=tot-hook;let per=Math.max(beat,Math.round((rest/(n-1))/unit)*unit||unit);
  const durs=[hook];for(let i=1;i<n;i++)durs.push(per);let sum=durs.reduce((a,b)=>a+b,0);durs[n-1]=Math.max(beat,durs[n-1]+(tot-sum));
  sum=durs.reduce((a,b)=>a+b,0);const k=tot/sum;B.scenes.forEach((s,i)=>{s.dur=+(durs[i]*k).toFixed(3)});save();return durs}
 function edl(){let t=0;return B.scenes.map((s,i)=>{const a=t;t+=s.dur;return`${String(i+1).padStart(2,'0')}  ${fmtT(a)} → ${fmtT(t)}  ${s.name}  ·  ${s.shot}  ·  ${s.trans}`}).join('\n')}
 const total=()=>B.scenes.reduce((a,s)=>a+s.dur,0)||B.duration;
 
+/* ---------- ↩️ undo ---------- */
+const HIST=[];let histLock=false;
+function snap(label){if(histLock)return;HIST.push({label,scenes:JSON.stringify(B.scenes),duration:B.duration,pace:B.pace,tone:B.tone,palette:B.palette,bpm:B.bpm,format:B.format,event:B.event});if(HIST.length>30)HIST.shift();paintUndo()}
+function undo(){const h=HIST.pop();if(!h){toast('↩️ אין מה לבטל','warn');return}histLock=true;B.scenes=JSON.parse(h.scenes);Object.assign(B,{duration:h.duration,pace:h.pace,tone:h.tone,palette:h.palette,bpm:h.bpm,format:h.format,event:h.event});histLock=false;selScene=Math.min(selScene,B.scenes.length-1);pano=null;save();paintAll();toast('↩️ בוטל: '+h.label)}
+function paintUndo(){const b=by('sv85-undo');if(b){b.disabled=!HIST.length;b.setAttribute('aria-label','↩️ בטל'+(HIST.length?': '+HIST[HIST.length-1].label:''))}}
 /* ---------- marketing engine ---------- */
 const PLAT=[['ig_story','📱 Instagram Story',2200],['ig_post','🖼️ Instagram Post',2200],['tiktok','🎵 TikTok',2200],['facebook','👍 Facebook',63206],['x','✖️ X',280],['whatsapp','💬 WhatsApp',1000],['sms','📩 SMS',70],['email','📧 נושא מייל',60]];
 function tags(){const w=B.event.replace(/\d+/g,'').trim().split(/\s+/).filter(Boolean).map(x=>x[0].toUpperCase()+x.slice(1).toLowerCase()).join('');
@@ -2504,10 +2509,10 @@ const agentState={};let logLines=[];
 function log(icon,msg){const t=new Date();logLines.unshift(`${String(t.getHours()).padStart(2,'0')}:${String(t.getMinutes()).padStart(2,'0')}:${String(t.getSeconds()).padStart(2,'0')} ${icon} ${msg}`);logLines=logLines.slice(0,80);paintAgents()}
 async function runAgent(id){agentState[id]='run';paintAgents();await sleep(B.fastMode?0:140);
  if(id==='director'){if(!B.ran.director){const r=rngOf(hash(B.event+B.seed));if(!B.toneLocked)B.tone=B.tone||'energetic'}log('🎬',`קונספט: ${TONES[B.tone]} · ${PAL[B.palette].n} · ${FORMATS[B.format][2]}`)}
- if(id==='writer'){B.scenes=genScript(B.seed);B.script={at:Date.now()};log('✍️',`נכתבו ${B.scenes.length} סצנות. פתיחה: "${B.scenes[0].vo}"`)}
+ if(id==='writer'){snap('תסריט');B.scenes=genScript(B.seed);B.script={at:Date.now()};log('✍️',`נכתבו ${B.scenes.length} סצנות. פתיחה: "${B.scenes[0].vo}"`)}
  if(id==='art'){genImages(B.prompt||'');log('🎨',`סגנונות: ${B.scenes.map(s=>STYLES[s.style].split(' ')[0]).join(' ')} · 4 תמונות נוצרו`)}
  if(id==='music'){log('🎵',`${B.bpm} BPM · פעימה ${(60/B.bpm).toFixed(3)}s · תיבה ${(240/B.bpm).toFixed(2)}s`)}
- if(id==='editor'){autoCut();log('✂️',`חיתוך ${B.pace==='fast'?'מהיר':B.pace==='slow'?'איטי':'בינוני'}: ${B.scenes.map(s=>s.dur.toFixed(1)).join(' / ')} שניות`)}
+ if(id==='editor'){autoCut(true);log('✂️',`חיתוך ${B.pace==='fast'?'מהיר':B.pace==='slow'?'איטי':'בינוני'}: ${B.scenes.map(s=>s.dur.toFixed(1)).join(' / ')} שניות`)}
  if(id==='marketing'){B.copy=genCopy();log('📣',`נוצרו ${PLAT.length*2} טקסטים (A/B) + ${B.copy.tags.length} תגיות`)}
  if(id==='qa'){const issues=[];if(S.photo&&!S.rights)issues.push('צילום בסטודיו ללא אישור זכויות — לא ישולב');const c=B.copy;if(c){const x=c.A.x;if([...x].length>280)issues.push('X מעל 280 תווים');}
   if(Math.abs(total()-B.duration)>.05)issues.push('אורך הטיימליין שונה מהיעד');log('🛡️',issues.length?('⚠️ '+issues.join(' · ')):'✓ אין חסימות. טיוטה פרטית, ללא פרסום וללא שליחה')}
@@ -2516,7 +2521,7 @@ let running=false;
 async function runAll(){if(running)return;running=true;by('sv85-runall')&&(by('sv85-runall').disabled=true);Object.keys(agentState).forEach(k=>delete agentState[k]);log('🤖','מריץ שרשרת: במאי → תסריטאי → ארט → מוזיקה → עורך → שיווק → בקרה');
  try{for(const [id] of AGENTS)await runAgent(id);toast('🤖 שרשרת הסוכנים הסתיימה');setT(0);paintAll()}finally{running=false;by('sv85-runall')&&(by('sv85-runall').disabled=false)}}
 /* 💬 intents */
-function chat(msg){const m=msg.trim();if(!m)return;log('💬',m);const has=(...w)=>w.some(x=>x.length<=3?wordIn(m,x):m.toLowerCase().includes(x));let todo=new Set(),said=[];
+function chat(msg){const m=msg.trim();if(!m)return;log('💬',m);snap('💬 '+m.slice(0,20));const has=(...w)=>w.some(x=>x.length<=3?wordIn(m,x):m.toLowerCase().includes(x));let todo=new Set(),said=[];
  const bpm=m.match(/(\d{2,3})\s*(bpm|ביפיאם)?/i);if(bpm&&+bpm[1]>=70&&+bpm[1]<=180&&has('bpm','קצב','ביט','טמפו')){B.bpm=+bpm[1];todo.add('music').add('editor');said.push(`BPM ${B.bpm}`)}
  if(has('אנרג','מהיר','חזק','רייב','techno','טכנו')){B.tone='energetic';todo.add('writer').add('art').add('marketing');said.push('טון אנרגטי')}
  if(has('יוקר','vip','לאונג','זהב')){B.tone='luxury';if(has('זהב'))B.palette='gold';todo.add('writer').add('art').add('marketing');said.push('טון יוקרתי')}
@@ -2588,6 +2593,45 @@ function startBeat(extraOut){const a=ac();if(!a)return;try{a.resume()}catch(_){}
  nextBeat=a.currentTime+.05;beatN=0;const beat=60/B.bpm;beatTimer=setInterval(()=>{while(nextBeat<a.currentTime+.12){kick(a,nextBeat,bus);hat(a,nextBeat+beat/2,bus,.18);if(B.tone==='energetic')hat(a,nextBeat+beat*.25,bus,.06);nextBeat+=beat;beatN++}},25);startBeat.bus=bus}
 function stopBeat(){clearInterval(beatTimer);beatTimer=0;if(startBeat.bus){try{startBeat.bus.disconnect()}catch(_){}startBeat.bus=null}}
 
+/* ---------- 🗣️ narration (device voice, preview only) ---------- */
+let lastSpoken=-1,heVoice=null;
+function voice(){try{const v=speechSynthesis.getVoices()||[];heVoice=v.find(x=>(x.lang||'').toLowerCase().startsWith('he'))||null}catch(_){}return heVoice}
+function hush(){try{speechSynthesis.cancel()}catch(_){}lastSpoken=-1}
+function speakScene(i,force){if(!B.narrate||!('speechSynthesis' in window))return;if(i===lastSpoken&&!force)return;lastSpoken=i;const s=B.scenes[i];if(!s)return;
+ try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(s.vo);u.lang='he-IL';const v=voice();if(v)u.voice=v;u.rate=B.tone==='energetic'?1.08:B.tone==='luxury'?.92:1;u.pitch=B.tone==='mystic'?.85:1;speechSynthesis.speak(u)}catch(_){}}
+try{speechSynthesis.addEventListener&&speechSynthesis.addEventListener('voiceschanged',voice)}catch(_){}
+/* ---------- 💾 projects ---------- */
+const PFIELDS=['event','tone','palette','bpm','format','duration','audience','goal','place','seed','pace','fx','scenes','copy','prompt','usePhoto'];
+function projList(){try{return JSON.parse(localStorage.getItem(PKEY)||'[]')||[]}catch(_){return[]}}
+function projSave(){const L=projList().filter(p=>p.event!==B.event);const o={at:Date.now()};PFIELDS.forEach(k=>o[k]=JSON.parse(JSON.stringify(B[k]??null)));L.unshift(o);while(L.length>5)L.pop();try{localStorage.setItem(PKEY,JSON.stringify(L));toast('💾 נשמר: '+B.event)}catch(_){toast('השמירה נחסמה בדפדפן','warn')}paintPanel()}
+function projLoad(i){const p=projList()[i];if(!p)return;snap('טעינת פרויקט');PFIELDS.forEach(k=>{if(p[k]!=null)B[k]=JSON.parse(JSON.stringify(p[k]))});B.images=[];pano=null;selScene=0;save();setT(0);paintAll();toast('📂 נטען: '+B.event)}
+function projDel(i){const L=projList();const p=L.splice(i,1)[0];try{localStorage.setItem(PKEY,JSON.stringify(L))}catch(_){}paintPanel();if(p)toast('🗑️ נמחק: '+p.event)}
+/* ---------- 🎁 campaign package ---------- */
+let lastVideo=null;
+/* store-only ZIP writer, safe for large files (no argument spreading) */
+const CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(u){let c=0xFFFFFFFF;for(let i=0;i<u.length;i++)c=CRC[(c^u[i])&255]^(c>>>8);return(c^0xFFFFFFFF)>>>0}
+function zipStore(files){const enc=new TextEncoder(),parts=[],cen=[];let off=0;const now=new Date(),dt=((now.getHours()<<11)|(now.getMinutes()<<5)|(now.getSeconds()>>1))&0xFFFF,dd=(((now.getFullYear()-1980)<<9)|((now.getMonth()+1)<<5)|now.getDate())&0xFFFF;
+ for(const f of files){const name=enc.encode(f.path),data=f.bytes,crc=crc32(data),h=new DataView(new ArrayBuffer(30));
+  h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(8,0,true);h.setUint16(10,dt,true);h.setUint16(12,dd,true);h.setUint32(14,crc,true);h.setUint32(18,data.length,true);h.setUint32(22,data.length,true);h.setUint16(26,name.length,true);h.setUint16(28,0,true);
+  parts.push(h.buffer,name,data);const c=new DataView(new ArrayBuffer(46));c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(10,0,true);c.setUint16(12,dt,true);c.setUint16(14,dd,true);c.setUint32(16,crc,true);c.setUint32(20,data.length,true);c.setUint32(24,data.length,true);c.setUint16(28,name.length,true);c.setUint32(42,off,true);
+  cen.push(c.buffer,name);off+=30+name.length+data.length}
+ const cs=cen.reduce((n,x)=>n+(x.byteLength||x.length),0),e=new DataView(new ArrayBuffer(22));e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,cs,true);e.setUint32(16,off,true);
+ return new Blob([...parts,...cen,e.buffer],{type:'application/zip'})}
+const toBytes=b=>b.arrayBuffer().then(x=>new Uint8Array(x));
+const canvasBlob=c=>new Promise((ok,no)=>c.toBlob(b=>b?ok(b):no(Error('png')),'image/png'));
+async function campaignZip(){const btns=[...lab.querySelectorAll('[data-zip]')];btns.forEach(b=>b.disabled=true);toast('🎁 אורז חבילת קמפיין…');
+ try{if(!B.scenes.length){B.scenes=genScript(B.seed);autoCut(true)}if(!B.copy)B.copy=genCopy();if(!B.images.length)genImages(B.prompt||'');const enc=new TextEncoder(),files=[],img=B.images[B.imgSel]||B.images[0],base=safeName(B.event);
+  for(const k of Object.keys(FORMATS)){const [w,h]=FORMATS[k],c=D.createElement('canvas');c.width=w;c.height=h;renderArt(c.getContext('2d'),w,h,imageOpts(img));files.push({path:`images/${base}_${k}.png`,bytes:await toBytes(await canvasBlob(c))})}
+  const n=B.scenes.length,cw=360,ch=640,bc=D.createElement('canvas');bc.width=cw*n+20*(n+1);bc.height=ch+40;const bx=bc.getContext('2d');bx.fillStyle='#061226';bx.fillRect(0,0,bc.width,bc.height);
+  B.scenes.forEach((s,i)=>{const o=offscreen(cw,ch,'zip'),oc=o.getContext('2d');renderArt(oc,cw,ch,{style:s.style,palette:B.palette,fx:B.fx,seed:hash(s.vo),t:i*1.3,title:s.text,sub:s.name,line:s.vo,textK:1});bx.drawImage(o,20+i*(cw+20),20)});
+  files.push({path:`storyboard/${base}_storyboard.png`,bytes:await toBytes(await canvasBlob(bc))});
+  files.push({path:'script/SCRIPT.txt',bytes:enc.encode(scriptText())},{path:'edit/EDL.txt',bytes:enc.encode(edl())},{path:'marketing/COPY_AB.txt',bytes:enc.encode(allCopy()+'\n\n'+B.copy.tags.join(' '))});
+  files.push({path:'prompts/PROMPT_PACK.json',bytes:enc.encode(JSON.stringify(promptPack(),null,2))});
+  if(lastVideo)files.push({path:`video/${base}.${lastVideo.ext}`,bytes:await toBytes(lastVideo.blob)});
+  files.push({path:'README.txt',bytes:enc.encode(`SHALVATA AI LAB ${VERSION} · ${B.event}\nחבילת קמפיין פנימית — טיוטה בלבד.\nתוכן: תמונות ב־3 פורמטים, סטוריבורד, תסריט, EDL, טקסטים שיווקיים A/B, חבילת פרומפטים${lastVideo?', וידאו':''}.\nללא פרסום, ללא תאריך או ליינאפ רשמי, ללא צילומי אנשים לא מאושרים.\n`)});
+  const zip=zipStore(files);saveBlob(zip,`SHALVATA_CAMPAIGN_${base}.zip`);window.__SHALVATA_V851_LAST_ZIP={files:files.map(f=>f.path),size:zip.size};toast(`🎁 חבילה מוכנה · ${files.length} קבצים · ${Math.round(zip.size/1024)}KB`)}
+ catch(e){toast('האריזה נכשלה: '+e.message,'warn')}finally{btns.forEach(b=>b.disabled=false)}}
 /* ---------- UI ---------- */
 load();pullFromStudio();
 const TABS=[['agents','🤖 סוכנים'],['script','✍️ תסריט'],['board','🎞️ סטוריבורד'],['images','🖼️ תמונות'],['video','📼 וידאו'],['edit','✂️ עריכה'],['market','📣 שיווק'],['dim','🌐 360 · הולו · 3D'],['links','🔗 חיבורים']];
@@ -2607,7 +2651,7 @@ const head=el('header',{class:'sv85-head'},
  el('button',{type:'button',id:'sv85-bell','aria-label':'🔔 התראות',title:'התראות',text:'🔔',onclick:()=>{B.notify=!B.notify;save();paintHead();toast(B.notify?'🔔 התראות פעילות':'🔕',B.notify?'ok':'warn')}}),
  el('button',{type:'button',id:'sv85-mute','aria-label':'🔈 שמע',title:'שמע',text:'🔈',onclick:()=>{B.mute=!B.mute;save();paintHead();if(playing){stopBeat();if(!B.mute)startBeat()}toast(B.mute?'🔇 שמע כבוי':'🔈 שמע פעיל')}}));
 const D1=[['⏮️','sv85-first','לסצנה ראשונה'],['⏪️','sv85-rew','3 שניות אחורה'],['▶️','sv85-play','נגן / השהה'],['⏩️','sv85-fwd','3 שניות קדימה'],['⏭️','sv85-last','לסצנה אחרונה'],['⏹️','sv85-stop','עצור ואפס'],['⏺️','sv85-rec','ייצא וידאו'],['🔄','sv85-loop','לולאה'],['🆙','sv85-top','לראש הדף']];
-const D2=[['⬅️','sv85-prev','סצנה קודמת'],['➡️','sv85-next','סצנה הבאה'],['⬆️','sv85-up','הזז סצנה למעלה'],['⬇️','sv85-down','הזז סצנה למטה'],['✂️','sv85-split','פצל בנקודה'],['🆖','sv85-ng','מחק טייק (NG)'],['↔️','sv85-fmt','החלף פורמט'],['📢','sv85-announce','שתף הכרזה'],['💬','sv85-chatbtn','צ׳אט לסוכנים']];
+const D2=[['↩️','sv85-undo','בטל'],['🗣️','sv85-narrate','קריינות קולית'],['⬅️','sv85-prev','סצנה קודמת'],['➡️','sv85-next','סצנה הבאה'],['⬆️','sv85-up','הזז סצנה למעלה'],['⬇️','sv85-down','הזז סצנה למטה'],['✂️','sv85-split','פצל בנקודה'],['🆖','sv85-ng','מחק טייק (NG)'],['↔️','sv85-fmt','החלף פורמט'],['📢','sv85-announce','שתף הכרזה'],['💬','sv85-chatbtn','צ׳אט לסוכנים']];
 const mkDock=(arr,cls)=>el('div',{class:'sv85-dock '+(cls||''),role:'toolbar'},arr.map(([i,id,l])=>el('button',{type:'button',id,'aria-label':i+' '+l,title:l,text:i})));
 const dock1=el('div',{class:'sv85-dock',role:'toolbar','aria-label':'ניווט ובקרה'},D1.concat([[null]],D2).map(([i,id,l])=>i?el('button',{type:'button',id,'aria-label':i+' '+l,title:l,text:i}):el('span',{class:'sv85-sep','aria-hidden':'true'})));
 toastEl=el('div',{class:'sv85-toast',role:'status','aria-live':'polite',hidden:true});
@@ -2616,7 +2660,7 @@ lab.append(head,tabsEl,body,dock1,toastEl,map);D.body.appendChild(lab);
 const panel=by('sv85-panel'),sctx=stage.getContext('2d');
 
 function paintHead(){by('sv85-bell').textContent=B.notify?'🔔':'🔕';by('sv85-bell').setAttribute('aria-label',(B.notify?'🔔':'🔕')+' התראות');by('sv85-mute').textContent=B.mute?'🔇':'🔈';by('sv85-mute').setAttribute('aria-label',(B.mute?'🔇':'🔈')+' שמע');
- by('sv85-loop').setAttribute('aria-pressed',String(!!B.loop));by('sv85-play').textContent=playing?'⏸️':'▶️';by('sv85-play').setAttribute('aria-label',(playing?'⏸️ השהה':'▶️ נגן'))}
+ by('sv85-loop').setAttribute('aria-pressed',String(!!B.loop));const nb=by('sv85-narrate');if(nb)nb.setAttribute('aria-pressed',String(!!B.narrate));paintUndo();by('sv85-play').textContent=playing?'⏸️':'▶️';by('sv85-play').setAttribute('aria-label',(playing?'⏸️ השהה':'▶️ נגן'))}
 function sizeStage(){let [w,h]=STAGE[B.format]||STAGE.story;if(stageMode==='pano'){w=640;h=360}if(stageMode==='holo'){w=h=480}if(stage.width!==w||stage.height!==h){stage.width=w;stage.height=h}}
 function drawStage(){sizeStage();const w=stage.width,h=stage.height;try{
  if(stageMode==='image'&&B.images[B.imgSel]){renderArt(sctx,w,h,imageOpts(B.images[B.imgSel],{t:B.images[B.imgSel].t+(playing?T:0)}));badge.textContent='🖼️ IMAGE · '+STYLES[B.images[B.imgSel].style]}
@@ -2632,9 +2676,9 @@ function paintTL(){const tot=total();tl.replaceChildren();const c=PAL[B.palette]
 const sceneStart=i=>B.scenes.slice(0,i).reduce((a,s)=>a+s.dur,0);
 function setT(t){const tot=total();T=B.loop?((t%tot)+tot)%tot:clamp(t,0,tot-.001);selScene=sceneAt(T).i;drawStage();markSel()}
 function markSel(){tl.querySelectorAll('i').forEach((x,i)=>x.dataset.sel=i===selScene?'1':'0');panel.querySelectorAll('.sv85-scene').forEach((x,i)=>x.dataset.sel=i===selScene?'1':'0')}
-function tick(ms){raf=0;if(lab.hidden)return;if(playing){if(last){const dt=Math.min(.1,(ms-last)/1000);let nt=T+dt;const tot=total();if(nt>=tot){if(B.loop)nt=nt%tot;else{nt=tot-.001;playing=false;stopBeat();paintHead()}}T=nt;selScene=sceneAt(T).i}last=ms;drawStage();markSel()}else last=0;
+function tick(ms){raf=0;if(lab.hidden)return;if(playing){if(last){const dt=Math.min(.1,(ms-last)/1000);let nt=T+dt;const tot=total();if(nt>=tot){if(B.loop)nt=nt%tot;else{nt=tot-.001;playing=false;stopBeat();paintHead()}}T=nt;selScene=sceneAt(T).i;if(stageMode==='timeline')speakScene(selScene)}last=ms;drawStage();markSel()}else last=0;
  if(playing||stageMode==='pano'&&panoAuto||stageMode==='parallax')raf=requestAnimationFrame(tick)}
-function play(on){playing=on==null?!playing:on;last=0;if(playing){if(!B.mute)startBeat()}else stopBeat();paintHead();if(!raf)raf=requestAnimationFrame(tick)}
+function play(on){playing=on==null?!playing:on;last=0;if(playing){if(!B.mute)startBeat();lastSpoken=-1}else{stopBeat();hush()}paintHead();if(!raf)raf=requestAnimationFrame(tick)}
 function selectTab(k){tab=k;stageWrap.dataset.collapsed=['script','market','links'].includes(k)?'1':'0';tabsEl.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===k)));stageMode=k==='images'?'image':k==='dim'?(stageMode==='pano'||stageMode==='holo'||stageMode==='parallax'||stageMode==='anaglyph'?stageMode:'pano'):'timeline';
  paintPanel();drawStage();if(!raf&&(stageMode==='pano'||stageMode==='parallax'))raf=requestAnimationFrame(tick);try{tabsEl.querySelector(`[data-tab="${k}"]`).scrollIntoView({inline:'center',block:'nearest'})}catch(_){}body.scrollTop=0}
 function field(label,input){return el('label',{class:'sv85-f'},label,input)}
@@ -2654,17 +2698,21 @@ function paintPanel(){panel.replaceChildren();const P=fn=>panel.append(fn);
     field('BPM',Object.assign(el('input',{type:'number',id:'sv85-bpm',min:70,max:180}),{value:B.bpm,onchange:e=>{B.bpm=clamp(+e.target.value||124,70,180);e.target.value=B.bpm;save()}})),
     field('אורך (שניות)',sel('sv85-dur',[[6,'6'],[10,'10'],[15,'15'],[20,'20'],[30,'30']].map(([a,b])=>[String(a),b]),String(B.duration),v=>{B.duration=+v;autoCut();save();paintTL();drawStage()}))),
    el('label',{class:'sv85-f',style:'display:flex;align-items:center;gap:8px'},Object.assign(el('input',{type:'checkbox',id:'sv85-usephoto'}),{checked:B.usePhoto&&photoOK(),disabled:!photoOK(),onchange:e=>{B.usePhoto=e.target.checked;save();drawStage()}}),photoOK()?'שלב את הצילום המאושר מהסטודיו כשכבת רקע':'שילוב צילום: זמין רק אחרי טעינת צילום ואישור זכויות בסטודיו'),
-   el('div',{class:'sv85-row'},el('button',{type:'button',id:'sv85-pull',text:'⬇️ משוך מהסטודיו',onclick:()=>{pullFromStudio();save();paintPanel();drawStage();toast('⬇️ נמשך מהסטודיו')}}),el('button',{type:'button',id:'sv85-push',text:'⬆️ שלח לסטודיו',onclick:()=>{pushToStudio()}}))));
+   el('div',{class:'sv85-row'},el('button',{type:'button',class:'sv85-strong',id:'sv85-zip','data-zip':'1',text:'🎁 חבילת קמפיין ZIP',onclick:campaignZip})),el('div',{class:'sv85-row'},el('button',{type:'button',id:'sv85-pull',text:'⬇️ משוך מהסטודיו',onclick:()=>{pullFromStudio();save();paintPanel();drawStage();toast('⬇️ נמשך מהסטודיו')}}),el('button',{type:'button',id:'sv85-push',text:'⬆️ שלח לסטודיו',onclick:()=>{pushToStudio()}}))));
   P(card('🤖 7 סוכנים · שרשרת אחת',el('div',{class:'sv85-note',text:'סוכנים מקומיים מבוססי כללים. הם לא מודל שפה חיצוני, ולא שולחים שום דבר החוצה. כל סוכן מעביר את התוצר שלו לבא אחריו.'}),
    el('div',{class:'sv85-agents',id:'sv85-agentlist'}),el('button',{type:'button',class:'sv85-strong',id:'sv85-runall',text:'🚀 הרץ את כל הסוכנים',onclick:runAll}),
    el('div',{class:'sv85-chat'},el('input',{type:'text',id:'sv85-chat',placeholder:'💬 למשל: יותר אנרגטי · שקיעה · BPM 128 · קצר יותר · 10 שניות',maxlength:120,onkeydown:e=>{if(e.key==='Enter'){chat(e.target.value);e.target.value=''}}}),
-    el('button',{type:'button',id:'sv85-send','aria-label':'שלח לסוכנים',text:'➤',onclick:()=>{const i=by('sv85-chat');chat(i.value);i.value=''}})),el('div',{class:'sv85-log',id:'sv85-log','aria-live':'polite'})));paintAgents()}
+    el('button',{type:'button',id:'sv85-send','aria-label':'שלח לסוכנים',text:'➤',onclick:()=>{const i=by('sv85-chat');chat(i.value);i.value=''}})),el('div',{class:'sv85-log',id:'sv85-log','aria-live':'polite'})));
+  const PL=projList();P(card('💾 פרויקטים שמורים · עד 5',el('div',{class:'sv85-note',text:'נשמרים במכשיר בלבד. שמירה בשם קיים מחליפה את הגרסה הקודמת.'}),
+   el('button',{type:'button',id:'sv85-psave',text:'💾 שמור את "'+B.event+'"',onclick:projSave}),
+   ...(PL.length?PL.map((p,i)=>el('div',{class:'sv85-eng'},el('span',{text:'📁'}),el('div',{},p.event,el('small',{text:`${TONES[p.tone]||''} · ${p.bpm} BPM · ${new Date(p.at).toLocaleString('he-IL',{timeZone:'Asia/Jerusalem',dateStyle:'short',timeStyle:'short'})}`})),
+     el('div',{class:'sv85-row',style:'flex-wrap:nowrap'},el('button',{type:'button','data-pload':i,'aria-label':'טען '+p.event,text:'📂',onclick:()=>projLoad(i)}),el('button',{type:'button','data-pdel':i,'aria-label':'מחק '+p.event,text:'🗑️',onclick:()=>projDel(i)})))):[el('div',{class:'sv85-note',text:'— אין עדיין פרויקטים שמורים —'})])));paintAgents()}
  if(tab==='script'){if(!B.scenes.length){B.scenes=genScript(B.seed);autoCut()}
   P(card('✍️ מחולל תסריטים',el('div',{class:'sv85-note',text:'5 פעימות: פתיחה, בנייה, חשיפה, שיא וקריאה לפעולה. לכל סצנה יש קריינות, טקסט למסך, צילום, מעבר וסגנון. אפשר לערוך כל שורה.'}),
-   el('div',{class:'sv85-row'},el('button',{type:'button',id:'sv85-rescript',text:'🎲 תסריט חדש',onclick:()=>{B.seed++;B.scenes=genScript(B.seed);autoCut();save();paintPanel();paintTL();drawStage();toast('✍️ תסריט חדש')}}),
-    el('button',{type:'button',id:'sv85-copyscript',text:'📋 העתק תסריט',onclick:()=>copyText(scriptText())}),el('button',{type:'button',id:'sv85-savescript',text:'⬇️ TXT',onclick:()=>saveBlob(new Blob([scriptText()],{type:'text/plain;charset=utf-8'}),`SHALVATA_SCRIPT_${safeName(B.event)}.txt`)}))));
-  B.scenes.forEach((s,i)=>P(card(`${i+1} · ${s.name} · ${s.dur.toFixed(1)}s`,field('🎙️ קריינות',Object.assign(el('input',{type:'text','data-i':i,'data-k':'vo',maxlength:90}),{value:s.vo,oninput:e=>{s.vo=e.target.value;save();drawStage()}})),
-   field('🔤 טקסט על המסך',Object.assign(el('input',{type:'text','data-i':i,'data-k':'text',maxlength:30}),{value:s.text,oninput:e=>{s.text=e.target.value;save();drawStage()}})),
+   el('div',{class:'sv85-row'},el('button',{type:'button',id:'sv85-rescript',text:'🎲 תסריט חדש',onclick:()=>{snap('תסריט');B.seed++;B.scenes=genScript(B.seed);autoCut();save();paintPanel();paintTL();drawStage();toast('✍️ תסריט חדש')}}),
+    el('button',{type:'button',id:'sv85-copyscript',text:'📋 העתק תסריט',onclick:()=>copyText(scriptText())}),el('button',{type:'button',id:'sv85-readscript',text:'🗣️ הקרא',onclick:()=>{if(!('speechSynthesis' in window)){toast('אין מנוע קול במכשיר','warn');return}const was=B.narrate;B.narrate=true;speakAll();B.narrate=was}}),el('button',{type:'button',id:'sv85-savescript',text:'⬇️ TXT',onclick:()=>saveBlob(new Blob([scriptText()],{type:'text/plain;charset=utf-8'}),`SHALVATA_SCRIPT_${safeName(B.event)}.txt`)}))));
+  B.scenes.forEach((s,i)=>P(card(`${i+1} · ${s.name} · ${s.dur.toFixed(1)}s`,field('🎙️ קריינות',Object.assign(el('input',{type:'text','data-i':i,'data-k':'vo',maxlength:90}),{value:s.vo,onfocus:()=>snap('עריכת קריינות'),oninput:e=>{s.vo=e.target.value;save();drawStage()}})),
+   field('🔤 טקסט על המסך',Object.assign(el('input',{type:'text','data-i':i,'data-k':'text',maxlength:30}),{value:s.text,onfocus:()=>snap('עריכת טקסט'),oninput:e=>{s.text=e.target.value;save();drawStage()}})),
    el('div',{class:'sv85-grid2'},field('🎥 צילום',sel(null,SHOTS.map(x=>[x,x]),s.shot,v=>{s.shot=v;save()})),field('🎨 סגנון',sel(null,Object.entries(STYLES),s.style,v=>{s.style=v;save();drawStage()}))))))}
  if(tab==='board'){if(!B.scenes.length){B.scenes=genScript(B.seed);autoCut()}
   P(card('🎞️ סטוריבורד חי',el('div',{class:'sv85-note',text:'כל פריים מרונדר מהסצנה עצמה. לחיצה על פריים מעבירה את הנגן אליו. ⬆️⬇️ משנים סדר, 🆖 מוחק טייק ו־✂️ מפצל בנקודת הנגן.'}),
@@ -2709,8 +2757,9 @@ function paintPanel(){panel.replaceChildren();const P=fn=>panel.append(fn);
   P(card('🔗 מנועים וחיבורים',el('div',{class:'sv85-note',text:'מנועים מקומיים פועלים עכשיו. מנועים חיצוניים כבויים עד שתאשר במפורש. בינתיים אפשר לייצא חבילת פרומפטים מוכנה ולהדביק אותה בהם ידנית.'}),
    el('div',{class:'sv85-agents'},LOCAL.map(([i,n,d])=>el('div',{class:'sv85-eng'},el('span',{text:i}),el('div',{},n,el('small',{text:d})),el('span',{class:'sv85-pill','data-k':'on',text:'● פעיל'})))),
    el('div',{class:'sv85-agents'},EXT.map(([i,n,d])=>el('div',{class:'sv85-eng'},el('span',{text:i}),el('div',{},n,el('small',{text:d})),el('span',{class:'sv85-pill','data-k':'off',text:'🔒 כבוי'})))),
-   el('button',{type:'button',class:'sv85-strong',id:'sv85-prompts',text:'⬇️ ייצא חבילת פרומפטים (JSON)',onclick:exportPrompts})))}
+   el('button',{type:'button',class:'sv85-strong',id:'sv85-prompts',text:'⬇️ ייצא חבילת פרומפטים (JSON)',onclick:exportPrompts}),el('button',{type:'button',id:'sv85-zip2','data-zip':'1',text:'🎁 חבילת קמפיין מלאה (ZIP)',onclick:campaignZip})))}
 }
+function speakAll(){try{speechSynthesis.cancel();B.scenes.forEach(s=>{const u=new SpeechSynthesisUtterance(s.vo);u.lang='he-IL';const v=voice();if(v)u.voice=v;speechSynthesis.speak(u)});toast(voice()?'🗣️ מקריא בעברית':'🗣️ אין קול עברי מזוהה — התוצאה תלויה במכשיר')}catch(_){}}
 const scriptText=()=>`🎬 ${B.event} · ${TONES[B.tone]} · ${B.bpm} BPM · ${FORMATS[B.format][2]}\n\n`+B.scenes.map((s,i)=>`${i+1}. ${s.name} (${s.dur.toFixed(1)}s)\n🎙️ ${s.vo}\n🔤 ${s.text}\n🎥 ${s.shot} · ${s.trans} · ${STYLES[s.style]}`).join('\n\n')+'\n\n— טיוטה פנימית · AI LAB מקומי —';
 const allCopy=()=>{const C=B.copy||genCopy();return PLAT.map(([k,n])=>`${n}\nA: ${C.A[k]}\nB: ${C.B[k]}`).join('\n\n')};
 async function shareText(t){if(navigator.share){try{await navigator.share({text:t});toast('📢 נפתחה חלונית השיתוף')}catch(_){}}else copyText(t,'📋 שיתוף לא זמין — הועתק')}
@@ -2725,11 +2774,12 @@ function exportBoard(){const n=B.scenes.length,cw=360,ch=640,c=D.createElement('
  canvasPNG(c,`SHALVATA_STORYBOARD_${safeName(B.event)}.png`)}
 function exportDim(){let c;if(stageMode==='pano'){c=makePano()}else{c=D.createElement('canvas');const s=stageMode==='holo'?1080:0;if(s){c.width=c.height=1080;renderHolo(c.getContext('2d'),1080,1080,T)}else{const [w,h]=FORMATS[B.format];c.width=w;c.height=h;(stageMode==='anaglyph'?renderAnaglyph:renderParallax)(c.getContext('2d'),w,h,T)}}
  canvasPNG(c,`SHALVATA_${stageMode.toUpperCase()}_${safeName(B.event)}.png`)}
-function exportPrompts(){const pack={app:'SHALVATA AI LAB',version:VERSION,note:'חבילת פרומפטים לשימוש ידני בכלי AI חיצוני, רק אחרי אישור. לא נשלח דבר אוטומטית.',event:B.event,tone:B.tone,palette:B.palette,bpm:B.bpm,format:FORMATS[B.format][2],duration:B.duration,
+function promptPack(){return {app:'SHALVATA AI LAB',version:VERSION,note:'חבילת פרומפטים לשימוש ידני בכלי AI חיצוני, רק אחרי אישור. לא נשלח דבר אוטומטית.',event:B.event,tone:B.tone,palette:B.palette,bpm:B.bpm,format:FORMATS[B.format][2],duration:B.duration,
  scenes:B.scenes.map((s,i)=>({n:i+1,beat:s.name,duration_s:+s.dur.toFixed(2),voiceover_he:s.vo,on_screen:s.text,camera:s.shot,transition:s.trans,
   image_prompt_en:`${STYLES[s.style].replace(/^\S+\s/,'')} abstract nightlife visual, ${s.style.replace('-',' ')}, palette ${B.palette}, cinematic lighting, no people, no logos, no text, ${FORMATS[B.format][2].split(' ')[0]} aspect`,
   video_prompt_en:`${s.style.replace('-',' ')} abstract motion graphics, ${s.shot.replace(/^\S+\s/,'')}, beat-synced at ${B.bpm} BPM, ${s.trans.replace(/^\S+\s/,'')} transition, no real venue footage`})),
- marketing:B.copy||genCopy(),rights:'אין שימוש בצילומי אנשים ללא אישור. אין לוגו או מותג של צד שלישי.'};
+ marketing:B.copy||genCopy(),rights:'אין שימוש בצילומי אנשים ללא אישור. אין לוגו או מותג של צד שלישי.'}}
+function exportPrompts(){const pack=promptPack();
  saveBlob(new Blob([JSON.stringify(pack,null,2)],{type:'application/json'}),`SHALVATA_PROMPT_PACK_${safeName(B.event)}.json`);toast('⬇️ חבילת פרומפטים נשמרה')}
 function videoMime(){if(typeof MediaRecorder!=='function'||typeof MediaRecorder.isTypeSupported!=='function')return null;return['video/mp4;codecs=avc1.42E01E,mp4a.40.2','video/mp4','video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'].find(m=>{try{return MediaRecorder.isTypeSupported(m)}catch(_){return false}})||null}
 function videoSupport(){const m=videoMime();return m&&typeof HTMLCanvasElement.prototype.captureStream==='function'?`מוכן: ${m.split(';')[0]} · ${B.duration}s`:'הדפדפן לא תומך בהקלטת וידאו מ־Canvas. השתמש בסטוריבורד PNG ובחבילת פרומפטים.'}
@@ -2742,7 +2792,7 @@ async function exportVideo(){if(recording)return;const mime=videoMime(),st=by('s
  const done=new Promise(res=>rec.onstop=res);rec.start(250);if(audioDest)startBeat(audioDest);playing=false;paintHead();
  const frame=()=>{const t=(performance.now()-t0)/1000;if(t>=tot){if(!stopped){stopped=true;rec.stop()}return}renderTimeline(x,w,h,t);T=t;drawStage();if(st)st.textContent=`⏺️ מקליט… ${t.toFixed(1)} / ${tot.toFixed(1)}s`;raf2=requestAnimationFrame(frame)};frame();
  await done;cancelAnimationFrame(raf2);stopBeat();stream.getTracks().forEach(t=>t.stop());recording=false;const type=(rec.mimeType||mime).split(';')[0],ext=type.includes('mp4')?'mp4':'webm';
- const blob=new Blob(chunks,{type});const url=URL.createObjectURL(blob);const out=by('sv85-vout');if(out){out.replaceChildren(el('video',{src:url,controls:true,playsinline:true,'aria-label':'הווידאו שנוצר'}),el('div',{class:'sv85-row'},el('button',{type:'button',id:'sv85-vsave',class:'sv85-strong',text:`⬇️ שמור ${ext.toUpperCase()} (${Math.round(blob.size/1024)}KB)`,onclick:()=>saveBlob(blob,`SHALVATA_AI_VIDEO_${safeName(B.event)}.${ext}`)})))}
+ const blob=new Blob(chunks,{type});lastVideo={blob,ext};const url=URL.createObjectURL(blob);const out=by('sv85-vout');if(out){out.replaceChildren(el('video',{src:url,controls:true,playsinline:true,'aria-label':'הווידאו שנוצר'}),el('div',{class:'sv85-row'},el('button',{type:'button',id:'sv85-vsave',class:'sv85-strong',text:`⬇️ שמור ${ext.toUpperCase()} (${Math.round(blob.size/1024)}KB)`,onclick:()=>saveBlob(blob,`SHALVATA_AI_VIDEO_${safeName(B.event)}.${ext}`)})))}
  if(st)st.textContent=`✓ נוצר וידאו ${ext.toUpperCase()} · ${w}×${h} · ${tot.toFixed(1)}s · ${Math.round(blob.size/1024)}KB`;window.__SHALVATA_V850_LAST_VIDEO={size:blob.size,type,w,h,dur:tot};toast('📼 הווידאו מוכן');setT(0)}
 
 /* ---------- 🗺️ map / 🧭 jump ---------- */
@@ -2756,12 +2806,12 @@ function openMap(jump){const steps=[['agents','🧠 תדריך + 🤖 סוכני
 const A={ 'sv85-first':()=>{setT(0)},'sv85-rew':()=>setT(T-3),'sv85-play':()=>play(),'sv85-fwd':()=>setT(T+3),'sv85-last':()=>setT(sceneStart(B.scenes.length-1)),
  'sv85-stop':()=>{play(false);setT(0)},'sv85-rec':()=>{selectTab('video');setTimeout(exportVideo,50)},'sv85-loop':()=>{B.loop=!B.loop;save();paintHead();toast(B.loop?'🔄 לולאה פעילה':'🔄 לולאה כבויה')},
  'sv85-top':()=>{body.scrollTo({top:0,behavior:'smooth'})},'sv85-prev':()=>{selScene=Math.max(0,selScene-1);setT(sceneStart(selScene))},'sv85-next':()=>{selScene=Math.min(B.scenes.length-1,selScene+1);setT(sceneStart(selScene))},
- 'sv85-up':()=>moveScene(-1),'sv85-down':()=>moveScene(1),
- 'sv85-split':()=>{const {i,local,dur}=sceneAt(T);if(B.scenes.length>=8||local<.4||dur-local<.4){toast('✂️ אפשר לפצל רק באמצע סצנה (עד 8 סצנות)','warn');return}const s=B.scenes[i],n=Object.assign({},s,{name:s.name+' ב׳',dur:+(dur-local).toFixed(3)});s.dur=+local.toFixed(3);B.scenes.splice(i+1,0,n);save();paintAll();toast('✂️ פוצל')},
- 'sv85-ng':()=>{if(B.scenes.length<=2){toast('🆖 חייבות להישאר לפחות 2 סצנות','warn');return}const r=B.scenes.splice(selScene,1)[0];const share=r.dur/B.scenes.length;B.scenes.forEach(s=>s.dur=+(s.dur+share).toFixed(3));selScene=Math.min(selScene,B.scenes.length-1);save();paintAll();toast('🆖 הטייק נמחק: '+r.name)},
- 'sv85-fmt':()=>{const k=Object.keys(FORMATS);B.format=k[(k.indexOf(B.format)+1)%k.length];save();paintAll();toast('↔️ '+FORMATS[B.format][2])},
+ 'sv85-undo':()=>undo(),'sv85-narrate':()=>{B.narrate=!B.narrate;save();paintHead();if(!B.narrate)hush();else{toast('🗣️ קריינות פעילה בזמן ניגון');speakScene(sceneAt(T).i,true)}},'sv85-up':()=>moveScene(-1),'sv85-down':()=>moveScene(1),
+ 'sv85-split':()=>{const {i,local,dur}=sceneAt(T);if(B.scenes.length>=8||local<.4||dur-local<.4){toast('✂️ אפשר לפצל רק באמצע סצנה (עד 8 סצנות)','warn');return}snap('פיצול');const s=B.scenes[i],n=Object.assign({},s,{name:s.name+' ב׳',dur:+(dur-local).toFixed(3)});s.dur=+local.toFixed(3);B.scenes.splice(i+1,0,n);save();paintAll();toast('✂️ פוצל')},
+ 'sv85-ng':()=>{if(B.scenes.length<=2){toast('🆖 חייבות להישאר לפחות 2 סצנות','warn');return}snap('מחיקת טייק');const r=B.scenes.splice(selScene,1)[0];const share=r.dur/B.scenes.length;B.scenes.forEach(s=>s.dur=+(s.dur+share).toFixed(3));selScene=Math.min(selScene,B.scenes.length-1);save();paintAll();toast('🆖 הטייק נמחק: '+r.name)},
+ 'sv85-fmt':()=>{snap('פורמט');const k=Object.keys(FORMATS);B.format=k[(k.indexOf(B.format)+1)%k.length];save();paintAll();toast('↔️ '+FORMATS[B.format][2])},
  'sv85-announce':()=>{const C=B.copy||(B.copy=genCopy());shareText(C.A.whatsapp)},'sv85-chatbtn':()=>{selectTab('agents');setTimeout(()=>{const i=by('sv85-chat');i&&i.focus()},60)}};
-function moveScene(d){const j=selScene+d;if(j<0||j>=B.scenes.length)return;const t=B.scenes[selScene];B.scenes[selScene]=B.scenes[j];B.scenes[j]=t;selScene=j;save();paintAll();setT(sceneStart(j));toast(d<0?'⬆️ הוזז':'⬇️ הוזז')}
+function moveScene(d){const j=selScene+d;if(j<0||j>=B.scenes.length)return;snap(d<0?'הזזה למעלה':'הזזה למטה');const t=B.scenes[selScene];B.scenes[selScene]=B.scenes[j];B.scenes[j]=t;selScene=j;save();paintAll();setT(sceneStart(j));toast(d<0?'⬆️ הוזז':'⬇️ הוזז')}
 for(const id in A){const b=by(id);if(b)b.addEventListener('click',A[id])}
 function paintAll(){paintHead();paintTL();paintPanel();drawStage()}
 
@@ -2774,8 +2824,8 @@ function askTilt(){const go=()=>addEventListener('deviceorientation',e=>{if(stag
 /* open / close + entry points */
 let opener=null;
 function openLab(t){opener=D.activeElement;pullFromStudio();lab.hidden=false;D.documentElement.style.overflow='hidden';if(!B.scenes.length){B.scenes=genScript(B.seed);autoCut()}selectTab(t||tab);paintAll();setTimeout(()=>by('sv85-close').focus({preventScroll:true}),30)}
-function closeLab(){play(false);lab.hidden=true;map.hidden=true;D.documentElement.style.overflow='';if(raf){cancelAnimationFrame(raf);raf=0}if(opener&&opener.focus)try{opener.focus({preventScroll:true})}catch(_){}}
-lab.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();e.stopPropagation();if(!map.hidden)map.hidden=true;else closeLab()}else if(e.key===' '&&e.target===D.body){e.preventDefault();play()}});
+function closeLab(){play(false);hush();lab.hidden=true;map.hidden=true;D.documentElement.style.overflow='';if(raf){cancelAnimationFrame(raf);raf=0}if(opener&&opener.focus)try{opener.focus({preventScroll:true})}catch(_){}}
+lab.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'&&!/INPUT|TEXTAREA/.test(e.target.tagName)){e.preventDefault();undo();return}if(e.key==='Escape'){e.preventDefault();e.stopPropagation();if(!map.hidden)map.hidden=true;else closeLab()}else if(e.key===' '&&e.target===D.body){e.preventDefault();play()}});
 D.addEventListener('visibilitychange',()=>{if(D.hidden&&playing)play(false)});
 const tools=D.querySelector('#sv83-dialog .sv84-header-tools');
 if(tools){const b=el('button',{type:'button',class:'sv83-btn',id:'sv85-open','aria-label':'AI LAB',title:'AI LAB',onclick:()=>openLab()},el('span',{class:'sv847-ico','aria-hidden':'true',text:'🤖'}),el('span',{class:'sv847-lbl',text:' AI LAB'}));tools.prepend(b)}
@@ -2785,7 +2835,7 @@ const fbody=D.querySelector('#sv84-float .sv84-float-body .sv84-row');if(fbody)f
 if(location.hash.includes('ai-lab'))setTimeout(()=>openLab(),200);
 addEventListener('hashchange',()=>{if(location.hash.includes('ai-lab')&&lab.hidden)openLab()});
 window.__SHALVATA_V850_LAB={version:VERSION,open:openLab,close:closeLab,isOpen:()=>!lab.hidden,brain:()=>JSON.parse(JSON.stringify(Object.assign({},B,{images:B.images.length}))),runAll,chat,selectTab,tab:()=>tab,
- setFast:v=>{B.fastMode=!!v},play:()=>play(),exportVideo,genImages:p=>{genImages(p);paintPanel();drawStage()},stageMode:()=>stageMode,setMode:m=>{stageMode=m;drawStage()},T:()=>T,playing:()=>playing,edl,total};
+ setFast:v=>{B.fastMode=!!v},play:()=>play(),undo,campaignZip,projects:projList,projSave,projLoad,histLen:()=>HIST.length,exportVideo,genImages:p=>{genImages(p);paintPanel();drawStage()},stageMode:()=>stageMode,setMode:m=>{stageMode=m;drawStage()},T:()=>T,playing:()=>playing,edl,total};
 })();
 
 </script>
