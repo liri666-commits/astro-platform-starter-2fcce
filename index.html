@@ -1964,11 +1964,11 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
    if(el){el.textContent='הקובץ נשמר, אך נגן Safari לא מצליח לפענח אותו. פתח את ההקלטה מהורדות Safari או נסה הקלטה קצרה חדשה.';el.dataset.state='error';}
   });
  }
- const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.4.7');
- const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.4.7';
- D.title='SHALVATA V8.4.7 · Window Studio · PRIVATE LOCAL QA';
- api.version='V8.4.7';
- window.__SHALVATA_V843_QA={version:'V8.4.7',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
+ const brand=root.querySelector('.sv83-brand');if(brand)brand.innerHTML=brand.innerHTML.replace('V8.4.2','V8.4.8');
+ const opener=D.getElementById('sv83-open');if(opener)opener.textContent='🪟 SHALVATA WINDOW STUDIO V8.4.8';
+ D.title='SHALVATA V8.4.8 · Window Studio · PRIVATE LOCAL QA';
+ api.version='V8.4.8';
+ window.__SHALVATA_V843_QA={version:'V8.4.8',quickSelect:()=>D.getElementById('sv843-quick-select'),baselineSha256:'9906911776b9d3be1bdee820211364d576957e8837c7b5e752c9c848db49fc5b',status:'PRIVATE_LOCAL_UNDEPLOYED'};
 })();
 </script>
 <style id="shalvata-v844-legacy-rights">
@@ -2127,7 +2127,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
  const ui=D.querySelector('#sv83-dialog .sv83-ui');if(!api||!ui||by('sv846-card'))return;
  const KEY='shalvata.v846.devicetest';
  const CHECKS=[
-  ['version','בכותרת מופיע V8.4.7','מסתכלים בראש הסטודיו.'],
+  ['version','בכותרת מופיע V8.4.8','מסתכלים בראש הסטודיו.'],
   ['tv-open','📺 נפתח ומציג תמונה חיה','כותרת ← "📺 מסך צף". ▶️ בתוך המסך: התמונה זזה ותג LIVE ירוק.'],
   ['tv-drag','📺 נגרר באצבע ונצמד לפינה','גוררים מהכותרת של המסך הצף לפינה העליונה ומשחררים.'],
   ['tv-size','⤢ שלושה גדלים, תמיד בתוך המסך','לוחצים ⤢ שלוש פעמים. שום חלק לא יוצא מהמסך.'],
@@ -2156,7 +2156,7 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
   return {app:'SHALVATA Window Studio',version:api.version,reportedAtIsrael:when,summary:{pass:c('pass'),fail:c('fail'),notTested:c('not_tested')},results,device:device(),privacy:'local report; nothing was sent automatically'};
  }
  const card=D.createElement('section');card.className='sv83-card';card.id='sv846-card';card.dataset.sv84Pane='systems';
- card.innerHTML=`<h3>✅ בדיקת אייפון · V8.4.7</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
+ card.innerHTML=`<h3>✅ בדיקת אייפון · V8.4.8</h3><div class="sv84-note">עוברים על הבדיקות באייפון ומסמנים כל אחת. בסוף מעתיקים את הדוח ושולחים לקלוד. שום דבר לא נשלח אוטומטית.</div>
  <div class="sv846-sum" id="sv846-sum" role="status" aria-live="polite"></div><div class="sv846-list" id="sv846-list"></div>
  <div class="sv84-row"><button type="button" class="sv84-btn-strong" id="sv846-copy">📋 העתק דוח</button><button type="button" id="sv846-share">↗️ שתף דוח</button><button type="button" id="sv846-save">⬇️ שמור JSON</button><button type="button" id="sv846-reset">🧹 אפס</button></div>
  <div class="sv84-status" id="sv846-status" role="status" aria-live="polite">מוכן.</div><details><summary>פרטי מכשיר שייכללו בדוח</summary><pre id="sv846-device"></pre></details>`;
@@ -2209,6 +2209,29 @@ window.__SHALVATA_V64_QA={qaAudit,qaSubtitles,qaV64,copyProject:qaBriefData,qaSa
  for(const b of tools.querySelectorAll('button')){if(b.id==='sv83-close'||b.querySelector('.sv847-lbl'))continue;const t=(b.textContent||'').trim(),i=t.indexOf(' ');if(i<1)continue;
   const ico=t.slice(0,i),lbl=t.slice(i+1);if(!b.getAttribute('aria-label'))b.setAttribute('aria-label',lbl);if(!b.title)b.title=lbl;
   b.textContent='';const a=document.createElement('span');a.className='sv847-ico';a.setAttribute('aria-hidden','true');a.textContent=ico;const c=document.createElement('span');c.className='sv847-lbl';c.textContent=' '+lbl;b.append(a,c)}
+})();
+</script>
+<style id="shalvata-v848-tidy">
+/* V8.4.8: tidy — one navigation row on phones (quick menu + tabs side by side). Additive; same IDs and behaviour. */
+#sv83-dialog .sv848-navrow{display:flex;align-items:stretch;min-width:0;flex-shrink:0;background:#06152c;border-bottom:1px solid #344b6b}
+#sv83-dialog .sv848-navrow>.sv84-dock{flex:1 1 auto;min-width:0;border-bottom:0}
+@media(max-width:780px){
+ #sv83-dialog .sv848-navrow>.sv843-quick-jump{flex:0 0 auto;width:min(34vw,140px);padding:6px 0 6px 6px;border-bottom:0;background:transparent;border-inline-start:1px solid #344b6b}
+ #sv83-dialog .sv848-navrow>.sv843-quick-jump label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+ #sv83-dialog .sv848-navrow>.sv843-quick-jump select{min-height:44px;padding:4px 6px;font-size:14px;border-radius:11px}
+ #sv83-dialog .sv848-navrow>.sv84-dock{padding:6px 6px!important}
+ #sv83-dialog .sv848-navrow>.sv84-dock button{min-height:44px!important;padding:6px 9px!important}
+}
+</style>
+<script id="shalvata-v848-tidy-js">
+/* V8.4.8 — merge the quick menu and the tab bar into one row; put the iPhone checklist first in its pane. */
+(()=>{'use strict';
+ const D=document,root=D.getElementById('sv83-dialog');if(!root)return;
+ const dock=root.querySelector('.sv84-dock'),jump=root.querySelector('.sv843-quick-jump');
+ if(dock&&jump&&!root.querySelector('.sv848-navrow')){const row=D.createElement('div');row.className='sv848-navrow';dock.before(row);row.append(jump,dock)}
+ const lbl=jump&&jump.querySelector('label'),sel=D.getElementById('sv843-quick-select');if(sel&&lbl&&!sel.getAttribute('aria-label'))sel.setAttribute('aria-label',lbl.textContent.trim());
+ const card=D.getElementById('sv846-card'),ui=root.querySelector('.sv83-ui');
+ if(card&&ui){const first=[...ui.querySelectorAll('.sv83-card')].find(c=>c.dataset.sv84Pane==='systems'&&c!==card);if(first)first.before(card)}
 })();
 </script>
 </body></html>
