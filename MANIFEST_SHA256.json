@@ -74,7 +74,7 @@
   ".git/logs/refs/remotes/origin/qa-private": "4581d6c1ec52b69b21293b9dd45c519e00fc66859694d92f2f9cca9047369bd3",
   ".git/info/exclude": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
   "edit.html": "a8bd9a7b25e17e7187d99b4559fadebd5e167fe9db5adb894fb5f674d45caffb",
-  "lib/library.json": "33d697e0472d98c7890bfeaf7e6d4e3da5e2cc9ad42d50798033e1d75d638066",
+  "lib/library.json": "d650bb63cfe40a0526a20cec806e0aa2fbf8ab15f99fcb40ff89028e360caeb0",
   "lib/i/lab_night-pulse_carousel_03.jpg": "ae7da35fb88cd03bfa6636e9e5dc7ded2bb6fefdf327a2e1059a8f327a720985",
   "lib/i/lab_gold-lounge_poster_feed.jpg": "0d267508ed8d203a52c7f4300d78f55c8e7761ffcb4a9119fd7bfb863d1554ef",
   "lib/i/poster_friday_halloween_hello_vera_30-10.jpg": "09aa92e28e16ee3827d83e713af4f43a2581669ad0b873fc943e523eb4e6c038",
@@ -256,10 +256,12 @@
   "lib/t/reel_friday_mainstream_23-10.jpg": "40ba19022ad544c22d51cbebb8c7b1a429a43f7b1924cbd03b98d2dc1f9959d8",
   "lib/t/reel_spoons_last_dance_26-10.jpg": "304ff01f0617887dd78a74965d6412f0aa81eb6a06257770fc28296a7998d416",
   "lib/t/reel_thursday_halloween_29-10.jpg": "27035746d0c727965c0e2c9e2d71f8ec1bf91c23e39b2a3d9741aa7f72b6ae93",
-  "lib/v/reel_spoons_last_dance_26-10.mp4": "2f05b878290b04e4e27f2d4c9022f2c2fbb061c09bf5bf4e8cb8f33e994851e4",
-  "lib/v/reel_thursday_halloween_29-10.mp4": "798a946c9879becf19773812f73cce2f051c8592d5308cb8407030de19e4c23e",
-  "lib/v/reel_friday_mainstream_23-10.mp4": "cdbc2002ed9e5bfe285e527343e63c923bc85117d7feb82bce35940d7b038a73",
+  "lib/v/reel_spoons_last_dance_26-10.mp4": "2f42c429e7634f2d4157d30c3a390d7cbb9d423879d925feedb2fca31e3b50d5",
+  "lib/v/reel_thursday_halloween_29-10.mp4": "6d46b01414c57b78f01c237b5b00fcca069b3daee9f732539e31dd07d6b7f5f8",
+  "lib/v/reel_friday_mainstream_23-10.mp4": "1f203ff9f1d3f95fe91bad1de6c3bbe4d4c800759bb3454884246ab49e0e9c83",
   "lib/v/lineup_karaoke_22-30-10.mp4": "f76f2b3808a43279c5854bf3ce766d685a6277a20abd40bfd582e133adbd89f0",
-  "lib/t/lineup_karaoke_22-30-10.jpg": "6dc3ab7b78d1e1e8b9e12ad9c65f8013cba5f53a918c73b5e6509eef20eaed9b"
+  "lib/t/lineup_karaoke_22-30-10.jpg": "6dc3ab7b78d1e1e8b9e12ad9c65f8013cba5f53a918c73b5e6509eef20eaed9b",
+  "lib/t/reel_thursday_mainstream_22-10.jpg": "0e83b2e9364e123917e71c43d61d9de9a1a9ec4f9dea0c68a8b77bbedfe562bb",
+  "lib/v/reel_thursday_mainstream_22-10.mp4": "aac72d20d3052ddca9eeb668e25b00e12d8b4cc91c02088cb79f2038b06680bf"
  }
 }

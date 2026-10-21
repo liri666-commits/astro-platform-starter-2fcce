@@ -401,7 +401,7 @@
 "dur": 30.4,
 "cat": "reels",
 "ev": "",
-"t": "🫧 רילס Bubbles"
+"t": "🫧 רילס Bubbles · כתוביות"
 },
 {
 "id": "reel_hello-vera_30-10",
@@ -411,7 +411,7 @@
 "dur": 30.0,
 "cat": "reels",
 "ev": "",
-"t": "🎃 רילס Hello Vera"
+"t": "🎃 רילס Hello Vera · כתוביות"
 },
 {
 "id": "reel_week_22-30-10",
@@ -971,7 +971,7 @@
 "dur": 29.0,
 "cat": "reels",
 "ev": "friday_mainstream_23-10",
-"t": "🎊 רילס Friday Mainstream"
+"t": "🎊 רילס Friday Mainstream · כתוביות"
 },
 {
 "id": "reel_spoons_last_dance_26-10",
@@ -981,7 +981,7 @@
 "dur": 29.5,
 "cat": "reels",
 "ev": "spoons_last_dance_26-10",
-"t": "🥄 רילס Spoons"
+"t": "🥄 רילס Spoons · כתוביות"
 },
 {
 "id": "reel_thursday_halloween_29-10",
@@ -991,7 +991,7 @@
 "dur": 28.13,
 "cat": "reels",
 "ev": "thursday_halloween_29-10",
-"t": "🦇 רילס Halloween 29.10"
+"t": "🦇 רילס Halloween 29.10 · כתוביות"
 },
 {
 "id": "lineup_karaoke_22-30-10",
@@ -1002,6 +1002,16 @@
 "cat": "reels",
 "ev": "",
 "t": "📅 ליינאפ עם כתוביות קריוקי"
+},
+{
+"id": "reel_thursday_mainstream_22-10",
+"type": "video",
+"src": "lib/v/reel_thursday_mainstream_22-10.mp4",
+"thumb": "lib/t/reel_thursday_mainstream_22-10.jpg",
+"dur": 25.13,
+"cat": "reels",
+"ev": "thursday_mainstream_22-10",
+"t": "🎉 רילס Thursday 22.10 · כתוביות"
 }
 ]
 }
