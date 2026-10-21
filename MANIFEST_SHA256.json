@@ -74,7 +74,7 @@
   ".git/logs/refs/remotes/origin/qa-private": "4581d6c1ec52b69b21293b9dd45c519e00fc66859694d92f2f9cca9047369bd3",
   ".git/info/exclude": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
   "edit.html": "a8bd9a7b25e17e7187d99b4559fadebd5e167fe9db5adb894fb5f674d45caffb",
-  "lib/library.json": "d650bb63cfe40a0526a20cec806e0aa2fbf8ab15f99fcb40ff89028e360caeb0",
+  "lib/library.json": "c5efbda28fe4655472a24436c605619e7739a7629568ae8aa234e40ca42f7224",
   "lib/i/lab_night-pulse_carousel_03.jpg": "ae7da35fb88cd03bfa6636e9e5dc7ded2bb6fefdf327a2e1059a8f327a720985",
   "lib/i/lab_gold-lounge_poster_feed.jpg": "0d267508ed8d203a52c7f4300d78f55c8e7761ffcb4a9119fd7bfb863d1554ef",
   "lib/i/poster_friday_halloween_hello_vera_30-10.jpg": "09aa92e28e16ee3827d83e713af4f43a2581669ad0b873fc943e523eb4e6c038",
@@ -262,6 +262,8 @@
   "lib/v/lineup_karaoke_22-30-10.mp4": "f76f2b3808a43279c5854bf3ce766d685a6277a20abd40bfd582e133adbd89f0",
   "lib/t/lineup_karaoke_22-30-10.jpg": "6dc3ab7b78d1e1e8b9e12ad9c65f8013cba5f53a918c73b5e6509eef20eaed9b",
   "lib/t/reel_thursday_mainstream_22-10.jpg": "0e83b2e9364e123917e71c43d61d9de9a1a9ec4f9dea0c68a8b77bbedfe562bb",
-  "lib/v/reel_thursday_mainstream_22-10.mp4": "aac72d20d3052ddca9eeb668e25b00e12d8b4cc91c02088cb79f2038b06680bf"
+  "lib/v/reel_thursday_mainstream_22-10.mp4": "aac72d20d3052ddca9eeb668e25b00e12d8b4cc91c02088cb79f2038b06680bf",
+  "lib/v/reel_halloween_week.mp4": "98b10bd8aa738ee64ee305aa6649a65119a97628347895d2a36f6ed5e88d3c56",
+  "lib/t/reel_halloween_week.jpg": "26f25339c81c363de292a5513dbe1fb3044bada4a692692300ecb90855cd63ac"
  }
 }

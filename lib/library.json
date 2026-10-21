@@ -1012,6 +1012,16 @@
 "cat": "reels",
 "ev": "thursday_mainstream_22-10",
 "t": "🎉 רילס Thursday 22.10 · כתוביות"
+},
+{
+"id": "reel_halloween_week",
+"type": "video",
+"src": "lib/v/reel_halloween_week.mp4",
+"thumb": "lib/t/reel_halloween_week.jpg",
+"dur": 22.5,
+"cat": "reels",
+"ev": "thursday_halloween_29-10",
+"t": "🎃 רילס שבוע האלווין · כתוביות"
 }
 ]
 }
