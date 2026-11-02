@@ -74,6 +74,24 @@
    "🎃",
    "Hello Vera Halloween",
    "30.10"
+  ],
+  [
+   "thursday_mainstream_05-11",
+   "🎉",
+   "חמישי Mainstream · Oshri Cohen",
+   "05.11"
+  ],
+  [
+   "friday_mainstream_06-11",
+   "🎊",
+   "שישי Mainstream",
+   "06.11"
+  ],
+  [
+   "bubbles_made_of_moments_07-11",
+   "🫧",
+   "Bubbles · Made of Moments",
+   "07.11"
   ]
  ],
  "items": [
@@ -1056,6 +1074,46 @@
    "cat": "vfx",
    "ev": "friday_halloween_hello_vera_30-10",
    "t": "🪄 🎃 Hello Vera 30.10 · VFX PREVIEW"
+  },
+  {
+   "id": "lineup_05-07-11",
+   "type": "video",
+   "src": "lib/v/lineup_05-07-11.mp4",
+   "thumb": "lib/t/lineup_05-07-11.jpg",
+   "dur": 15.5,
+   "cat": "reels",
+   "ev": "",
+   "t": "📅 ליינאפ 5–7.11 · טיפוגרפי"
+  },
+  {
+   "id": "card_thursday_mainstream_05-11",
+   "type": "video",
+   "src": "lib/v/card_thursday_mainstream_05-11.mp4",
+   "thumb": "lib/t/card_thursday_mainstream_05-11.jpg",
+   "dur": 3.87,
+   "cat": "reels",
+   "ev": "thursday_mainstream_05-11",
+   "t": "🎉 חמישי 5.11 · Oshri Cohen · כרטיס"
+  },
+  {
+   "id": "card_friday_mainstream_06-11",
+   "type": "video",
+   "src": "lib/v/card_friday_mainstream_06-11.mp4",
+   "thumb": "lib/t/card_friday_mainstream_06-11.jpg",
+   "dur": 3.87,
+   "cat": "reels",
+   "ev": "friday_mainstream_06-11",
+   "t": "🎊 שישי 6.11 · Or Shalom · Alon Zack · כרטיס"
+  },
+  {
+   "id": "card_bubbles_made_of_moments_07-11",
+   "type": "video",
+   "src": "lib/v/card_bubbles_made_of_moments_07-11.mp4",
+   "thumb": "lib/t/card_bubbles_made_of_moments_07-11.jpg",
+   "dur": 3.87,
+   "cat": "reels",
+   "ev": "bubbles_made_of_moments_07-11",
+   "t": "🫧 שבת 7.11 · Bubbles · Made of Moments · כרטיס"
   }
  ]
 }
